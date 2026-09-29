@@ -7,6 +7,7 @@ Exit code is non-zero if anything is invalid, so CI blocks the deploy.
 """
 import json
 import os
+import re
 import sys
 
 from jsonschema import Draft202012Validator
@@ -56,14 +57,32 @@ def schema_check(rel, data, schema_rel):
     return ok
 
 
+FRACTIONS = dict(zip("½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞", (1/2, 1/3, 2/3, 1/4, 3/4, 1/5, 2/5, 3/5, 4/5, 1/6, 5/6, 1/8, 3/8, 5/8, 7/8)))
+
+
+def quantity_value(part):
+    """Mirror of parseNumber() in index.html; None if it can't be read."""
+    part = part.strip()
+    if m := re.fullmatch(r"(\d*)\s*([½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])", part):
+        return int(m[1] or 0) + FRACTIONS[m[2]]
+    if m := re.fullmatch(r"(\d+)\s+(\d+)/(\d+)", part):
+        return int(m[1]) + int(m[2]) / int(m[3]) if int(m[3]) else None
+    if m := re.fullmatch(r"(\d+)/(\d+)", part):
+        return int(m[1]) / int(m[2]) if int(m[2]) else None
+    if re.fullmatch(r"\d+(\.\d+)?", part):
+        return float(part)
+    return None
+
+
 def check_recipes():
+    """Returns the set of recipe ids, or None if recipes.json couldn't be read."""
     rel = "recipes.json"
     data = load_json(rel)
     if data is None:
-        return set()
+        return None
     schema_check(rel, data, "schema/recipes.schema.json")
     if not isinstance(data, dict):
-        return set()
+        return None
 
     # Cross-field checks JSON Schema can't express. Written defensively so they
     # still run (and report everything at once) when the schema check failed.
@@ -84,6 +103,13 @@ def check_recipes():
         cat = r.get("category")
         if isinstance(cat, str) and cat not in names:
             report("error", rel, f'{where}: category "{cat}" is not in "categories" ({", ".join(map(str, names))}). Add it there first.')
+        for j, ing in enumerate(r.get("ingredients") if isinstance(r.get("ingredients"), list) else []):
+            q = ing.get("quantity") if isinstance(ing, dict) else None
+            if isinstance(q, str):
+                parts = re.split(r"\s*(?:-|–|—|\bto\b)\s*", q.strip())
+                values = [quantity_value(p) for p in parts]
+                if any(v is not None and v <= 0 for v in values) or (values and all(v is None for v in values)):
+                    report("error", rel, f'{where}.ingredients[{j}]: quantity "{q}" must be greater than zero (use null for "no amount").')
         img = r.get("image") or ""
         if isinstance(img, str) and img.startswith("images/") and not os.path.isfile(os.path.join(ROOT, img)):
             report("error", rel, f'{where}: image "{img}" does not exist.')
@@ -100,8 +126,10 @@ def check_usage(ids):
     data = load_json(rel)
     if data is None or not schema_check(rel, data, "schema/usage.schema.json"):
         return
+    if ids is None:
+        return  # recipes.json is broken (already reported), so ids can't be checked
     for key in data:
-        if ids and key not in ids:
+        if key not in ids:
             report("warning", rel, f'"{key}" does not match any recipe id; it will be ignored.')
 
 
@@ -110,4 +138,4 @@ check_usage(ids)
 if errors:
     print(f"\n✗ {errors} problem(s) found.")
     sys.exit(1)
-print(f"✓ recipes.json is valid ({len(ids)} recipes).")
+print(f"✓ recipes.json is valid ({len(ids or ())} recipes).")

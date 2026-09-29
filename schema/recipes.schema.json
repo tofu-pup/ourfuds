@@ -76,12 +76,12 @@
       "additionalProperties": false,
       "properties": {
         "quantity": {
-          "description": "A number, a fraction/mixed/range string (\"1/2\", \"1 1/2\", \"½\", \"2-3\"), or null for things that don't scale.",
+          "description": "A number, a fraction/mixed/range string (\"1/2\", \"1 1/2\", \"½\", \"2-3\"), or null for things that don't scale. Must be greater than zero.",
           "oneOf": [
             { "type": "number", "exclusiveMinimum": 0 },
             {
               "type": "string",
-              "pattern": "^\\s*(\\d+(\\.\\d+)?|\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d*\\s*[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])(\\s*(-|–|to)\\s*(\\d+(\\.\\d+)?|\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d*\\s*[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]))?\\s*$"
+              "pattern": "^\\s*(\\d+(\\.\\d+)?|\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d*\\s*[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])(\\s*(-|–|—|to)\\s*(\\d+(\\.\\d+)?|\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d*\\s*[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]))?\\s*$"
             },
             { "type": "null" }
           ]
