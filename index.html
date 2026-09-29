@@ -886,7 +886,7 @@ ul, ol { list-style: none; }
     }
     if (parts.length === 2) {
       var a = parseNumber(parts[0]), b = parseNumber(parts[1]);
-      if (a != null && b != null) return { lo: a, hi: b };
+      if (a != null && b != null && a > 0 && b >= a) return { lo: a, hi: b };
     }
     return { text: q.trim() };
   }
@@ -1260,6 +1260,7 @@ ul, ol { list-style: none; }
     location.hash = '#/';
   }
 
+  var homeRefresh = 0;
   function showRecipe(r) {
     closeCook(true);
     if (!state.recipe || state.recipe.id !== r.id || state.view !== 'recipe') {
@@ -1274,7 +1275,8 @@ ul, ol { list-style: none; }
     }
     setView('recipe');
     // Refresh home underneath (it's hidden) so the new count is reflected on return.
-    setTimeout(renderHome, 750);
+    clearTimeout(homeRefresh);
+    homeRefresh = setTimeout(renderHome, 750);
   }
 
   function renderRecipe() {
@@ -1613,6 +1615,7 @@ ul, ol { list-style: none; }
       toast('That recipe seems to have wandered off.');
     }
     closeCook(true);
+    clearTimeout(homeRefresh);
     if (state.view !== 'home') renderHome();
     state.recipe = null;
     setView('home');

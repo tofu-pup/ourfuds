@@ -108,8 +108,12 @@ def check_recipes():
             if isinstance(q, str):
                 parts = re.split(r"\s*(?:-|–|—|\bto\b)\s*", q.strip())
                 values = [quantity_value(p) for p in parts]
-                if any(v is not None and v <= 0 for v in values) or (values and all(v is None for v in values)):
+                if len(values) > 2 or any(v is None for v in values):
+                    report("error", rel, f'{where}.ingredients[{j}]: quantity "{q}" can\'t be read. Use a number, "1/2", "1 1/2", "½" or a range like "2-3".')
+                elif any(v <= 0 for v in values):
                     report("error", rel, f'{where}.ingredients[{j}]: quantity "{q}" must be greater than zero (use null for "no amount").')
+                elif len(values) == 2 and values[1] < values[0]:
+                    report("error", rel, f'{where}.ingredients[{j}]: range "{q}" should go low to high.')
         img = r.get("image") or ""
         if isinstance(img, str) and img.startswith("images/") and not os.path.isfile(os.path.join(ROOT, img)):
             report("error", rel, f'{where}: image "{img}" does not exist.')
