@@ -1442,6 +1442,13 @@ ul, ol { list-style: none; }
   var cookOpen = false;
   var cookFrame = 0;
   var cookClear = 0;
+  var cookReturn = null;
+  var sheetReturn = null;
+  function focusQuietly(el) {
+    if (el && el.isConnected && typeof el.focus === 'function') {
+      try { el.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+    }
+  }
   function openCook(i) {
     var r = state.recipe;
     if (!r || !r.steps.length) return;
@@ -1467,7 +1474,11 @@ ul, ol { list-style: none; }
     cookOpen = true;
     // Next frame so the slide-up transition runs.
     cancelAnimationFrame(cookFrame);
-    cookFrame = requestAnimationFrame(function () { $cook.classList.add('open'); });
+    cookReturn = document.activeElement;
+    cookFrame = requestAnimationFrame(function () {
+      $cook.classList.add('open');
+      focusQuietly($cook.querySelector('.cook-top .icon-btn'));
+    });
     $recipe.inert = true;
     Wake.set(Wake.status);
     Wake.acquire();
@@ -1485,6 +1496,8 @@ ul, ol { list-style: none; }
     $cook.inert = true;
     if (state.view === 'recipe') $recipe.inert = false;
     Wake.release();
+    if (!instant) focusQuietly(cookReturn);
+    cookReturn = null;
   }
   function toggleDrawer() {
     var d = document.getElementById('drawer');
@@ -1570,13 +1583,17 @@ ul, ol { list-style: none; }
       h('div', { class: 'actions' },
         h('button', { class: 'btn', type: 'button', onclick: closeSheet }, 'Done'),
         h('button', { class: 'btn primary', type: 'button', onclick: function () { copyText(json, area); } }, 'Copy JSON')));
+    sheetReturn = document.activeElement;
     $backdrop.replaceChildren(sheet);
     $backdrop.inert = false;
     $backdrop.classList.add('open');
+    focusQuietly(sheet.querySelector('.btn.primary'));
   }
   function closeSheet() {
     $backdrop.classList.remove('open');
     $backdrop.inert = true;
+    focusQuietly(sheetReturn);
+    sheetReturn = null;
   }
   $backdrop.addEventListener('click', function (e) { if (e.target === $backdrop) closeSheet(); });
   function copyText(text, area) {
