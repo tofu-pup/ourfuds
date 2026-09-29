@@ -1,0 +1,275 @@
+{
+  "categories": ["Snacks", "Dinner", "Soups", "Baking", "Breakfast", "Desserts"],
+  "recipes": [
+    {
+      "id": "tofu-bacon-bits",
+      "title": "Tofu bacon bits",
+      "category": "Snacks",
+      "tags": [],
+      "pinned": false,
+      "servings": 24,
+      "prepTime": 10,
+      "cookTime": 45,
+      "ingredients": [
+        { "quantity": 2, "unit": "tablespoons", "item": "nutritional yeast" },
+        { "quantity": 2, "unit": "tablespoon", "item": "soy sauce (gluten-free if preferred)" },
+        { "quantity": 1, "unit": "teaspoon", "item": "smoked paprika" },
+        { "quantity": 1, "unit": "teaspoon", "item": "maple syrup" },
+        { "quantity": "½", "unit": "teaspoon", "item": "garlic powder" },
+        { "quantity": "½", "unit": "teaspoon", "item": "liquid smoke" },
+        { "quantity": 1, "unit": "block (350g)", "item": "extra-firm tofu, drained (no need to press it)" }
+      ],
+      "steps": [
+        "Heat the oven to 350°F / 180°C and prepare a baking sheet.",
+        "Combine the seasonings in a bowl, then crumble in the tofu and toss until coated.",
+        "Spread the bits on the sheet. Bake for 30–40 minutes, stirring occasionally, until crisp and brown; watch closely near the end.",
+        "Cool completely before storing in an airtight container in the fridge."
+      ],
+      "notes": "Source: https://itdoesnttastelikechicken.com/vegan-tofu-bacon-bits/#recipe . Source yield: 24 one-tablespoon servings (about 1½ cups). Quantities and recipe-card prep/cook times verified from the source; method paraphrased.",
+      "image": ""
+    },
+    {
+      "id": "go-to-neapolitan-pizza-dough",
+      "title": "Go-to Neapolitan pizza dough",
+      "category": "Dinner",
+      "tags": [],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 150, "unit": "ml", "item": "water", "group": "Poolish" },
+        { "quantity": 150, "unit": "gr", "item": "flour", "group": "Poolish" },
+        { "quantity": 2.5, "unit": "gr", "item": "dry yeast", "group": "Poolish" },
+        { "quantity": 2.5, "unit": "gr", "item": "honey", "group": "Poolish" },
+        { "quantity": "all", "unit": "", "item": "poolish", "group": "Main dough" },
+        { "quantity": 350, "unit": "ml", "item": "water", "group": "Main dough" },
+        { "quantity": 625, "unit": "gr", "item": "flour", "group": "Main dough" },
+        { "quantity": 20, "unit": "gr", "item": "salt", "group": "Main dough" }
+      ],
+      "steps": [
+        "Mix water + yeast + honey; mix in flour.",
+        "Leave the poolish for 1 hour at room temp, then put it in the fridge overnight.",
+        "Mix all the poolish in water, add half the flour, add salt, then the remaining flour; knead.",
+        "Rest covered for 15 min on the bench.",
+        "Oil hands, lift and fold the sides under a few times.",
+        "Place in a bowl (oil if needed), rest 30 min.",
+        "Make dough balls and rest 2 hours at room temp."
+      ],
+      "notes": "The poolish uses its own ingredients; 'all poolish' in the main dough refers to the prepared batch, not an extra ingredient. No pizza-ball count or baking time was supplied.",
+      "image": ""
+    },
+    {
+      "id": "rice-paper-bacon",
+      "title": "Rice paper bacon",
+      "category": "Snacks",
+      "tags": [],
+      "pinned": false,
+      "servings": "about 12 slices",
+      "prepTime": 15,
+      "cookTime": 10,
+      "ingredients": [
+        { "quantity": 3, "unit": "Tbsp", "item": "nutritional yeast" },
+        { "quantity": 2, "unit": "Tbsp", "item": "light oil (e.g. canola or vegetable)" },
+        { "quantity": 1, "unit": "Tbsp", "item": "soy sauce (gluten-free if preferred)" },
+        { "quantity": "1/2", "unit": "tsp", "item": "liquid smoke" },
+        { "quantity": "1/2", "unit": "tsp", "item": "maple syrup" },
+        { "quantity": "1/4", "unit": "tsp", "item": "smoked paprika" },
+        { "quantity": "1/4", "unit": "tsp", "item": "garlic powder" },
+        { "quantity": 6, "unit": "sheets", "item": "extra-large rice paper" }
+      ],
+      "steps": [
+        "Heat the oven to 400°F / about 204°C and line a baking tray.",
+        "Whisk everything except the rice paper together for the marinade.",
+        "Dip three sheets briefly in water, stack them, let them stick together, then cut into strips.",
+        "Coat the strips in marinade and spread them on the tray. Repeat with the other three sheets.",
+        "Bake for about 8–10 minutes, until browned and bubbling. Let cool before serving."
+      ],
+      "notes": "For crispier strips stack fewer sheets; use more for a chewier texture. Store airtight in the fridge for a few days and re-crisp in a pan if they soften.",
+      "image": ""
+    },
+    {
+      "id": "boller-med-dadler-og-bonner",
+      "title": "Boller med dadler og bønner",
+      "category": "Baking",
+      "tags": [],
+      "pinned": false,
+      "servings": "about 20 boller",
+      "prepTime": null,
+      "cookTime": "about 12 minutes",
+      "ingredients": [
+        { "quantity": 900, "unit": "g", "item": "hvetemel" },
+        { "quantity": 1, "unit": "pk", "item": "tørrgjær" },
+        { "quantity": 4, "unit": "ts", "item": "malt kardemomme" },
+        { "quantity": 1, "unit": "ts", "item": "salt" },
+        { "quantity": 6, "unit": "dl", "item": "helmelk" },
+        { "quantity": 1, "unit": "", "item": "egg" },
+        { "quantity": 120, "unit": "g", "item": "smør, romtemperert" },
+        { "quantity": 150, "unit": "g", "item": "dadler, uten stein" },
+        { "quantity": 1, "unit": "boks", "item": "hvite bønner, 230 g avrent og godt skylt" }
+      ],
+      "steps": [
+        "Ha dadler og hvite bønner i food processor sammen med melken og kjør til en helt glatt puré (ingen biter – dette er viktig for luftighet).",
+        "Ha mel, tørrgjær, kardemomme og salt i bakebolle.",
+        "Tilsett egg og puréen av daddel/bønner/melk.",
+        "Elt på lav hastighet i 8–10 minutter.",
+        "Ha i smøret i terninger, litt etter litt.",
+        "Øk til medium hastighet og elt videre i 10–15 minutter (siste 3–4 min på litt høyere hastighet om maskinen tåler det).",
+        "Deigen er ferdig når du kan dra en tynn hinne mellom fingrene uten at den ryker. Deigen skal være blank, smidig og slippe bollen.",
+        "Dekk til bollen og hev i 1–1½ time, til ca. dobbel størrelse.",
+        "Trill ca 20 boller og legg på et paprikledd stekebrett, eller bake- og stekematte som jeg bruker her.",
+        "Dekk med kjøkkenhåndkle og etterhev i 45–60 minutter.",
+        "Pensle med egg og stek på 220 grader i ca 12 minutter, til de er gylne."
+      ],
+      "notes": "Ekstra egg til pensling. 'paprikledd' er beholdt fra kilden (mulig skrivefeil).",
+      "image": ""
+    },
+    {
+      "id": "cashew-kaker",
+      "title": "Cashew kaker",
+      "category": "Baking",
+      "tags": [],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 200, "unit": "grams", "item": "cashewnødder", "group": "Bunn" },
+        { "quantity": 200, "unit": "grams", "item": "\"juicy\" dadler", "group": "Bunn" },
+        { "quantity": 60, "unit": "grams", "item": "mørk chokolade, 80 % uden mælk", "group": "Chokolade lag" },
+        { "quantity": 40, "unit": "grams", "item": "smooth peanutbutter", "group": "Chokolade lag" },
+        { "quantity": 3, "unit": "spsk", "item": "poppede quinoa", "group": "Chokolade lag" }
+      ],
+      "steps": ["Grovhakk og bland bunn", "Legg i form", "Dekk med sjokolade"],
+      "notes": "Only the supplied steps are shown; any further instructions are unknown.",
+      "image": ""
+    },
+    {
+      "id": "chive-garlic-cashew-cheese",
+      "title": "Chive and Garlic Cashew Cheese",
+      "category": "Snacks",
+      "tags": [],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 2, "unit": "cups", "item": "cashews (280g)" },
+        { "quantity": "1/2", "unit": "cup", "item": "(118ml) water" },
+        { "quantity": 6, "unit": "tbsp", "item": "nutritional yeast" },
+        { "quantity": "3/4", "unit": "tsp", "item": "salt - or to taste" },
+        { "quantity": "1/2", "unit": "tsp", "item": "garlic powder" },
+        { "quantity": "1/2", "unit": "tsp", "item": "onion powder" },
+        { "quantity": "", "unit": "", "item": "Juice of 1 lemon" },
+        { "quantity": "", "unit": "", "item": "Fresh or dried chives" }
+      ],
+      "steps": ["Blend it all."],
+      "notes": "Cashews are preferably soaked for 4-8 hours.",
+      "image": ""
+    },
+    {
+      "id": "nutri-tella",
+      "title": "Nutri-tella",
+      "category": "Snacks",
+      "tags": [],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 1, "unit": "cup", "item": "raw hazelnuts" },
+        { "quantity": "", "unit": "", "item": "2-3 medjool dates or 4-6 regular dates, pitted" },
+        { "quantity": 2.5, "unit": "tbs", "item": "natural cocoa powder" },
+        { "quantity": 1, "unit": "tbs", "item": "ground chia seeds" },
+        { "quantity": 1, "unit": "tsp", "item": "vanilla extract" },
+        { "quantity": 0.5, "unit": "cup", "item": "soy milk" }
+      ],
+      "steps": ["Blend it all."],
+      "notes": "",
+      "image": ""
+    },
+    {
+      "id": "kokospirater",
+      "title": "Kokospirater",
+      "category": "Desserts",
+      "tags": [],
+      "pinned": false,
+      "servings": 12,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 8, "unit": "", "item": "Medjool dates, pitted" },
+        { "quantity": 2, "unit": "teaspoons", "item": "water" },
+        { "quantity": "pinch", "unit": "", "item": "salt" },
+        { "quantity": 1, "unit": "cup", "item": "unsweetened coconut flakes, toasted" },
+        { "quantity": "¾", "unit": "cup", "item": "chocolate chips" }
+      ],
+      "steps": [
+        "Add dates, water, salt to food processor; blitz smooth, scraping down sides as necessary.",
+        "Transfer mixture to medium bowl and add toasted coconut; stir to combine.",
+        "Roll mixture into twelve equal balls.",
+        "Flatten balls on parchment-lined baking sheet with bottom of a glass.",
+        "Use a straw to poke a hole in center of each cookie.",
+        "Freeze tray at least one hour.",
+        "Melt chocolate in heat-proof bowl over small saucepan with 1 inch simmering water.",
+        "Dip cookie bottoms in melted chocolate and return to parchment.",
+        "Drizzle remaining chocolate over tops.",
+        "Refrigerate to harden at least one hour.",
+        "Store refrigerated in airtight container."
+      ],
+      "notes": "Makes twelve cookies.",
+      "image": ""
+    },
+    {
+      "id": "brownie-kuler",
+      "title": "Brownie kuler",
+      "category": "Snacks",
+      "tags": [],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 230, "unit": "g", "item": "dadler" },
+        { "quantity": 200, "unit": "g", "item": "gulrøtter" },
+        { "quantity": 2, "unit": "dåser", "item": "kidneybønner" },
+        { "quantity": 8, "unit": "ss", "item": "havregryn" },
+        { "quantity": 6, "unit": "ss", "item": "kakao" },
+        { "quantity": 3, "unit": "ss", "item": "peanøttsmør" },
+        { "quantity": "", "unit": "", "item": "Flak salt" },
+        { "quantity": "1-2", "unit": "ss", "item": "fiberhusk" }
+      ],
+      "steps": ["Blend alt", "Lag baller", "Dekk med smeltet sjoko"],
+      "notes": "",
+      "image": ""
+    },
+    {
+      "id": "health-nobs",
+      "title": "Health-nobs",
+      "category": "Baking",
+      "tags": [],
+      "pinned": false,
+      "servings": "about 24 cookies",
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 1, "unit": "cup", "item": "raw cashews" },
+        { "quantity": "1.25ish", "unit": "cup", "item": "rolled oats" },
+        { "quantity": 8, "unit": "large", "item": "dates" },
+        { "quantity": "a few splashes", "unit": "", "item": "vanilla" },
+        { "quantity": "1/2", "unit": "tsp", "item": "baking powder" },
+        { "quantity": 2, "unit": "tbsp", "item": "cacao (optional)" }
+      ],
+      "steps": [
+        "Put nuts in food processor and blend into a flour like texture",
+        "add about half the oats and blend a bit (so they are ground finer)",
+        "add dates and blend",
+        "add the rest and blend",
+        "Bake tablespoon sized balls, them, and bake at 325F (165C) for 15-16 minutes",
+        "EAT!"
+      ],
+      "notes": "I also added 2 tbsp of aquafaba but it got so sticky that I think you can skip it. Source wording 'them' in the baking step is unclear.",
+      "image": ""
+    }
+  ]
+}

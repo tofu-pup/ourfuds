@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ourfuds recipes",
+  "type": "object",
+  "required": ["categories", "recipes"],
+  "additionalProperties": false,
+  "properties": {
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "recipes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/recipe" }
+    }
+  },
+  "$defs": {
+    "recipe": {
+      "type": "object",
+      "required": ["id", "title", "category", "tags", "pinned", "servings", "prepTime", "cookTime", "ingredients", "steps", "notes", "image"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "category": { "type": "string", "minLength": 1 },
+        "tags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "pinned": { "type": "boolean" },
+        "servings": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "string", "minLength": 1 }, { "type": "null" }] },
+        "prepTime": { "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }] },
+        "cookTime": { "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "string", "minLength": 1 }, { "type": "null" }] },
+        "ingredients": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/ingredient" } },
+        "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "notes": { "type": "string" },
+        "image": { "type": "string", "pattern": "^(|images/[a-zA-Z0-9._/-]+)$" }
+      }
+    },
+    "ingredient": {
+      "type": "object",
+      "required": ["quantity", "unit", "item"],
+      "additionalProperties": false,
+      "properties": {
+        "quantity": { "anyOf": [{ "type": "number", "minimum": 0 }, { "type": "string" }] },
+        "unit": { "type": "string" },
+        "item": { "type": "string", "minLength": 1 },
+        "group": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

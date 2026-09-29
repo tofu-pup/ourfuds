@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f1">
+  <title>#ourfuds — good food, together</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #faf7f1;
+      color: #26332c;
+      font-size: 18px;
+      line-height: 1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    button { font: inherit; cursor: pointer; touch-action: manipulation; }
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid #a74431; outline-offset: 3px;
+    }
+    button:disabled { opacity: .4; cursor: not-allowed; }
+    .shell { max-width: 1420px; margin: auto; padding: 0 clamp(20px, 4vw, 64px) 70px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      min-height: 94px; border-bottom: 1px solid #e7e1d6; }
+    .brand { border: 0; background: none; color: #26332c; font-weight: 800; letter-spacing: -.07em;
+      font-size: 1.7rem; padding: 10px 0; }
+    .brand span { color: #cc6345; }
+    .actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-wrap: wrap; }
+    .status { font-size: .77rem; color: #874631; background: #fff0e7; padding: 7px 11px;
+      border-radius: 100px; }
+    .quiet, .back { border: 1px solid #ded8cc; border-radius: 12px; background: #fffdf9;
+      color: #354539; min-height: 46px; padding: 8px 17px; font-weight: 600; }
+    .quiet:active, .back:active, .card:active, .primary:active { transform: scale(.98); }
+    main { animation: arrive .32s ease-out; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .intro { margin: 42px 0 32px; }
+    .eyebrow { color: #a34e35; text-transform: uppercase; font-size: .72rem;
+      font-weight: 800; letter-spacing: .15em; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(2.3rem, 4vw, 4rem); line-height: 1.08; letter-spacing: -.06em; margin: 8px 0 12px; }
+    h2 { font-size: clamp(1.45rem, 2vw, 2rem); letter-spacing: -.045em; line-height: 1.18; }
+    .muted { color: #69766b; }
+    .section { margin-top: 38px; }
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .count { font-size: .83rem; color: #69766b; }
+    .grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+    .grid.category-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { text-align: left; border: 1px solid #e9e4d9; border-radius: 21px; background: #fffefa;
+      color: inherit; padding: 0; min-height: 210px; overflow: hidden;
+      box-shadow: 0 5px 18px #3940300a; transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s; }
+    .card:focus-visible { outline-offset: 4px; }
+    .card-art { height: 96px; position: relative; background: #edede1; display: grid; place-items: center;
+      color: #72907a; font-size: 2.4rem; font-weight: 700; letter-spacing: -.08em; overflow: hidden; }
+    .card:nth-child(3n + 2) .card-art { background: #f3e6dc; color: #c07b60; }
+    .card:nth-child(3n + 3) .card-art { background: #e5ece6; color: #718d78; }
+    .card-art img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .card-body { display: block; padding: 16px; }
+    .card-title { display: block; font-weight: 750; line-height: 1.22; font-size: 1.05rem; }
+    .card-sub { display: block; color: #69766b; font-size: .77rem; margin-top: 9px; }
+    .empty { color: #69766b; background: #f2eee5; border-radius: 16px; padding: 20px; }
+    .back { margin: 30px 0 20px; }
+    .recipe-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 36%);
+      gap: 28px; align-items: stretch; }
+    .recipe-head .copy { padding: 20px 0; }
+    .recipe-head h1 { margin-bottom: 18px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .tag { border-radius: 100px; background: #ecf0e6; padding: 5px 12px;
+      color: #47604e; font-size: .8rem; font-weight: 650; }
+    .hero-art { min-height: 220px; border-radius: 24px; background: #e6ece0; display: grid;
+      place-items: center; font-size: 5rem; color: #718a6f; overflow: hidden; }
+    .hero-art img { width: 100%; height: 100%; max-height: 300px; object-fit: cover; }
+    .columns { display: grid; grid-template-columns: minmax(290px, .82fr) minmax(0, 1.18fr);
+      gap: clamp(28px, 5vw, 78px); margin-top: 38px; align-items: start; }
+    .panel { background: #fffefa; border: 1px solid #e9e4d9; border-radius: 24px; padding: clamp(20px, 2.5vw, 32px); }
+    .panel h2 { margin-bottom: 20px; }
+    .servings { display: flex; align-items: center; gap: 13px; flex-wrap: wrap;
+      padding-bottom: 20px; border-bottom: 1px solid #eee9df; }
+    .servings button, .step-nav button { min-width: 48px; min-height: 48px; border: 1px solid #ded8cc;
+      background: #fff; color: #26332c; border-radius: 12px; font-weight: 700; }
+    .scale-choices { display: flex; gap: 8px; padding: 16px 0 4px; }
+    .scale-choices button { flex: 1; min-height: 48px; border: 1px solid #ded8cc;
+      border-radius: 12px; background: #fff; color: #26332c; font-weight: 700; }
+    .scale-choices button[aria-pressed="true"] { background: #47604e; color: #fff; border-color: #47604e; }
+    .servings strong { min-width: 28px; text-align: center; }
+    .ingredients { list-style: none; margin: 14px 0 0; padding: 0; }
+    .ingredient-group { font-size: .82rem; font-weight: 800; color: #a34e35; margin: 20px 0 4px; }
+    .ingredient { display: flex; width: 100%; align-items: flex-start; gap: 12px; text-align: left;
+      padding: 12px 0; border: 0; border-bottom: 1px solid #f0ece4; background: none; color: inherit; }
+    .check { display: grid; flex: none; place-items: center; width: 28px; height: 28px; border: 2px solid #9daa9c;
+      border-radius: 8px; color: white; transition: background .2s, transform .2s; }
+    .ingredient[aria-pressed="true"] .check { background: #63816a; border-color: #63816a; transform: rotate(-7deg); }
+    .ingredient[aria-pressed="true"] .ingredient-text { text-decoration: line-through; color: #849087; }
+    .step-list { padding-left: 1.7em; margin: 0 0 24px; }
+    .step-list li { padding: 0 0 18px 8px; }
+    .step-list li::marker { color: #c45f44; font-weight: 750; }
+    .primary { min-height: 54px; border: 0; border-radius: 14px; background: #bd5a3d;
+      color: #fff; padding: 12px 24px; font-weight: 750; }
+    .note { background: #f4efe6; border-radius: 16px; padding: 18px; margin-top: 20px; }
+    .cook { min-height: calc(100vh - 170px); display: flex; flex-direction: column; }
+    .cook .eyebrow { margin: 28px 0 12px; }
+    .cook-step { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 990px; }
+    .cook-step p { font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1.2;
+      letter-spacing: -.04em; font-weight: 660; }
+    .step-nav { display: flex; gap: 14px; margin: 20px 0; }
+    .step-nav button { flex: 1; min-height: 70px; font-size: 1.1rem; }
+    .step-nav .primary { background: #bd5a3d; color: white; border: 0; }
+    .wake { font-size: .8rem; color: #69766b; min-height: 1.5em; }
+    dialog { border: 1px solid #e7e1d6; border-radius: 20px; width: min(90vw, 520px);
+      padding: 28px; box-shadow: 0 20px 90px #26332c44; color: #26332c; }
+    dialog::backdrop { background: #1a2720a8; }
+    dialog textarea { width: 100%; height: 220px; resize: vertical; font: .85rem/1.5 ui-monospace, monospace; }
+    dialog .actions { margin-top: 16px; }
+    @media (max-width: 950px) {
+      .grid, .grid.category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 650px) {
+      :root { font-size: 16px; }
+      header { min-height: 78px; }
+      .grid, .grid.category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .card { min-height: 185px; }
+      .card-art { height: 80px; }
+      .recipe-head, .columns { grid-template-columns: 1fr; }
+      .hero-art { min-height: 170px; }
+      .cook { min-height: calc(100dvh - 140px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <button class="brand" id="home-link" type="button" aria-label="ourfuds home"><span>#</span>ourfuds</button>
+      <div class="actions">
+        <span class="status" id="storage-status" role="status" hidden></span>
+        <button class="quiet" id="export-button" type="button" hidden>Export usage</button>
+      </div>
+    </header>
+    <main id="app"><p class="intro muted" role="status">Getting the kitchen ready...</p></main>
+  </div>
+  <dialog id="export-dialog" aria-labelledby="export-heading">
+    <h2 id="export-heading">Your usage snapshot</h2>
+    <p class="muted">Copy this into usage.json in the repository to keep a backup of these counts.</p>
+    <textarea id="export-text" readonly aria-label="Usage JSON"></textarea>
+    <div class="actions">
+      <button class="quiet" id="download-button" type="button">Download usage.json</button>
+      <button class="primary" id="close-dialog" type="button">Done</button>
+    </div>
+  </dialog>
+  <script type="module">
+    const app = document.querySelector('#app');
+    const status = document.querySelector('#storage-status');
+    const exportButton = document.querySelector('#export-button');
+    const dialog = document.querySelector('#export-dialog');
+    const exportText = document.querySelector('#export-text');
+    const dataUrl = (name) => `${name}?v=${Date.now()}`;
+    const element = (tag, className, text) => {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+    const append = (parent, ...children) => { parent.append(...children); return parent; };
+    const timeDescription = (recipe) => {
+      const parts = [];
+      if (recipe.prepTime !== null) parts.push(`${recipe.prepTime} min prep`);
+      if (recipe.cookTime !== null) parts.push(
+        typeof recipe.cookTime === 'number' ? `${recipe.cookTime} min cook` : `${recipe.cookTime} cook`
+      );
+      return parts.length ? parts.join('  ·  ') : 'Time not specified';
+    };
+    const alphabetical = (a, b) => a.title.localeCompare(b.title);
+
+    // Replace this adapter alone to use a shared usage backend later.
+    class UsageStore {
+      constructor() {
+        this.key = 'ourfuds:usage:v1';
+        this.counts = {};
+        this.available = false;
+        this.problem = '';
+        try {
+          const probe = `${this.key}:probe`;
+          localStorage.setItem(probe, 'ok');
+          if (localStorage.getItem(probe) !== 'ok') throw new Error('Storage did not retain the probe');
+          localStorage.removeItem(probe);
+          this.available = true;
+        } catch {
+          this.problem = 'Storage unavailable; counts last only for this visit.';
+        }
+      }
+      initialize(snapshot, ids) {
+        const known = new Set(ids);
+        let local = {};
+        if (this.available) {
+          try {
+            const saved = localStorage.getItem(this.key);
+            if (saved !== null) local = this.validCounts(JSON.parse(saved), known);
+          } catch {
+            this.problem = 'Saved usage could not be read; counts may be incomplete.';
+            this.available = false;
+          }
+        }
+        const restored = this.validCounts(snapshot, known);
+        for (const id of ids) this.counts[id] = Math.max(local[id] ?? 0, restored[id] ?? 0);
+        this.persist();
+      }
+      validCounts(value, known) {
+        if (!value || Array.isArray(value) || typeof value !== 'object') throw new Error('Invalid usage data');
+        const result = {};
+        for (const [id, count] of Object.entries(value)) {
+          if (known.has(id)) {
+            if (!Number.isSafeInteger(count) || count < 0) throw new Error(`Invalid count for ${id}`);
+            result[id] = count;
+          }
+        }
+        return result;
+      }
+      persist() {
+        if (!this.available) return;
+        try {
+          localStorage.setItem(this.key, JSON.stringify(this.counts));
+        } catch {
+          this.available = false;
+          this.problem = 'Storage unavailable; counts last only for this visit.';
+        }
+      }
+      get(id) { return this.counts[id] ?? 0; }
+      increment(id) {
+        if (!Object.hasOwn(this.counts, id)) throw new Error(`Unknown recipe: ${id}`);
+        this.counts[id] += 1;
+        this.persist();
+      }
+      getMostUsed(recipes, limit = 5) {
+        return [...recipes].sort((a, b) => Number(b.pinned) - Number(a.pinned)
+          || this.get(b.id) - this.get(a.id) || alphabetical(a, b)).slice(0, limit);
+      }
+      export() { return { ...this.counts }; }
+    }
+
+    let data;
+    let store;
+    let active = null;
+    let mode = 'home';
+    let checked = new Set();
+    let servings = 1;
+    let scale = 1;
+    let step = 0;
+    let wakeLock = null;
+    let wakePending = false;
+    let wakeMessage = '';
+    let snapshotProblem = '';
+
+    function showStatus() {
+      const messages = [store?.problem, snapshotProblem].filter(Boolean);
+      status.hidden = !messages.length;
+      status.textContent = messages.join(' ');
+    }
+    async function load() {
+      try {
+        const response = await fetch(dataUrl('recipes.json'), { cache: 'no-store' });
+        if (!response.ok) throw new Error(`recipes.json returned ${response.status}`);
+        data = await response.json();
+        if (!Array.isArray(data.categories) || !Array.isArray(data.recipes)) throw new Error('Invalid recipe catalogue');
+        store = new UsageStore();
+        let snapshot = {};
+        try {
+          const backup = await fetch(dataUrl('usage.json'), { cache: 'no-store' });
+          if (backup.ok) snapshot = await backup.json();
+          else if (backup.status !== 404) throw new Error(`usage.json returned ${backup.status}`);
+          store.validCounts(snapshot, new Set(data.recipes.map((recipe) => recipe.id)));
+        } catch (error) {
+          snapshotProblem = `Usage snapshot could not be loaded (${error.message}); counts may be incomplete.`;
+          snapshot = {};
+        }
+        store.initialize(snapshot, data.recipes.map((recipe) => recipe.id));
+        exportButton.hidden = false;
+        showStatus();
+        renderHome();
+      } catch (error) {
+        app.replaceChildren(
+          append(element('section', 'intro'), element('h1', '', 'The recipes are not available yet.'),
+            element('p', 'muted', error.message),
+            button('Try again', 'primary', load))
+        );
+      }
+    }
+    function button(label, className, action) {
+      const node = element('button', className, label);
+      node.type = 'button';
+      node.addEventListener('click', action);
+      return node;
+    }
+    function heading(title, subtitle) {
+      const wrap = element('div', 'section-head');
+      append(wrap, element('h2', '', title), element('span', 'count', subtitle));
+      return wrap;
+    }
+    function card(recipe) {
+      const node = button('', 'card', () => openRecipe(recipe));
+      node.setAttribute('aria-label', `Open ${recipe.title}`);
+      const art = element('span', 'card-art', recipe.title.charAt(0).toUpperCase());
+      if (recipe.image) {
+        const image = element('img');
+        image.src = recipe.image;
+        image.alt = '';
+        image.loading = 'lazy';
+        image.addEventListener('error', () => image.remove());
+        art.append(image);
+      }
+      append(node, art, append(element('span', 'card-body'),
+        element('span', 'card-title', recipe.title),
+        element('span', 'card-sub', `${timeDescription(recipe)}  ·  ${recipe.category}`)));
+      return node;
+    }
+    function renderHome() {
+      mode = 'home';
+      active = null;
+      const page = element('div');
+      append(page, append(element('div', 'intro'), element('span', 'eyebrow', 'The family cookbook'),
+        element('h1', '', 'What sounds good today?'),
+        element('p', 'muted', 'Your favorites, right where you need them.')));
+      const favorites = element('section', 'section');
+      append(favorites, heading('On repeat', 'Pinned first · then most opened'));
+      const featured = store.getMostUsed(data.recipes);
+      if (featured.length) append(favorites, append(element('div', 'grid'), ...featured.map(card)));
+      else append(favorites, element('p', 'empty', 'The cookbook is waiting for its first recipe.'));
+      page.append(favorites);
+      for (const category of data.categories) {
+        const recipes = data.recipes.filter((recipe) => recipe.category === category);
+        const section = element('section', 'section');
+        append(section, heading(category, `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'}`));
+        if (recipes.length) {
+          const ordered = store.getMostUsed(recipes, recipes.length);
+          append(section, append(element('div', 'grid category-grid'), ...ordered.map(card)));
+        } else append(section, element('p', 'empty', 'Nothing here yet. A good excuse to make something new.'));
+        page.append(section);
+      }
+      app.replaceChildren(page);
+      window.scrollTo(0, 0);
+    }
+    function openRecipe(recipe) {
+      leaveCooking();
+      active = recipe;
+      checked = new Set();
+      servings = Number.isInteger(recipe.servings) ? recipe.servings : null;
+      scale = 1;
+      store.increment(recipe.id);
+      showStatus();
+      renderRecipe();
+      window.scrollTo(0, 0);
+    }
+    function parseQuantity(value) {
+      if (typeof value === 'number') return value;
+      if (value.trim() === '½') return .5;
+      if (value.trim() === '¾') return .75;
+      const match = /^(\d+)\s+(\d+)\/(\d+)$|^(\d+)\/(\d+)$|^(\d+(?:\.\d+)?)$/.exec(value.trim());
+      if (!match) return null;
+      if (match[3] === '0' || match[5] === '0') return null;
+      if (match[1]) return Number(match[1]) + Number(match[2]) / Number(match[3]);
+      if (match[4]) return Number(match[4]) / Number(match[5]);
+      return Number(match[6]);
+    }
+    function formatQuantity(number) {
+      const whole = Math.floor(number + 0.00001);
+      const fraction = number - whole;
+      if (fraction < .00001) return String(whole);
+      for (const denominator of [2, 3, 4, 8, 12, 16]) {
+        const numerator = Math.round(fraction * denominator);
+        if (numerator && numerator < denominator && Math.abs(fraction - numerator / denominator) < .008) {
+          return `${whole ? `${whole} ` : ''}${numerator}/${denominator}`;
+        }
+      }
+      return String(Number(number.toFixed(2)));
+    }
+    function ingredientLabel(ingredient) {
+      const numeric = parseQuantity(ingredient.quantity);
+      const range = typeof ingredient.quantity === 'string'
+        ? /^(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)$/.exec(ingredient.quantity) : null;
+      const quantity = scale === 1 ? ingredient.quantity
+        : numeric !== null ? formatQuantity(numeric * scale)
+          : range ? `${formatQuantity(Number(range[1]) * scale)}–${formatQuantity(Number(range[2]) * scale)}`
+            : ingredient.quantity;
+      return [quantity, ingredient.unit, ingredient.item].filter((part) => part !== '').join(' ');
+    }
+    function renderRecipe() {
+      mode = 'recipe';
+      const recipe = active;
+      const page = element('div');
+      page.append(button('← All recipes', 'back', renderHome));
+      const head = element('div', 'recipe-head');
+      const copy = element('div', 'copy');
+      append(copy, element('span', 'eyebrow', recipe.category), element('h1', '', recipe.title),
+        element('p', 'muted', timeDescription(recipe)));
+      append(copy, append(element('div', 'tags'), ...recipe.tags.map((tag) => element('span', 'tag', tag))));
+      const art = element('div', 'hero-art', recipe.title.charAt(0).toUpperCase());
+      if (recipe.image) {
+        const image = element('img');
+        image.src = recipe.image;
+        image.alt = recipe.title;
+        image.addEventListener('error', () => image.remove());
+        art.replaceChildren(image);
+      }
+      append(head, copy, art);
+      const columns = element('div', 'columns');
+      const ingredientsPanel = element('section', 'panel');
+      ingredientsPanel.append(element('h2', '', 'Ingredients'));
+      const controls = element('div', 'servings');
+      if (servings !== null) {
+        const minus = button('−', '', () => {
+          servings--;
+          scale = servings / recipe.servings;
+          renderRecipe();
+        });
+        const plus = button('+', '', () => {
+          servings++;
+          scale = servings / recipe.servings;
+          renderRecipe();
+        });
+        minus.setAttribute('aria-label', 'Decrease servings');
+        plus.setAttribute('aria-label', 'Increase servings');
+        minus.disabled = servings <= 1;
+        plus.disabled = servings >= Math.max(48, recipe.servings * 2);
+        append(controls, element('span', 'muted', 'Serves'), minus,
+          element('strong', '', String(servings)), plus);
+      } else {
+        controls.append(element('span', 'muted', `Yield: ${recipe.servings ?? 'not specified'} · batch size ${scale}x`));
+      }
+      ingredientsPanel.append(controls);
+      const sizes = element('div', 'scale-choices');
+      sizes.setAttribute('role', 'group');
+      sizes.setAttribute('aria-label', 'Batch size');
+      for (const factor of [1, 1.5, 2]) {
+        const choice = button(`${factor}x`, '', () => {
+          scale = factor;
+          if (servings !== null) servings = recipe.servings * factor;
+          renderRecipe();
+        });
+        choice.setAttribute('aria-pressed', String(scale === factor));
+        sizes.append(choice);
+      }
+      ingredientsPanel.append(sizes);
+      const list = element('ul', 'ingredients');
+      recipe.ingredients.forEach((ingredient, index) => {
+        if (ingredient.group && ingredient.group !== recipe.ingredients[index - 1]?.group) {
+          list.append(append(element('li', 'ingredient-group'), element('span', '', ingredient.group)));
+        }
+        const item = element('li');
+        const label = ingredientLabel(ingredient);
+        const toggle = button('', 'ingredient', () => {
+          if (checked.has(index)) checked.delete(index);
+          else checked.add(index);
+          toggle.setAttribute('aria-pressed', String(checked.has(index)));
+          toggle.setAttribute('aria-label', `${checked.has(index) ? 'Uncheck' : 'Check'} ${label}`);
+          toggle.querySelector('.check').textContent = checked.has(index) ? '✓' : '';
+        });
+        toggle.setAttribute('aria-label', `${checked.has(index) ? 'Uncheck' : 'Check'} ${label}`);
+        toggle.setAttribute('aria-pressed', String(checked.has(index)));
+        append(toggle, element('span', 'check', checked.has(index) ? '✓' : ''),
+          element('span', 'ingredient-text', label));
+        item.append(toggle);
+        list.append(item);
+      });
+      ingredientsPanel.append(list);
+      const stepsPanel = element('section');
+      stepsPanel.append(element('h2', '', 'Let’s make it'));
+      const steps = element('ol', 'step-list');
+      recipe.steps.forEach((text) => steps.append(element('li', '', text)));
+      stepsPanel.append(steps, button('Start cooking mode →', 'primary', startCooking));
+      if (recipe.notes) append(stepsPanel, append(element('p', 'note'),
+        element('strong', '', 'A little note  '), document.createTextNode(recipe.notes)));
+      append(columns, ingredientsPanel, stepsPanel);
+      append(page, head, columns);
+      app.replaceChildren(page);
+    }
+    async function requestWakeLock() {
+      if (mode !== 'cooking' || document.visibilityState !== 'visible' || wakeLock || wakePending) return;
+      if (!('wakeLock' in navigator)) {
+        wakeMessage = 'Wake lock is not supported here; keep the screen awake manually.';
+        updateWakeMessage();
+        return;
+      }
+      wakePending = true;
+      try {
+        const lock = await navigator.wakeLock.request('screen');
+        if (mode !== 'cooking' || document.visibilityState !== 'visible') await lock.release();
+        else {
+          wakeLock = lock;
+          wakeMessage = 'Screen kept awake while cooking mode is open.';
+          lock.addEventListener('release', () => {
+            if (wakeLock === lock) {
+              wakeLock = null;
+              wakeMessage = 'Wake lock released; keep the screen awake manually.';
+              updateWakeMessage();
+            }
+          });
+        }
+      } catch {
+        wakeMessage = 'Wake lock was blocked; keep the screen awake manually.';
+      } finally {
+        wakePending = false;
+        updateWakeMessage();
+      }
+    }
+    function updateWakeMessage() {
+      const node = document.querySelector('#wake-status');
+      if (node) node.textContent = wakeMessage;
+    }
+    function leaveCooking() {
+      if (mode === 'cooking') {
+        mode = 'recipe';
+        if (wakeLock) {
+          const lock = wakeLock;
+          wakeLock = null;
+          lock.release().catch(() => {
+            // The receiver may already have released the lock.
+          });
+        }
+      }
+    }
+    function startCooking() {
+      mode = 'cooking';
+      step = 0;
+      wakeMessage = 'Checking screen wake lock...';
+      renderCooking();
+      requestWakeLock();
+      window.scrollTo(0, 0);
+    }
+    function renderCooking() {
+      const page = element('div', 'cook');
+      page.append(button('← Back to recipe', 'back', () => {
+        leaveCooking();
+        renderRecipe();
+      }));
+      append(page, element('span', 'eyebrow', `${active.title}  ·  Step ${step + 1} of ${active.steps.length}`));
+      append(page, append(element('div', 'cook-step'), element('p', '', active.steps[step])));
+      const nav = element('div', 'step-nav');
+      const previous = button('← Previous', '', () => { step--; renderCooking(); });
+      previous.disabled = step === 0;
+      const next = button(step === active.steps.length - 1 ? 'Done ✓' : 'Next →', 'primary', () => {
+        if (step === active.steps.length - 1) { leaveCooking(); renderRecipe(); }
+        else { step++; renderCooking(); }
+      });
+      append(nav, previous, next);
+      append(page, nav, element('p', 'wake', wakeMessage));
+      page.lastChild.id = 'wake-status';
+      app.replaceChildren(page);
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && mode === 'cooking') requestWakeLock();
+    });
+    document.querySelector('#home-link').addEventListener('click', () => {
+      if (store) { leaveCooking(); renderHome(); }
+    });
+    exportButton.addEventListener('click', () => {
+      exportText.value = `${JSON.stringify(store.export(), null, 2)}\n`;
+      dialog.showModal();
+    });
+    document.querySelector('#close-dialog').addEventListener('click', () => dialog.close());
+    document.querySelector('#download-button').addEventListener('click', () => {
+      const url = URL.createObjectURL(new Blob([exportText.value], { type: 'application/json' }));
+      const link = element('a');
+      link.href = url;
+      link.download = 'usage.json';
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+    load();
+  </script>
+</body>
+</html>
