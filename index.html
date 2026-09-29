@@ -38,16 +38,17 @@
     @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
     .intro { margin: 30px 0 22px; }
     .home-intro { position: relative; display: flex; align-items: center; justify-content: space-between;
-      min-height: 126px; gap: 20px; padding: 16px clamp(26px, 4vw, 52px);
-      border-radius: 28px; background: #f1eddf; overflow: hidden; }
+      min-height: 82px; gap: 12px; margin: 18px 0 14px; padding: 5px clamp(20px, 3vw, 36px);
+      border-radius: 20px; background: #f1eddf; overflow: hidden; }
     .home-intro::before { content: ""; position: absolute; width: 340px; height: 340px;
       right: -85px; top: -105px; border-radius: 50%; background: #dfe8d5; opacity: .65; }
     .home-copy { position: relative; z-index: 1; max-width: 730px; }
     .home-copy p { margin-bottom: 0; }
-    .garden-art { position: relative; z-index: 1; flex: 0 0 126px; width: 126px;
-      height: 109px; filter: drop-shadow(0 12px 10px #405a3921); }
-    .home-intro h1 { font-size: clamp(1.8rem, 3vw, 2.65rem); margin-bottom: 3px; }
-    .home-intro p { margin: 0; font-size: .9rem; }
+    .garden-art { position: relative; z-index: 1; flex: 0 0 60px; width: 60px;
+      height: 52px; filter: drop-shadow(0 6px 5px #405a3921); }
+    .home-intro .eyebrow { font-size: .64rem; }
+    .home-intro h1 { font-size: clamp(1.5rem, 2.2vw, 2rem); margin: 0; }
+    .home-intro p { margin: 0; font-size: .8rem; }
     .eyebrow { color: #a34e35; text-transform: uppercase; font-size: .72rem;
       font-weight: 800; letter-spacing: .15em; }
     h1, h2, h3, p { margin-top: 0; }
@@ -171,12 +172,9 @@
     @media (max-width: 650px) {
       :root { font-size: 16px; }
       header { min-height: 78px; }
-      .home-intro { min-height: 122px; padding: 16px 22px; }
-      .home-intro h1 { font-size: 1.7rem; }
-      .home-intro h1 { max-width: 240px; }
-      .home-intro p { display: none; }
-      .garden-art { position: absolute; right: -48px; bottom: -23px; width: 105px;
-        height: 105px; opacity: .42; }
+      .home-intro { min-height: 82px; padding: 5px 18px; }
+      .home-intro h1 { font-size: 1.45rem; }
+      .garden-art { display: none; }
       .grid, .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
       .category-pickers { grid-template-columns: 1fr; gap: 12px; }
       .category-card { min-height: 150px; flex-direction: row; align-items: center; gap: 18px; padding: 18px; }
@@ -474,7 +472,7 @@
       const intro = element('div', 'intro home-intro');
       append(intro, append(element('div', 'home-copy'), element('span', 'eyebrow', 'The family cookbook'),
         element('h1', '', 'What sounds good today?'),
-        element('p', 'muted', 'Pick a corner of the cookbook to explore.')),
+        element('p', 'muted', 'Explore the family cookbook.')),
         document.querySelector('#garden-illustration').content.firstElementChild.cloneNode(true));
       page.append(intro);
       const favorites = element('section', 'section');
