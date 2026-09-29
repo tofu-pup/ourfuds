@@ -115,8 +115,12 @@ def check_recipes():
                 elif len(values) == 2 and values[1] < values[0]:
                     report("error", rel, f'{where}.ingredients[{j}]: range "{q}" should go low to high.')
         img = r.get("image") or ""
-        if isinstance(img, str) and img.startswith("images/") and not os.path.isfile(os.path.join(ROOT, img)):
-            report("error", rel, f'{where}: image "{img}" does not exist.')
+        if isinstance(img, str) and img.startswith("images/"):
+            path = os.path.realpath(os.path.join(ROOT, img))
+            if not path.startswith(os.path.realpath(os.path.join(ROOT, "images")) + os.sep):
+                report("error", rel, f'{where}: image "{img}" must stay inside images/.')
+            elif not os.path.isfile(path):
+                report("error", rel, f'{where}: image "{img}" does not exist.')
     pinned = sum(1 for r in recipes if r.get("pinned") is True)
     if pinned > 5:
         report("warning", rel, f"{pinned} recipes are pinned; the home top row fits 5 comfortably.")
