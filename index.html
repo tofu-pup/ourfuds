@@ -1261,6 +1261,7 @@ ul, ol { list-style: none; }
   }
 
   var homeRefresh = 0;
+  var MAX_SERVINGS = 100; // matches schema/recipes.schema.json
   function showRecipe(r) {
     closeCook(true);
     if (!state.recipe || state.recipe.id !== r.id || state.view !== 'recipe') {
@@ -1336,13 +1337,13 @@ ul, ol { list-style: none; }
       h('button', { class: 'value' + (changed ? ' changed' : ''), type: 'button', 'aria-live': 'polite', 'aria-label': 'Servings: ' + state.servings + (changed ? '. Tap to reset.' : ''), onclick: function () { setServings(r.servings); } },
         h('b', { text: String(state.servings) }),
         h('span', { text: changed ? 'tap to reset' : 'servings' })),
-      h('button', { class: 'icon-btn', type: 'button', 'aria-label': 'More servings', disabled: state.servings >= 99, onclick: function () { setServings(state.servings + 1); } }, icon('plus'))
+      h('button', { class: 'icon-btn', type: 'button', 'aria-label': 'More servings', disabled: state.servings >= MAX_SERVINGS, onclick: function () { setServings(state.servings + 1); } }, icon('plus'))
     );
     return wrap;
   }
   function setServings(n) {
     var r = state.recipe;
-    n = Math.max(1, Math.min(99, n));
+    n = Math.max(1, Math.min(MAX_SERVINGS, n));
     state.servings = n;
     state.factor = n / r.servings;
     var old = document.getElementById('scaler');
@@ -1542,6 +1543,7 @@ ul, ol { list-style: none; }
     });
   })();
   window.addEventListener('resize', function () {
+    if (!cookOpen) return;
     var stage = document.getElementById('cook-stage');
     var text = stage && stage.querySelector('.step-text');
     if (text) fitText(stage, text);
