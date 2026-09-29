@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf7f1">
+  <meta name="description" content="#ourfuds — our family's plant-forward recipes, made for the kitchen display.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23faf7f1'/%3E%3Cpath d='M12 34h40c-2 14-11 20-20 20s-18-6-20-20Z' fill='%23bd5a3d'/%3E%3Cpath d='M32 33c-2-12 4-20 12-22-1 10-5 17-12 22Zm-2 0c-9-4-12-10-11-17 7 2 11 8 11 17Z' fill='%236b8a63'/%3E%3C/svg%3E">
   <title>#ourfuds — good food, together</title>
   <style>
     :root {
@@ -633,7 +635,8 @@
       stepsPanel.append(element('h2', '', 'Let’s make it'));
       const steps = element('ol', 'step-list');
       recipe.steps.forEach((text) => steps.append(element('li', '', text)));
-      stepsPanel.append(steps, button('Start cooking mode →', 'primary', startCooking));
+      const startButton = button('Start cooking mode →', 'primary start-cooking', startCooking);
+      stepsPanel.append(steps, startButton);
       if (recipe.notes) append(stepsPanel, append(element('p', 'note'),
         element('strong', '', 'A little note  '), document.createTextNode(recipe.notes)));
       append(columns, ingredientsPanel, stepsPanel);
@@ -695,23 +698,31 @@
     }
     function renderCooking() {
       const page = element('div', 'cook');
-      page.append(button('← Back to recipe', 'back', () => {
-        leaveCooking();
-        renderRecipe();
-      }));
+      page.append(button('← Back to recipe', 'back', returnFromCooking));
       append(page, element('span', 'eyebrow', `${active.title}  ·  Step ${step + 1} of ${active.steps.length}`));
       append(page, append(element('div', 'cook-step'), element('p', '', active.steps[step])));
       const nav = element('div', 'step-nav');
       const previous = button('← Previous', '', () => { step--; renderCooking(); });
       previous.disabled = step === 0;
       const next = button(step === active.steps.length - 1 ? 'Done ✓' : 'Next →', 'primary', () => {
-        if (step === active.steps.length - 1) { leaveCooking(); renderRecipe(); }
+        if (step === active.steps.length - 1) returnFromCooking();
         else { step++; renderCooking(); }
       });
       append(nav, previous, next);
       append(page, nav, element('p', 'wake', wakeMessage));
       page.lastChild.id = 'wake-status';
       app.replaceChildren(page);
+      focusQuietly(next);
+    }
+    function focusQuietly(node) {
+      try { node?.focus({ preventScroll: true }); } catch {
+        // Focus is a convenience; never let it break cooking mode.
+      }
+    }
+    function returnFromCooking() {
+      leaveCooking();
+      renderRecipe();
+      focusQuietly(app.querySelector('.start-cooking'));
     }
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible' && mode === 'cooking') requestWakeLock();
