@@ -1184,7 +1184,7 @@ ul, ol { list-style: none; }
       h('div', { class: 'hero-grid' }, picks.map(function (r, i) {
         return h('button', { class: 'card', type: 'button', style: '--i:' + i, onclick: function () { openRecipe(r.id); } },
           art(r),
-          r.pinned ? h('span', { class: 'pin', 'aria-label': 'Pinned' }, icon('pin')) : null,
+          r.pinned ? h('span', { class: 'pin' }, icon('pin'), h('span', { class: 'visually-hidden', text: 'Pinned' })) : null,
           h('span', { class: 'body' },
             h('span', { class: 'title', text: r.title }),
             h('span', { class: 'meta', text: [totalTime(r), r.category].filter(Boolean).join(' · ') })
@@ -1218,7 +1218,7 @@ ul, ol { list-style: none; }
           return h('button', { class: 'tile', type: 'button', style: '--i:' + i, onclick: function () { openRecipe(r.id); } },
             art(r),
             h('span', { class: 'text' },
-              h('span', { class: 'title' }, r.title, r.pinned ? h('span', { class: 'pin-inline', 'aria-label': 'Pinned' }, icon('pin')) : null),
+              h('span', { class: 'title' }, r.title, r.pinned ? h('span', { class: 'pin-inline' }, icon('pin'), h('span', { class: 'visually-hidden', text: ', pinned' })) : null),
               h('span', { class: 'meta', text: [totalTime(r), r.tags[0]].filter(Boolean).join(' · ') })
             )
           );
@@ -1598,7 +1598,7 @@ ul, ol { list-style: none; }
   document.addEventListener('keydown', function (e) {
     if ($backdrop.classList.contains('open')) { if (e.key === 'Escape') closeSheet(); return; }
     if (cookOpen) {
-      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowRight' || (e.key === ' ' && !(e.target && e.target.closest && e.target.closest('button')))) { e.preventDefault(); go(1); }
       else if (e.key === 'ArrowLeft') go(-1);
       else if (e.key === 'Escape') closeCook();
       return;

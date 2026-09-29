@@ -106,7 +106,7 @@ def check_recipes():
         for j, ing in enumerate(r.get("ingredients") if isinstance(r.get("ingredients"), list) else []):
             q = ing.get("quantity") if isinstance(ing, dict) else None
             if isinstance(q, str):
-                parts = re.split(r"\s*(?:-|–|—|\bto\b)\s*", q.strip())
+                parts = re.split(r"\s*[-–—]\s*|\s+to\s+", q.strip())
                 values = [quantity_value(p) for p in parts]
                 if len(values) > 2 or any(v is None for v in values):
                     report("error", rel, f'{where}.ingredients[{j}]: quantity "{q}" can\'t be read. Use a number, "1/2", "1 1/2", "½" or a range like "2-3".')
