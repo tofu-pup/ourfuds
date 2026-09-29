@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f1">
+  <meta name="description" content="#ourfuds — our family's plant-forward recipes, made for the kitchen display.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23faf7f1'/%3E%3Cpath d='M12 34h40c-2 14-11 20-20 20s-18-6-20-20Z' fill='%23bd5a3d'/%3E%3Cpath d='M32 33c-2-12 4-20 12-22-1 10-5 17-12 22Zm-2 0c-9-4-12-10-11-17 7 2 11 8 11 17Z' fill='%236b8a63'/%3E%3C/svg%3E">
+  <title>#ourfuds — good food, together</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #faf7f1;
+      color: #26332c;
+      font-size: 18px;
+      line-height: 1.45;
+      -webkit-tap-highlight-color: transparent;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; }
+    button { font: inherit; cursor: pointer; touch-action: manipulation; }
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid #a74431; outline-offset: 3px;
+    }
+    button:disabled { opacity: .4; cursor: not-allowed; }
+    .shell { max-width: 1420px; margin: auto; padding: 0 clamp(20px, 4vw, 64px) 70px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      min-height: 94px; border-bottom: 1px solid #e7e1d6; }
+    .brand { border: 0; background: none; color: #26332c; font-weight: 800; letter-spacing: -.07em;
+      font-size: 1.7rem; padding: 10px 0; }
+    .brand span { color: #cc6345; }
+    .actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-wrap: wrap; }
+    .status { font-size: .77rem; color: #874631; background: #fff0e7; padding: 7px 11px;
+      border-radius: 100px; }
+    .quiet, .back { border: 1px solid #ded8cc; border-radius: 12px; background: #fffdf9;
+      color: #354539; min-height: 46px; padding: 8px 17px; font-weight: 600; }
+    .quiet:active, .back:active, .card:active, .category-card:active, .primary:active { transform: scale(.98); }
+    main { animation: arrive .32s ease-out; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .intro { margin: 30px 0 22px; }
+    .home-intro { position: relative; display: flex; align-items: center; justify-content: space-between;
+      min-height: 82px; gap: 12px; margin: 18px 0 14px; padding: 5px clamp(20px, 3vw, 36px);
+      border-radius: 20px; background: #f1eddf; overflow: hidden; }
+    .home-intro::before { content: ""; position: absolute; width: 340px; height: 340px;
+      right: -85px; top: -105px; border-radius: 50%; background: #dfe8d5; opacity: .65; }
+    .home-copy { position: relative; z-index: 1; max-width: 730px; }
+    .home-copy p { margin-bottom: 0; }
+    .garden-art { position: relative; z-index: 1; flex: 0 0 60px; width: 60px;
+      height: 52px; filter: drop-shadow(0 6px 5px #405a3921); }
+    .home-intro .eyebrow { font-size: .64rem; }
+    .home-intro h1 { font-size: clamp(1.5rem, 2.2vw, 2rem); margin: 0; }
+    .home-intro p { margin: 0; font-size: .8rem; }
+    .eyebrow { color: #a34e35; text-transform: uppercase; font-size: .72rem;
+      font-weight: 800; letter-spacing: .15em; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(2.3rem, 4vw, 4rem); line-height: 1.08; letter-spacing: -.06em; margin: 8px 0 12px; }
+    h2 { font-size: clamp(1.45rem, 2vw, 2rem); letter-spacing: -.045em; line-height: 1.18; }
+    .muted { color: #69766b; }
+    .section { margin-top: 26px; }
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .count { font-size: .83rem; color: #69766b; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .featured-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .category-pickers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .category-card { display: flex; flex-direction: column; justify-content: space-between; text-align: left;
+      position: relative; min-height: 205px; padding: 25px; border: 1px solid #e4e8dd; border-radius: 24px;
+      background: #e9eee4; color: #344b3b; box-shadow: 0 5px 18px #3940300a;
+      transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s; overflow: hidden; }
+    .category-card:nth-child(3n + 2) { background: #f3e7dd; border-color: #eedfd1; color: #884c3b; }
+    .category-card:nth-child(3n + 3) { background: #eeece1; border-color: #e7e2d3; color: #686448; }
+    .category-card::before { content: ""; position: absolute; width: 210px; height: 210px;
+      top: -88px; right: -64px; border-radius: 50%; background: #ffffff61; }
+    .category-card::after { content: ""; position: absolute; width: 115px; height: 115px;
+      top: -60px; right: -16px; border: 1px solid #ffffffb3; border-radius: 50%; }
+    .category-card:focus-visible { outline-offset: 4px; }
+    .category-art { position: relative; display: grid; place-items: center; width: 84px; height: 84px;
+      border-radius: 25px; background: #ffffffa1; font-size: 3.1rem; font-weight: 800;
+      line-height: 1; letter-spacing: -.09em; transform: rotate(-5deg);
+      box-shadow: 0 8px 18px #35453913; }
+    .category-illustration { position: absolute; width: 112px; height: 112px; right: 32px;
+      top: 17px; z-index: 1; filter: drop-shadow(0 7px 4px #39403024); pointer-events: none; }
+    .category-sprig { position: absolute; top: 15px; right: 26px; width: 115px; height: 115px;
+      color: #6b8a63; opacity: .72; transform: rotate(17deg); }
+    .category-card:nth-child(3n + 2) .category-sprig { color: #b67a50; transform: rotate(-15deg); }
+    .category-card:nth-child(3n + 3) .category-sprig { color: #928253; transform: rotate(34deg); }
+    .category-info { position: relative; display: flex; justify-content: space-between;
+      align-items: end; gap: 10px; width: 100%; }
+    .category-title { display: block; font-size: clamp(1.4rem, 2.1vw, 2rem); font-weight: 750;
+      line-height: 1.1; letter-spacing: -.045em; overflow-wrap: anywhere; }
+    .category-count { display: block; margin-top: 7px; font-size: .8rem; opacity: .75; }
+    .category-arrow { font-size: 1.7rem; line-height: 1; }
+    .card { text-align: left; border: 1px solid #e9e4d9; border-radius: 21px; background: #fffefa;
+      color: inherit; padding: 0; min-height: 185px; overflow: hidden;
+      box-shadow: 0 5px 18px #3940300a; transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s; }
+    .card:focus-visible { outline-offset: 4px; }
+    .card-art { height: 132px; position: relative; background: #edede1; display: grid; place-items: center;
+      color: #72907a; font-size: 2.4rem; font-weight: 700; letter-spacing: -.08em; overflow: hidden; }
+    .card-art::after { content: ""; position: absolute; width: 95px; height: 95px; right: -24px;
+      top: -42px; border: 15px solid #ffffff52; border-radius: 50%; }
+    .card-art.has-photo::after { display: none; }
+    .card:nth-child(3n + 2) .card-art { background: #f3e6dc; color: #c07b60; }
+    .card:nth-child(3n + 3) .card-art { background: #e5ece6; color: #718d78; }
+    .card-art img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .card-art .photo-label { position: absolute; bottom: 5px; right: 7px; z-index: 1;
+      background: #fffdf9eb; color: #354539; border-radius: 6px; padding: 2px 6px;
+      font-size: .6rem; font-weight: 700; letter-spacing: 0; }
+    .card-body { display: block; padding: 16px; }
+    .card-title { display: block; font-weight: 750; line-height: 1.22; font-size: 1.05rem; }
+    .card-sub { display: block; color: #69766b; font-size: .77rem; margin-top: 9px; }
+    .empty { color: #69766b; background: #f2eee5; border-radius: 16px; padding: 20px; }
+    footer { padding: 25px 0; border-top: 1px solid #e7e1d6; font-size: .78rem; }
+    footer a { color: #47604e; text-underline-offset: 3px; }
+    .back { margin: 30px 0 20px; }
+    .recipe-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 36%);
+      gap: 28px; align-items: stretch; }
+    .recipe-head .copy { padding: 20px 0; }
+    .recipe-head h1 { margin-bottom: 18px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+    .tag { border-radius: 100px; background: #ecf0e6; padding: 5px 12px;
+      color: #47604e; font-size: .8rem; font-weight: 650; }
+    .hero-art { margin: 0; min-height: 220px; border-radius: 24px; background: #e6ece0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      font-size: 5rem; color: #718a6f; overflow: hidden; }
+    .hero-art img { width: 100%; height: 260px; object-fit: cover; }
+    .hero-art figcaption { width: 100%; padding: 8px 13px; font-size: .7rem;
+      line-height: 1.3; color: #354539; background: #f4efe6; }
+    .columns { display: grid; grid-template-columns: minmax(290px, .82fr) minmax(0, 1.18fr);
+      gap: clamp(28px, 5vw, 78px); margin-top: 38px; align-items: start; }
+    .panel { background: #fffefa; border: 1px solid #e9e4d9; border-radius: 24px; padding: clamp(20px, 2.5vw, 32px); }
+    .panel h2 { margin-bottom: 20px; }
+    .servings { display: flex; align-items: center; gap: 13px; flex-wrap: wrap;
+      padding-bottom: 20px; border-bottom: 1px solid #eee9df; }
+    .servings button, .step-nav button { min-width: 48px; min-height: 48px; border: 1px solid #ded8cc;
+      background: #fff; color: #26332c; border-radius: 12px; font-weight: 700; }
+    .scale-choices { display: flex; gap: 8px; padding: 16px 0 4px; }
+    .scale-choices button { flex: 1; min-height: 48px; border: 1px solid #ded8cc;
+      border-radius: 12px; background: #fff; color: #26332c; font-weight: 700; }
+    .scale-choices button[aria-pressed="true"] { background: #47604e; color: #fff; border-color: #47604e; }
+    .servings strong { min-width: 28px; text-align: center; }
+    .ingredients { list-style: none; margin: 14px 0 0; padding: 0; }
+    .ingredient-group { font-size: .82rem; font-weight: 800; color: #a34e35; margin: 20px 0 4px; }
+    .ingredient { display: flex; width: 100%; align-items: flex-start; gap: 12px; text-align: left;
+      padding: 12px 0; border: 0; border-bottom: 1px solid #f0ece4; background: none; color: inherit; }
+    .check { display: grid; flex: none; place-items: center; width: 28px; height: 28px; border: 2px solid #9daa9c;
+      border-radius: 8px; color: white; transition: background .2s, transform .2s; }
+    .ingredient[aria-pressed="true"] .check { background: #63816a; border-color: #63816a; transform: rotate(-7deg); }
+    .ingredient[aria-pressed="true"] .ingredient-text { text-decoration: line-through; color: #849087; }
+    .step-list { padding-left: 1.7em; margin: 0 0 24px; }
+    .step-list li { padding: 0 0 18px 8px; }
+    .step-list li::marker { color: #c45f44; font-weight: 750; }
+    .primary { min-height: 54px; border: 0; border-radius: 14px; background: #bd5a3d;
+      color: #fff; padding: 12px 24px; font-weight: 750; }
+    .note { background: #f4efe6; border-radius: 16px; padding: 18px; margin-top: 20px; }
+    .cook { min-height: calc(100vh - 170px); display: flex; flex-direction: column; }
+    .cook .eyebrow { margin: 28px 0 12px; }
+    .cook-step { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 990px; }
+    .cook-step p { font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1.2;
+      letter-spacing: -.04em; font-weight: 660; }
+    .step-nav { display: flex; gap: 14px; margin: 20px 0; }
+    .step-nav button { flex: 1; min-height: 70px; font-size: 1.1rem; }
+    .step-nav .primary { background: #bd5a3d; color: white; border: 0; }
+    .wake { font-size: .8rem; color: #69766b; min-height: 1.5em; }
+    dialog { border: 1px solid #e7e1d6; border-radius: 20px; width: min(90vw, 520px);
+      padding: 28px; box-shadow: 0 20px 90px #26332c44; color: #26332c; }
+    dialog::backdrop { background: #1a2720a8; }
+    dialog textarea { width: 100%; height: 220px; resize: vertical; font: .85rem/1.5 ui-monospace, monospace; }
+    dialog .actions { margin-top: 16px; }
+    @media (max-width: 950px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .featured-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .category-pickers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 650px) {
+      :root { font-size: 16px; }
+      header { min-height: 78px; }
+      .home-intro { min-height: 82px; padding: 5px 18px; }
+      .home-intro h1 { font-size: 1.45rem; }
+      .garden-art { display: none; }
+      .grid, .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .category-pickers { grid-template-columns: 1fr; gap: 12px; }
+      .category-card { min-height: 150px; flex-direction: row; align-items: center; gap: 18px; padding: 18px; }
+      .category-art { width: 72px; height: 72px; flex: none; font-size: 2.5rem; }
+      .category-illustration { right: 50px; top: 19px; width: 94px; height: 94px; opacity: .83; }
+      .category-info { z-index: 2; }
+      .category-sprig { top: -23px; right: 12px; width: 105px; height: 105px; opacity: .46; }
+      .category-info { flex: 1; }
+      .card { min-height: 185px; }
+      .card-art { height: 110px; }
+      .recipe-head, .columns { grid-template-columns: 1fr; }
+      .hero-art { min-height: 170px; }
+      .hero-art img { height: 220px; }
+      .cook { min-height: calc(100dvh - 140px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <button class="brand" id="home-link" type="button" aria-label="ourfuds home"><span>#</span>ourfuds</button>
+      <div class="actions">
+        <span class="status" id="storage-status" role="status" hidden></span>
+        <button class="quiet" id="export-button" type="button" hidden>Export usage</button>
+      </div>
+    </header>
+    <main id="app"><p class="intro muted" role="status">Getting the kitchen ready...</p></main>
+    <footer><a href="images/CREDITS.md">Representative photo credits and licenses</a></footer>
+  </div>
+  <dialog id="export-dialog" aria-labelledby="export-heading">
+    <h2 id="export-heading">Your usage snapshot</h2>
+    <p class="muted">Copy this into usage.json in the repository to keep a backup of these counts.</p>
+    <textarea id="export-text" readonly aria-label="Usage JSON"></textarea>
+    <div class="actions">
+      <button class="quiet" id="download-button" type="button">Download usage.json</button>
+      <button class="primary" id="close-dialog" type="button">Done</button>
+    </div>
+  </dialog>
+  <template id="garden-illustration">
+    <svg class="garden-art" viewBox="0 0 220 190" aria-hidden="true">
+      <circle cx="111" cy="91" r="83" fill="#f9f4e7"/>
+      <path d="M43 109c19 47 115 68 145 0Z" fill="#b96548"/>
+      <path d="M43 109c17 20 129 22 145 0" fill="none" stroke="#8a493b" stroke-width="4" stroke-linecap="round"/>
+      <path d="M69 96c-15-13-10-29 1-30 13-1 20 19 17 31M101 96c-12-25-4-48 9-48 13 1 16 25 9 48M137 99c-3-16 10-34 22-29 14 7 1 26-9 33"
+        fill="#75936d" stroke="#557a5b" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M72 93c-15-28-15-48-14-59M72 75c-18-2-22-11-22-19 13-1 20 5 22 19M71 65c4-16 12-21 22-20-1 12-8 19-22 20"
+        fill="#8ca878" stroke="#66865e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M169 103c10-33 17-51 32-63M178 79c-5-16-3-23 5-30 8 11 6 20-5 30M186 66c11-12 21-13 26-6-8 10-15 12-26 6"
+        fill="#a7b987" stroke="#698763" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="115" cy="92" r="12" fill="#cf8c5c"/>
+      <circle cx="119" cy="88" r="4" fill="#f2bb77"/>
+      <path d="M116 82c-4-13-11-16-20-14 1 11 8 17 20 14" fill="#6e9366"/>
+    </svg>
+  </template>
+  <template id="category-sprig">
+    <svg class="category-sprig" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M28 109C61 80 61 43 82 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <path d="M46 89C20 89 15 73 19 59c18 1 28 11 27 30M56 68C82 68 91 54 90 41 70 41 59 50 56 68M67 47C46 42 43 29 47 16c15 3 23 13 20 31M79 24c3-14 13-20 25-19-2 15-11 23-25 19"
+        fill="currentColor" opacity=".82"/>
+    </svg>
+  </template>
+  <template id="category-illustrations">
+    <svg class="category-illustration" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M28 94c20-27 43-44 66-62" fill="none" stroke="#547b59" stroke-width="4" stroke-linecap="round"/>
+      <path d="M45 72c-21 0-25-13-20-22 14 1 22 9 20 22M65 56c4-20 17-25 26-19-3 14-12 20-26 19" fill="#79a071"/>
+      <ellipse cx="36" cy="92" rx="14" ry="10" fill="#b56b48" transform="rotate(-24 36 92)"/>
+      <ellipse cx="65" cy="81" rx="13" ry="10" fill="#ca8055" transform="rotate(22 65 81)"/>
+      <ellipse cx="89" cy="64" rx="11" ry="9" fill="#9d7453" transform="rotate(-20 89 64)"/>
+    </svg>
+    <svg class="category-illustration" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M20 62h80c-3 31-21 43-40 43S23 93 20 62Z" fill="#b76749"/>
+      <path d="M19 61c9 8 72 10 82 0" fill="none" stroke="#824738" stroke-width="4"/>
+      <path d="M36 58c-8-13 0-22 9-18 7 4 8 12 6 18M55 56c-4-23 8-31 19-24 8 8 4 19-3 27M77 56c3-15 15-20 22-12 3 7-2 15-10 18" fill="#77a071"/>
+      <circle cx="59" cy="51" r="9" fill="#db9d62"/>
+      <path d="M45 25c-3-8 3-10 0-17M66 23c-3-8 3-10 0-17" fill="none" stroke="#a87d61" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <svg class="category-illustration" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M19 51h82l-7 48H26Z" fill="#bf7050"/>
+      <path d="M17 51h86M25 99h70" stroke="#824c3d" stroke-width="5" stroke-linecap="round"/>
+      <path d="M40 38c-6-12 2-15-2-25M62 38c-6-12 2-15-2-25M83 38c-6-12 2-15-2-25" fill="none" stroke="#91a885" stroke-width="3" stroke-linecap="round"/>
+      <path d="M43 66c7-10 23-8 29 0 8 9 3 22-12 23-15 0-25-12-17-23Z" fill="#e4ae78"/>
+      <path d="M55 66c-3-8-1-12 4-14M62 66c4-9 11-9 17-8" fill="none" stroke="#62865f" stroke-width="3"/>
+    </svg>
+    <svg class="category-illustration" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M59 104V18M59 43C42 35 41 27 42 20M59 63C77 54 80 41 78 34M59 83C41 77 36 66 39 58" fill="none" stroke="#6f8352" stroke-width="3" stroke-linecap="round"/>
+      <path d="M59 27C48 22 48 11 54 7c8 7 9 13 5 20M58 44C41 44 34 34 35 25c13 0 22 7 23 19M60 60c18-3 28-13 27-24-15 1-25 9-27 24M58 80c-19-1-28-10-29-22 17 0 27 9 29 22" fill="#bba368"/>
+      <path d="M17 103h86" stroke="#a87851" stroke-width="4" stroke-linecap="round"/>
+      <path d="M25 98c0-10 15-16 35-16s35 6 35 16" fill="#cf9770"/>
+    </svg>
+    <svg class="category-illustration" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="43" fill="#d68651"/>
+      <circle cx="60" cy="60" r="34" fill="#f9dfaa"/>
+      <path d="M60 26v68M26 60h68M36 36l48 48M84 36 36 84" stroke="#edab68" stroke-width="3"/>
+      <circle cx="60" cy="60" r="5" fill="#f9dfaa"/>
+      <path d="M61 18C64 5 75 2 85 7 81 18 73 22 61 18" fill="#7b9d70"/>
+    </svg>
+    <svg class="category-illustration" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M32 100C51 74 57 45 64 14M56 62c-19-13-18-27-12-34 13 7 16 19 12 34M61 43c15-15 28-15 34-8-10 14-22 17-34 8" fill="#80a17b" stroke="#628261" stroke-width="2"/>
+      <circle cx="42" cy="83" r="12" fill="#b45c59"/><circle cx="65" cy="76" r="13" fill="#cf7a61"/>
+      <circle cx="79" cy="62" r="11" fill="#a74f55"/><circle cx="47" cy="81" r="3" fill="#f3c7a2"/>
+      <circle cx="70" cy="73" r="3" fill="#f3c7a2"/>
+    </svg>
+  </template>
+  <script type="module">
+    const app = document.querySelector('#app');
+    const status = document.querySelector('#storage-status');
+    const exportButton = document.querySelector('#export-button');
+    const dialog = document.querySelector('#export-dialog');
+    const exportText = document.querySelector('#export-text');
+    const dataUrl = (name) => `${name}?v=${Date.now()}`;
+    const element = (tag, className, text) => {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+    const append = (parent, ...children) => { parent.append(...children); return parent; };
+    const timeDescription = (recipe) => {
+      const parts = [];
+      if (recipe.prepTime !== null) parts.push(`${recipe.prepTime} min prep`);
+      if (recipe.cookTime !== null) parts.push(
+        typeof recipe.cookTime === 'number' ? `${recipe.cookTime} min cook` : `${recipe.cookTime} cook`
+      );
+      return parts.length ? parts.join('  ·  ') : 'Time not specified';
+    };
+    const alphabetical = (a, b) => a.title.localeCompare(b.title);
+
+    // Replace this adapter alone to use a shared usage backend later.
+    class UsageStore {
+      constructor() {
+        this.key = 'ourfuds:usage:v1';
+        this.counts = {};
+        this.available = false;
+        this.problem = '';
+        try {
+          const probe = `${this.key}:probe`;
+          localStorage.setItem(probe, 'ok');
+          if (localStorage.getItem(probe) !== 'ok') throw new Error('Storage did not retain the probe');
+          localStorage.removeItem(probe);
+          this.available = true;
+        } catch {
+          this.problem = 'Storage unavailable; counts last only for this visit.';
+        }
+      }
+      initialize(snapshot, ids) {
+        const known = new Set(ids);
+        let local = {};
+        if (this.available) {
+          try {
+            const saved = localStorage.getItem(this.key);
+            if (saved !== null) local = this.validCounts(JSON.parse(saved), known);
+          } catch {
+            this.problem = 'Saved usage could not be read; counts may be incomplete.';
+            this.available = false;
+          }
+        }
+        const restored = this.validCounts(snapshot, known);
+        for (const id of ids) this.counts[id] = Math.max(local[id] ?? 0, restored[id] ?? 0);
+        this.persist();
+      }
+      validCounts(value, known) {
+        if (!value || Array.isArray(value) || typeof value !== 'object') throw new Error('Invalid usage data');
+        const result = {};
+        for (const [id, count] of Object.entries(value)) {
+          if (known.has(id)) {
+            if (!Number.isSafeInteger(count) || count < 0) throw new Error(`Invalid count for ${id}`);
+            result[id] = count;
+          }
+        }
+        return result;
+      }
+      persist() {
+        if (!this.available) return;
+        try {
+          localStorage.setItem(this.key, JSON.stringify(this.counts));
+        } catch {
+          this.available = false;
+          this.problem = 'Storage unavailable; counts last only for this visit.';
+        }
+      }
+      get(id) { return this.counts[id] ?? 0; }
+      increment(id) {
+        if (!Object.hasOwn(this.counts, id)) throw new Error(`Unknown recipe: ${id}`);
+        this.counts[id] += 1;
+        this.persist();
+      }
+      getMostUsed(recipes, limit = 5) {
+        return [...recipes].sort((a, b) => Number(b.pinned) - Number(a.pinned)
+          || this.get(b.id) - this.get(a.id) || alphabetical(a, b)).slice(0, limit);
+      }
+      export() { return { ...this.counts }; }
+    }
+
+    let data;
+    let store;
+    let active = null;
+    let activeCategory = null;
+    let mode = 'home';
+    let checked = new Set();
+    let servings = 1;
+    let scale = 1;
+    let step = 0;
+    let wakeLock = null;
+    let wakePending = false;
+    let wakeMessage = '';
+    let snapshotProblem = '';
+
+    function showStatus() {
+      const messages = [store?.problem, snapshotProblem].filter(Boolean);
+      status.hidden = !messages.length;
+      status.textContent = messages.join(' ');
+    }
+    async function load() {
+      try {
+        const response = await fetch(dataUrl('recipes.json'), { cache: 'no-store' });
+        if (!response.ok) throw new Error(`recipes.json returned ${response.status}`);
+        data = await response.json();
+        if (!Array.isArray(data.categories) || !Array.isArray(data.recipes)) throw new Error('Invalid recipe catalogue');
+        store = new UsageStore();
+        let snapshot = {};
+        try {
+          const backup = await fetch(dataUrl('usage.json'), { cache: 'no-store' });
+          if (backup.ok) snapshot = await backup.json();
+          else if (backup.status !== 404) throw new Error(`usage.json returned ${backup.status}`);
+          store.validCounts(snapshot, new Set(data.recipes.map((recipe) => recipe.id)));
+        } catch (error) {
+          snapshotProblem = `Usage snapshot could not be loaded (${error.message}); counts may be incomplete.`;
+          snapshot = {};
+        }
+        store.initialize(snapshot, data.recipes.map((recipe) => recipe.id));
+        exportButton.hidden = false;
+        showStatus();
+        renderHome();
+      } catch (error) {
+        app.replaceChildren(
+          append(element('section', 'intro'), element('h1', '', 'The recipes are not available yet.'),
+            element('p', 'muted', error.message),
+            button('Try again', 'primary', load))
+        );
+      }
+    }
+    function button(label, className, action) {
+      const node = element('button', className, label);
+      node.type = 'button';
+      node.addEventListener('click', action);
+      return node;
+    }
+    function heading(title, subtitle) {
+      const wrap = element('div', 'section-head');
+      append(wrap, element('h2', '', title), element('span', 'count', subtitle));
+      return wrap;
+    }
+    function card(recipe) {
+      const node = button('', 'card', () => openRecipe(recipe));
+      node.setAttribute('aria-label', `Open ${recipe.title}${recipe.imageCaption ? `. ${recipe.imageCaption}` : ''}`);
+      const art = element('span', 'card-art', recipe.title.charAt(0).toUpperCase());
+      if (recipe.image) {
+        const image = element('img');
+        art.classList.add('has-photo');
+        image.src = recipe.image;
+        image.alt = '';
+        image.loading = 'lazy';
+        const label = element('span', 'photo-label', 'Representative');
+        image.addEventListener('error', () => { image.remove(); label.remove(); art.classList.remove('has-photo'); });
+        art.append(image, label);
+      }
+      append(node, art, append(element('span', 'card-body'),
+        element('span', 'card-title', recipe.title),
+        element('span', 'card-sub', `${timeDescription(recipe)}  ·  ${recipe.category}`)));
+      return node;
+    }
+    function categoryPicker(category, index) {
+      const recipes = data.recipes.filter((recipe) => recipe.category === category);
+      const node = button('', 'category-card', () => renderCategory(category));
+      node.setAttribute('aria-label', `Browse ${category}, ${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'}`);
+      const illustrations = document.querySelector('#category-illustrations').content.children;
+      append(node, document.querySelector('#category-sprig').content.firstElementChild.cloneNode(true),
+        illustrations[index % illustrations.length].cloneNode(true),
+        element('span', 'category-art', category.charAt(0).toUpperCase()),
+        append(element('span', 'category-info'),
+          append(element('span'), element('span', 'category-title', category),
+            element('span', 'category-count', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'}`)),
+          element('span', 'category-arrow', '↗')));
+      node.querySelector('.category-arrow').setAttribute('aria-hidden', 'true');
+      return node;
+    }
+    function renderHome() {
+      mode = 'home';
+      active = null;
+      activeCategory = null;
+      const page = element('div');
+      const intro = element('div', 'intro home-intro');
+      append(intro, append(element('div', 'home-copy'), element('span', 'eyebrow', 'The family cookbook'),
+        element('h1', '', 'What sounds good today?'),
+        element('p', 'muted', 'Explore the family cookbook.')),
+        document.querySelector('#garden-illustration').content.firstElementChild.cloneNode(true));
+      page.append(intro);
+      const favorites = element('section', 'section');
+      favorites.append(heading('On repeat', 'Pinned first · then most opened'));
+      const featured = store.getMostUsed(data.recipes);
+      if (featured.length) favorites.append(append(element('div', 'grid featured-grid'), ...featured.map(card)));
+      else favorites.append(element('p', 'empty', 'The cookbook is waiting for its first recipe.'));
+      page.append(favorites);
+      const categories = element('section', 'section');
+      categories.setAttribute('aria-label', 'Recipe categories');
+      append(categories, heading('Explore the cookbook', 'One tasty corner at a time'),
+        append(element('div', 'category-pickers'), ...data.categories.map(categoryPicker)));
+      page.append(categories);
+      app.replaceChildren(page);
+      window.scrollTo(0, 0);
+    }
+    function renderCategory(category) {
+      activeCategory = category;
+      active = null;
+      mode = 'category';
+      const recipes = data.recipes.filter((recipe) => recipe.category === category);
+      const page = element('div');
+      page.append(button('← Home', 'back', renderHome));
+      append(page, append(element('div', 'intro'), element('span', 'eyebrow', 'The family cookbook'),
+        element('h1', '', category),
+        element('p', 'muted', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'} · Pinned first, then most opened`)));
+      if (recipes.length) {
+        page.append(append(element('div', 'grid'), ...store.getMostUsed(recipes, recipes.length).map(card)));
+      } else page.append(element('p', 'empty', 'Nothing here yet. A good excuse to make something new.'));
+      app.replaceChildren(page);
+      window.scrollTo(0, 0);
+    }
+    function openRecipe(recipe) {
+      leaveCooking();
+      active = recipe;
+      checked = new Set();
+      servings = Number.isInteger(recipe.servings) ? recipe.servings : null;
+      scale = 1;
+      store.increment(recipe.id);
+      showStatus();
+      renderRecipe();
+      window.scrollTo(0, 0);
+    }
+    function parseQuantity(value) {
+      if (typeof value === 'number') return value;
+      if (value.trim() === '½') return .5;
+      if (value.trim() === '¾') return .75;
+      const match = /^(\d+)\s+(\d+)\/(\d+)$|^(\d+)\/(\d+)$|^(\d+(?:\.\d+)?)$/.exec(value.trim());
+      if (!match) return null;
+      if (match[3] === '0' || match[5] === '0') return null;
+      if (match[1]) return Number(match[1]) + Number(match[2]) / Number(match[3]);
+      if (match[4]) return Number(match[4]) / Number(match[5]);
+      return Number(match[6]);
+    }
+    function formatQuantity(number) {
+      const whole = Math.floor(number + 0.00001);
+      const fraction = number - whole;
+      if (fraction < .00001) return String(whole);
+      for (const denominator of [2, 3, 4, 8, 12, 16]) {
+        const numerator = Math.round(fraction * denominator);
+        if (numerator && numerator < denominator && Math.abs(fraction - numerator / denominator) < .008) {
+          return `${whole ? `${whole} ` : ''}${numerator}/${denominator}`;
+        }
+      }
+      return String(Number(number.toFixed(2)));
+    }
+    function ingredientLabel(ingredient) {
+      const numeric = parseQuantity(ingredient.quantity);
+      const range = typeof ingredient.quantity === 'string'
+        ? /^(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)$/.exec(ingredient.quantity) : null;
+      const quantity = scale === 1 ? ingredient.quantity
+        : numeric !== null ? formatQuantity(numeric * scale)
+          : range ? `${formatQuantity(Number(range[1]) * scale)}–${formatQuantity(Number(range[2]) * scale)}`
+            : ingredient.quantity;
+      return [quantity, ingredient.unit, ingredient.item].filter((part) => part !== '').join(' ');
+    }
+    function renderRecipe() {
+      mode = 'recipe';
+      const recipe = active;
+      const page = element('div');
+      page.append(button(`← ${activeCategory ?? 'Home'}`, 'back',
+        () => activeCategory === null ? renderHome() : renderCategory(activeCategory)));
+      const head = element('div', 'recipe-head');
+      const copy = element('div', 'copy');
+      append(copy, element('span', 'eyebrow', recipe.category), element('h1', '', recipe.title),
+        element('p', 'muted', timeDescription(recipe)));
+      append(copy, append(element('div', 'tags'), ...recipe.tags.map((tag) => element('span', 'tag', tag))));
+      const art = element('figure', 'hero-art', recipe.title.charAt(0).toUpperCase());
+      if (recipe.image) {
+        const image = element('img');
+        image.src = recipe.image;
+        image.alt = recipe.imageAlt || recipe.title;
+        image.addEventListener('error', () => art.replaceChildren(document.createTextNode(recipe.title.charAt(0).toUpperCase())));
+        art.replaceChildren(image, element('figcaption', '', recipe.imageCaption || 'Representative photo'));
+      }
+      append(head, copy, art);
+      const columns = element('div', 'columns');
+      const ingredientsPanel = element('section', 'panel');
+      ingredientsPanel.append(element('h2', '', 'Ingredients'));
+      const controls = element('div', 'servings');
+      if (servings !== null) {
+        const minus = button('−', '', () => {
+          servings--;
+          scale = servings / recipe.servings;
+          renderRecipe();
+        });
+        const plus = button('+', '', () => {
+          servings++;
+          scale = servings / recipe.servings;
+          renderRecipe();
+        });
+        minus.setAttribute('aria-label', 'Decrease servings');
+        plus.setAttribute('aria-label', 'Increase servings');
+        minus.disabled = servings <= 1;
+        plus.disabled = servings >= Math.max(48, recipe.servings * 2);
+        append(controls, element('span', 'muted', 'Serves'), minus,
+          element('strong', '', String(servings)), plus);
+      } else {
+        controls.append(element('span', 'muted', `Yield: ${recipe.servings ?? 'not specified'} · batch size ${scale}x`));
+      }
+      ingredientsPanel.append(controls);
+      const sizes = element('div', 'scale-choices');
+      sizes.setAttribute('role', 'group');
+      sizes.setAttribute('aria-label', 'Batch size');
+      for (const factor of [1, 1.5, 2]) {
+        const choice = button(`${factor}x`, '', () => {
+          scale = factor;
+          if (servings !== null) servings = recipe.servings * factor;
+          renderRecipe();
+        });
+        choice.setAttribute('aria-pressed', String(scale === factor));
+        sizes.append(choice);
+      }
+      ingredientsPanel.append(sizes);
+      const list = element('ul', 'ingredients');
+      recipe.ingredients.forEach((ingredient, index) => {
+        if (ingredient.group && ingredient.group !== recipe.ingredients[index - 1]?.group) {
+          list.append(append(element('li', 'ingredient-group'), element('span', '', ingredient.group)));
+        }
+        const item = element('li');
+        const label = ingredientLabel(ingredient);
+        const toggle = button('', 'ingredient', () => {
+          if (checked.has(index)) checked.delete(index);
+          else checked.add(index);
+          toggle.setAttribute('aria-pressed', String(checked.has(index)));
+          toggle.setAttribute('aria-label', `${checked.has(index) ? 'Uncheck' : 'Check'} ${label}`);
+          toggle.querySelector('.check').textContent = checked.has(index) ? '✓' : '';
+        });
+        toggle.setAttribute('aria-label', `${checked.has(index) ? 'Uncheck' : 'Check'} ${label}`);
+        toggle.setAttribute('aria-pressed', String(checked.has(index)));
+        append(toggle, element('span', 'check', checked.has(index) ? '✓' : ''),
+          element('span', 'ingredient-text', label));
+        item.append(toggle);
+        list.append(item);
+      });
+      ingredientsPanel.append(list);
+      const stepsPanel = element('section');
+      stepsPanel.append(element('h2', '', 'Let’s make it'));
+      const steps = element('ol', 'step-list');
+      recipe.steps.forEach((text) => steps.append(element('li', '', text)));
+      const startButton = button('Start cooking mode →', 'primary start-cooking', startCooking);
+      stepsPanel.append(steps, startButton);
+      if (recipe.notes) append(stepsPanel, append(element('p', 'note'),
+        element('strong', '', 'A little note  '), document.createTextNode(recipe.notes)));
+      append(columns, ingredientsPanel, stepsPanel);
+      append(page, head, columns);
+      app.replaceChildren(page);
+    }
+    async function requestWakeLock() {
+      if (mode !== 'cooking' || document.visibilityState !== 'visible' || wakeLock || wakePending) return;
+      if (!('wakeLock' in navigator)) {
+        wakeMessage = 'Wake lock is not supported here; keep the screen awake manually.';
+        updateWakeMessage();
+        return;
+      }
+      wakePending = true;
+      try {
+        const lock = await navigator.wakeLock.request('screen');
+        if (mode !== 'cooking' || document.visibilityState !== 'visible') await lock.release();
+        else {
+          wakeLock = lock;
+          wakeMessage = 'Screen kept awake while cooking mode is open.';
+          lock.addEventListener('release', () => {
+            if (wakeLock === lock) {
+              wakeLock = null;
+              wakeMessage = 'Wake lock released; keep the screen awake manually.';
+              updateWakeMessage();
+            }
+          });
+        }
+      } catch {
+        wakeMessage = 'Wake lock was blocked; keep the screen awake manually.';
+      } finally {
+        wakePending = false;
+        updateWakeMessage();
+      }
+    }
+    function updateWakeMessage() {
+      const node = document.querySelector('#wake-status');
+      if (node) node.textContent = wakeMessage;
+    }
+    function leaveCooking() {
+      if (mode === 'cooking') {
+        mode = 'recipe';
+        if (wakeLock) {
+          const lock = wakeLock;
+          wakeLock = null;
+          lock.release().catch(() => {
+            // The receiver may already have released the lock.
+          });
+        }
+      }
+    }
+    function startCooking() {
+      mode = 'cooking';
+      step = 0;
+      wakeMessage = 'Checking screen wake lock...';
+      renderCooking();
+      requestWakeLock();
+      window.scrollTo(0, 0);
+    }
+    function renderCooking() {
+      const page = element('div', 'cook');
+      page.append(button('← Back to recipe', 'back', returnFromCooking));
+      append(page, element('span', 'eyebrow', `${active.title}  ·  Step ${step + 1} of ${active.steps.length}`));
+      append(page, append(element('div', 'cook-step'), element('p', '', active.steps[step])));
+      const nav = element('div', 'step-nav');
+      const previous = button('← Previous', '', () => { step--; renderCooking(); });
+      previous.disabled = step === 0;
+      const next = button(step === active.steps.length - 1 ? 'Done ✓' : 'Next →', 'primary', () => {
+        if (step === active.steps.length - 1) returnFromCooking();
+        else { step++; renderCooking(); }
+      });
+      append(nav, previous, next);
+      append(page, nav, element('p', 'wake', wakeMessage));
+      page.lastChild.id = 'wake-status';
+      app.replaceChildren(page);
+      focusQuietly(next);
+    }
+    function focusQuietly(node) {
+      try { node?.focus({ preventScroll: true }); } catch {
+        // Focus is a convenience; never let it break cooking mode.
+      }
+    }
+    function returnFromCooking() {
+      leaveCooking();
+      renderRecipe();
+      focusQuietly(app.querySelector('.start-cooking'));
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && mode === 'cooking') requestWakeLock();
+    });
+    document.querySelector('#home-link').addEventListener('click', () => {
+      if (store) { leaveCooking(); renderHome(); }
+    });
+    exportButton.addEventListener('click', () => {
+      exportText.value = `${JSON.stringify(store.export(), null, 2)}\n`;
+      dialog.showModal();
+    });
+    document.querySelector('#close-dialog').addEventListener('click', () => dialog.close());
+    document.querySelector('#download-button').addEventListener('click', () => {
+      const url = URL.createObjectURL(new Blob([exportText.value], { type: 'application/json' }));
+      const link = element('a');
+      link.href = url;
+      link.download = 'usage.json';
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+    load();
+  </script>
+</body>
+</html>
