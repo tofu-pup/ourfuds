@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/tofu-pup/ourfuds/schema/recipes.schema.json",
+  "title": "#ourfuds recipes",
+  "type": "object",
+  "required": ["categories", "recipes"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "categories": {
+      "description": "Display order of the home page sections. Every recipe's category must appear here.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1, "maxLength": 40 },
+          "emoji": { "type": "string", "minLength": 1, "maxLength": 16 }
+        }
+      }
+    },
+    "recipes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/recipe" }
+    }
+  },
+  "$defs": {
+    "recipe": {
+      "type": "object",
+      "required": [
+        "id", "title", "category", "tags", "pinned", "servings",
+        "prepTime", "cookTime", "ingredients", "steps", "notes", "image"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Unique, URL-safe slug. Never change it once published — usage counts are keyed on it.",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "maxLength": 80
+        },
+        "title": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "category": { "type": "string", "minLength": 1 },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 40 },
+          "uniqueItems": true
+        },
+        "pinned": { "type": "boolean" },
+        "servings": { "type": "integer", "minimum": 1, "maximum": 100 },
+        "prepTime": { "description": "Minutes", "type": "integer", "minimum": 0, "maximum": 10080 },
+        "cookTime": { "description": "Minutes", "type": "integer", "minimum": 0, "maximum": 10080 },
+        "ingredients": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/ingredient" }
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "notes": { "type": "string" },
+        "image": {
+          "description": "Path relative to the site root (e.g. images/foo.jpg), an https URL, or empty.",
+          "type": ["string", "null"],
+          "pattern": "^$|^https://|^images/[^\\s]+$"
+        }
+      }
+    },
+    "ingredient": {
+      "type": "object",
+      "required": ["quantity", "unit", "item"],
+      "additionalProperties": false,
+      "properties": {
+        "quantity": {
+          "description": "A number, a fraction/mixed/range string (\"1/2\", \"1 1/2\", \"½\", \"2-3\"), or null for things that don't scale.",
+          "oneOf": [
+            { "type": "number", "exclusiveMinimum": 0 },
+            {
+              "type": "string",
+              "pattern": "^\\s*(\\d+(\\.\\d+)?|\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d*\\s*[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])(\\s*(-|–|to)\\s*(\\d+(\\.\\d+)?|\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d*\\s*[½⅓⅔¼¾⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]))?\\s*$"
+            },
+            { "type": "null" }
+          ]
+        },
+        "unit": { "type": "string", "maxLength": 30 },
+        "item": { "type": "string", "minLength": 1 },
+        "scale": {
+          "description": "Optional. Set false to stop this ingredient scaling with servings.",
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "categories": [
+    { "name": "Breakfast", "emoji": "🥞" },
+    { "name": "Dinner", "emoji": "🍝" },
+    { "name": "Soups", "emoji": "🍲" },
+    { "name": "Snacks", "emoji": "🥨" },
+    { "name": "Baking", "emoji": "🥖" },
+    { "name": "Desserts", "emoji": "🍰" }
+  ],
+  "recipes": [
+    {
+      "id": "sunday-pancakes",
+      "title": "Sunday Pancakes",
+      "category": "Breakfast",
+      "tags": ["weekend", "kids can help", "vegetarian"],
+      "pinned": true,
+      "servings": 4,
+      "prepTime": 10,
+      "cookTime": 20,
+      "ingredients": [
+        { "quantity": "1 1/2", "unit": "cups", "item": "plain flour" },
+        { "quantity": 2, "unit": "tbsp", "item": "caster sugar" },
+        { "quantity": 2, "unit": "tsp", "item": "baking powder" },
+        { "quantity": null, "unit": "", "item": "A pinch of salt" },
+        { "quantity": "1 1/4", "unit": "cups", "item": "milk" },
+        { "quantity": 1, "unit": "", "item": "egg" },
+        { "quantity": 3, "unit": "tbsp", "item": "melted butter, plus extra for the pan" },
+        { "quantity": null, "unit": "", "item": "Maple syrup and berries, to serve" }
+      ],
+      "steps": [
+        "Whisk the flour, sugar, baking powder and salt together in a big bowl.",
+        "In a jug, whisk the milk, egg and melted butter until smooth.",
+        "Pour the wet into the dry and stir gently until just combined. A few lumps are fine — don't overmix.",
+        "Let the batter rest for 5 minutes while you heat a non-stick pan over medium heat.",
+        "Brush the pan with a little butter and pour in about ¼ cup of batter per pancake.",
+        "Cook until bubbles pop on the surface, about 2 minutes, then flip and cook 1 minute more.",
+        "Keep warm in a low oven while you cook the rest. Serve with maple syrup and berries."
+      ],
+      "notes": "The first pancake is always the chef's. Double the batch and freeze the extras between sheets of baking paper.",
+      "image": "images/sunday-pancakes.svg"
+    },
+    {
+      "id": "weeknight-bolognese",
+      "title": "Weeknight Bolognese",
+      "category": "Dinner",
+      "tags": ["pasta", "freezer friendly", "family favourite"],
+      "pinned": true,
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 40,
+      "ingredients": [
+        { "quantity": 1, "unit": "tbsp", "item": "olive oil" },
+        { "quantity": 1, "unit": "", "item": "onion, finely chopped" },
+        { "quantity": 1, "unit": "", "item": "carrot, finely chopped" },
+        { "quantity": 2, "unit": "cloves", "item": "garlic, crushed" },
+        { "quantity": 500, "unit": "g", "item": "beef mince" },
+        { "quantity": 2, "unit": "tbsp", "item": "tomato paste" },
+        { "quantity": 400, "unit": "g", "item": "tin chopped tomatoes" },
+        { "quantity": 1, "unit": "tsp", "item": "dried oregano" },
+        { "quantity": 400, "unit": "g", "item": "spaghetti" },
+        { "quantity": null, "unit": "", "item": "Salt and pepper, to taste" },
+        { "quantity": null, "unit": "", "item": "Grated parmesan, to serve" }
+      ],
+      "steps": [
+        "Heat the olive oil in a large pan over medium heat. Add the onion and carrot and cook for 8 minutes until soft.",
+        "Add the garlic and cook for 1 minute until fragrant.",
+        "Turn up the heat, add the mince and cook, breaking it up, until browned all over.",
+        "Stir in the tomato paste for a minute, then add the chopped tomatoes, oregano and half a tin of water.",
+        "Simmer gently for 25 minutes, stirring now and then, until thick and rich. Season to taste.",
+        "Meanwhile, cook the spaghetti in plenty of salted boiling water. Save a mug of pasta water before draining.",
+        "Toss the pasta through the sauce, loosening with pasta water if needed. Serve with parmesan."
+      ],
+      "notes": "Sneak in a grated zucchini with the carrot — nobody has noticed yet.",
+      "image": ""
+    },
+    {
+      "id": "grandmas-chicken-noodle-soup",
+      "title": "Grandma's Chicken Noodle Soup",
+      "category": "Soups",
+      "tags": ["comfort", "sick day"],
+      "pinned": false,
+      "servings": 6,
+      "prepTime": 15,
+      "cookTime": 45,
+      "ingredients": [
+        { "quantity": 2, "unit": "tbsp", "item": "butter" },
+        { "quantity": 1, "unit": "", "item": "onion, diced" },
+        { "quantity": 2, "unit": "", "item": "carrots, sliced" },
+        { "quantity": 2, "unit": "sticks", "item": "celery, sliced" },
+        { "quantity": 2, "unit": "l", "item": "chicken stock" },
+        { "quantity": 500, "unit": "g", "item": "chicken thighs" },
+        { "quantity": 2, "unit": "", "item": "bay leaves" },
+        { "quantity": 150, "unit": "g", "item": "egg noodles" },
+        { "quantity": "1/4", "unit": "cup", "item": "fresh parsley, chopped" },
+        { "quantity": null, "unit": "", "item": "Salt and pepper, to taste" }
+      ],
+      "steps": [
+        "Melt the butter in a large pot. Add the onion, carrot and celery and cook gently for 10 minutes.",
+        "Pour in the stock, add the chicken thighs and bay leaves, and bring to a gentle simmer.",
+        "Simmer for 25 minutes until the chicken is cooked through.",
+        "Lift out the chicken, shred it with two forks, and return it to the pot. Fish out the bay leaves.",
+        "Add the noodles and simmer for 6–8 minutes until tender.",
+        "Stir through the parsley, season well, and serve in your biggest bowls."
+      ],
+      "notes": "Grandma swears by a squeeze of lemon in each bowl. She is right.",
+      "image": ""
+    },
+    {
+      "id": "chewy-oat-cookies",
+      "title": "Chewy Oat Cookies",
+      "category": "Baking",
+      "tags": ["lunchbox", "kids can help", "vegetarian"],
+      "pinned": false,
+      "servings": 18,
+      "prepTime": 15,
+      "cookTime": 12,
+      "ingredients": [
+        { "quantity": 125, "unit": "g", "item": "butter, softened" },
+        { "quantity": "3/4", "unit": "cup", "item": "brown sugar" },
+        { "quantity": 1, "unit": "", "item": "egg" },
+        { "quantity": 1, "unit": "tsp", "item": "vanilla extract" },
+        { "quantity": 1, "unit": "cup", "item": "plain flour" },
+        { "quantity": "1/2", "unit": "tsp", "item": "bicarbonate of soda" },
+        { "quantity": 1, "unit": "pinch", "item": "salt" },
+        { "quantity": "1 1/2", "unit": "cups", "item": "rolled oats" },
+        { "quantity": "1/2", "unit": "cup", "item": "chocolate chips or raisins" }
+      ],
+      "steps": [
+        "Heat the oven to 180°C (160°C fan) and line two trays with baking paper.",
+        "Beat the butter and brown sugar together until pale and fluffy.",
+        "Beat in the egg and vanilla.",
+        "Stir in the flour, bicarb and salt, then fold through the oats and chocolate chips.",
+        "Roll into walnut-sized balls and place on the trays, leaving room to spread. Flatten slightly.",
+        "Bake for 10–12 minutes until golden at the edges but still soft in the middle.",
+        "Cool on the tray for 5 minutes (the hardest step), then move to a rack."
+      ],
+      "notes": "Pull them out while they still look a little underdone — that's the secret to chewy.",
+      "image": ""
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="A stack of pancakes with butter and syrup">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE9C7"/>
+      <stop offset="1" stop-color="#FFD59A"/>
+    </linearGradient>
+    <linearGradient id="cake" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2B35E"/>
+      <stop offset="1" stop-color="#D98A36"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <circle cx="660" cy="110" r="46" fill="#FFF3DD" opacity=".7"/>
+  <circle cx="130" cy="90" r="22" fill="#FFF3DD" opacity=".6"/>
+  <ellipse cx="400" cy="420" rx="250" ry="38" fill="#FFFFFF"/>
+  <ellipse cx="400" cy="414" rx="220" ry="26" fill="#F4EEE6"/>
+  <g>
+    <rect x="215" y="352" width="370" height="46" rx="23" fill="url(#cake)"/>
+    <rect x="225" y="306" width="350" height="46" rx="23" fill="url(#cake)"/>
+    <rect x="235" y="260" width="330" height="46" rx="23" fill="url(#cake)"/>
+    <rect x="245" y="214" width="310" height="46" rx="23" fill="url(#cake)"/>
+    <ellipse cx="400" cy="218" rx="150" ry="16" fill="#F7C47A"/>
+  </g>
+  <path d="M262 214 Q300 200 400 202 Q500 200 540 214 Q548 236 530 244 Q520 268 510 244 Q470 236 440 240 Q430 282 418 242 Q380 238 350 242 Q342 296 330 244 Q300 238 280 240 Q268 262 262 236 Z" fill="#9A4A12" opacity=".92"/>
+  <rect x="368" y="178" width="64" height="34" rx="8" fill="#FFF1A8"/>
+  <rect x="368" y="178" width="64" height="12" rx="6" fill="#FFF8CF"/>
+  <circle cx="600" cy="372" r="16" fill="#E2455B"/>
+  <circle cx="626" cy="388" r="13" fill="#4A5FC1"/>
+  <circle cx="186" cy="384" r="14" fill="#E2455B"/>
+</svg>

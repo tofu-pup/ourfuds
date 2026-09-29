@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/tofu-pup/ourfuds/schema/usage.schema.json",
+  "title": "#ourfuds usage snapshot",
+  "description": "Map of recipe id to how many times it has been opened.",
+  "type": "object",
+  "propertyNames": { "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+  "additionalProperties": { "type": "integer", "minimum": 0 }
+}
