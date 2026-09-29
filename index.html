@@ -879,7 +879,7 @@ ul, ol { list-style: none; }
     if (q == null || q === '') return null;
     if (typeof q === 'number') return isFinite(q) && q > 0 ? { lo: q, hi: null } : null;
     if (typeof q !== 'string') return null;
-    var parts = q.trim().split(/\s*(?:-|–|—|\bto\b)\s*/);
+    var parts = q.trim().split(/\s*[-–—]\s*|\s+to\s+/);
     if (parts.length === 1) {
       var n = parseNumber(parts[0]);
       return n != null && n > 0 ? { lo: n, hi: null } : { text: q.trim() };
@@ -1441,9 +1441,11 @@ ul, ol { list-style: none; }
 
   var cookOpen = false;
   var cookFrame = 0;
+  var cookClear = 0;
   function openCook(i) {
     var r = state.recipe;
     if (!r || !r.steps.length) return;
+    clearTimeout(cookClear);
     state.cookIndex = Math.max(0, Math.min(r.steps.length - 1, i));
     $cook.replaceChildren(
       h('div', { class: 'cook-top' },
@@ -1471,6 +1473,11 @@ ul, ol { list-style: none; }
     Wake.acquire();
   }
   function closeCook(instant) {
+    clearTimeout(cookClear);
+    // Drop the overlay's DOM once it has slid away, so no stale ingredient
+    // rows (data-index) outlive the recipe they belong to.
+    if (instant) $cook.replaceChildren();
+    else cookClear = setTimeout(function () { if (!cookOpen) $cook.replaceChildren(); }, 700);
     if (!cookOpen) return;
     cookOpen = false;
     cancelAnimationFrame(cookFrame);
@@ -1478,7 +1485,6 @@ ul, ol { list-style: none; }
     $cook.inert = true;
     if (state.view === 'recipe') $recipe.inert = false;
     Wake.release();
-    if (instant) $cook.replaceChildren();
   }
   function toggleDrawer() {
     var d = document.getElementById('drawer');
