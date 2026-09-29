@@ -10,19 +10,19 @@ To preview locally, run `python -m http.server 8000` from the repository directo
 
 ## Add a recipe
 
-Edit **only `recipes.json`**: add a new object to `recipes`, and, if needed, a new string to `categories`. Give the recipe a unique lowercase hyphenated ID. Commit the file. Refresh the display (or use DashCast's optional reload) to fetch the new file; the app requests `recipes.json` with a cache-busting query parameter on each page load. No HTML changes are needed. Put optional photos under `images/` and reference a relative path such as `images/dinner.jpg`; photo additions require their own file commit.
+Edit **only `recipes.json`**: add a new object to `recipes`, and, if needed, a new string to `categories`. Give the recipe a unique lowercase hyphenated ID. Commit the file. Refresh the display (or use DashCast's optional reload) to fetch the new file; the app requests `recipes.json` with a cache-busting query parameter on each page load. No HTML changes are needed. For a new photo, add a local file under `images/`, reference it via `image`, describe it in `imageAlt` and `imageCaption`, and record its reuse license in [image credits](images/CREDITS.md). An empty `image` keeps the initial-letter fallback.
 
 The complete data shape is in [`schema/recipes.schema.json`](schema/recipes.schema.json):
 
 | Field | Type | Meaning |
 | --- | --- | --- |
-| `categories` | nonempty array of unique, nonempty strings | Section names, in display order. A recipe's category must occur here. Empty sections are shown. |
+| `categories` | nonempty array of unique, nonempty strings | Home picker names, in display order. A recipe's category must occur here. Empty categories remain navigable. |
 | `recipes` | array of recipe objects | Can be empty. |
 | `id` | unique lowercase slug (`a-z`, `0-9`, hyphens) | Stable key for usage counts; changing it starts a new count. |
 | `title` | nonempty string | Card and detail heading. |
 | `category` | string from `categories` | Exactly one category per recipe. |
 | `tags` | array of unique, nonempty strings | Optional labels; use `[]` if none. |
-| `pinned` | boolean | Pinned recipes lead the top row and category sections. |
+| `pinned` | boolean | Pinned recipes lead the recipe list within their category. |
 | `servings` | positive integer, descriptive string, or `null` | Exact integer enables the serving +/- control. String (e.g. `"about 24 cookies"`) or `null` preserves the original yield without inventing an exact baseline. Batch-size multipliers still work for numeric quantities. |
 | `prepTime` | nonnegative integer minutes or `null` | Unknown prep time is `null`. |
 | `cookTime` | nonnegative integer minutes, descriptive string, or `null` | Use a string for approximate time (e.g. `"about 12 minutes"`), or `null` if unknown. The app does not calculate a total from unknowns. |
@@ -30,6 +30,8 @@ The complete data shape is in [`schema/recipes.schema.json`](schema/recipes.sche
 | `steps` | nonempty array of nonempty strings | Displayed in order, one at a time in cooking mode. |
 | `notes` | string | Use `""` if none. |
 | `image` | string | `""` for no image, or a relative `images/…` path. Missing photos fall back to a colored card. |
+| `imageAlt` | string, optional | Describe what the photo actually shows; required by validation when `image` is set. |
+| `imageCaption` | string, optional | Visible caption identifying representative photos; required by validation when `image` is set. |
 
 All recipe fields are required so scripts and iOS Shortcuts can append a predictable object; unknown values use the explicit representations above. Additional fields are rejected. Copy the shape of an existing entry in `recipes.json` and replace its ID and content.
 
@@ -37,7 +39,7 @@ The catalogue contains only the recipes supplied by the family, with no placehol
 
 ## Usage and cooking
 
-Opening a recipe increments its count. The five-card **On repeat** section and each category sort pinned first, then by count descending, then title alphabetically. With no counts, the cards are still populated and alphabetically ordered. `usage.json` is an optional committed object mapping recipe IDs to nonnegative integer counts, such as `{"brownie-kuler": 3}`; the included empty `{}` can be removed (a missing file is allowed). On page load, the larger of the committed and locally stored counts wins per ID, so an old snapshot never reduces a local count. This is **not shared synchronization**: separate devices accumulate different counts; a committed snapshot is a manually updated baseline, not a live counter. IDs removed from the catalogue are ignored by the app and rejected in the committed snapshot by CI.
+The home screen keeps five **On repeat** quick-access recipe cards, followed by graphical category pickers from `recipes.json` instead of category-by-category recipe listings. Each picker gets a distinct decorative food illustration by its position (the six illustrations repeat if you add more categories); category names and membership still come exclusively from the JSON. Selecting a category opens its recipe list; **Home** returns to the pickers, and a recipe's back button returns to its category (or Home if opened from On repeat). Cards and details show local representative imagery, explicitly captioned when it does not depict the exact recipe. Replacing a photo with your own requires only updating the referenced image file and the JSON image descriptions, not the app. Opening a recipe increments its count. Both On repeat and each category sort pinned first, then by count descending, then title alphabetically. With no counts, the cards still show alphabetically ordered recipes. `usage.json` is an optional committed object mapping recipe IDs to nonnegative integer counts, such as `{"brownie-kuler": 3}`; the included empty `{}` can be removed (a missing file is allowed). On page load, the larger of the committed and locally stored counts wins per ID, so an old snapshot never reduces a local count. This is **not shared synchronization**: separate devices accumulate different counts; a committed snapshot is a manually updated baseline, not a live counter. IDs removed from the catalogue are ignored by the app and rejected in the committed snapshot by CI.
 
 **Export usage** shows JSON ready to paste into `usage.json` or download as that file; commit it to preserve the snapshot. Export does not commit or upload automatically. The isolated `UsageStore` in `index.html` provides `get`, `increment`, `getMostUsed` and `export`; replace its storage implementation when introducing an authenticated shared backend, without changing recipe rendering. Do not expose a write-capable unauthenticated endpoint merely because Pages is public.
 

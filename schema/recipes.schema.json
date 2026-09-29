@@ -33,7 +33,9 @@
         "ingredients": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/ingredient" } },
         "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
         "notes": { "type": "string" },
-        "image": { "type": "string", "pattern": "^(|images/[a-zA-Z0-9._/-]+)$" }
+        "image": { "type": "string", "pattern": "^(|images/[a-zA-Z0-9._/-]+)$" },
+        "imageAlt": { "type": "string" },
+        "imageCaption": { "type": "string" }
       }
     },
     "ingredient": {

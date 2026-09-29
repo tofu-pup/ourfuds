@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -57,6 +57,11 @@ try {
       if (ids.has(recipe.id)) errors.push(`recipes[${index}].id: duplicate ID`);
       ids.add(recipe.id);
       if (!data.categories.includes(recipe.category)) errors.push(`recipes[${index}].category: missing from categories`);
+      if (recipe.image) {
+        if (!existsSync(join(root, recipe.image))) errors.push(`recipes[${index}].image: file not found`);
+        if (!recipe.imageAlt?.trim()) errors.push(`recipes[${index}].imageAlt: required for a photo`);
+        if (!recipe.imageCaption?.trim()) errors.push(`recipes[${index}].imageCaption: required for a photo`);
+      }
     });
     const usage = read('usage.json');
     if (usage === null || Array.isArray(usage) || typeof usage !== 'object') {
