@@ -23,7 +23,7 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `boller-med-dadler-og-bonner.webp` | [Organic bread rolls](https://commons.wikimedia.org/wiki/File:Organic_bread_rolls.jpg), Hans Hillewaert | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 | `cashew-kaker.webp` | [Chocolate truffles with peanut butter 002](https://commons.wikimedia.org/wiki/File:Chocolate_truffles_with_peanut_butter_002.jpg), Mushki Brichta | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | `chive-garlic-cashew-cheese.webp` | [Vegan Cheese Happy Cheese Cashew 2](https://commons.wikimedia.org/wiki/File:Vegan_Cheese_Happy_Cheese_Cashew_2.jpg), mangostaniko | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
-| `nutri-tella.webp` | [Hazelnuts in bowl](https://commons.wikimedia.org/wiki/File:Hazelnuts_in_bowl.jpg), Neil Conway | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
+| `nutri-tella.webp` | Hazelnuts on a wooden surface, supplied by the user | Used with user permission |
 | `kokospirater.webp` | [Vegan Toasted Coconut Chocolate Chip Cookies](https://commons.wikimedia.org/wiki/File:Vegan_Toasted_Coconut_Chocolate_Chip_Cookies_(8693387372).jpg), Veganbaking.net | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
 | `brownie-kuler.webp` | [No-bake-energy-balls (2)](https://commons.wikimedia.org/wiki/File:No-bake-energy-balls_(2)_(49658524201).jpg), Meg H | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | `health-nobs.webp` | [Oat pulp cookies on tray](https://commons.wikimedia.org/wiki/File:Oat_pulp_cookies_on_tray.jpg), Shisma | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
