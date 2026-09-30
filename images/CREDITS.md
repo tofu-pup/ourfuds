@@ -17,7 +17,7 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `category-soups.webp` | Crop of the supplied family category illustration featuring a marmot and soup | Used with user permission |
 | `category-small-dishes-and-sides.webp` | Crop of the supplied family category illustration featuring a koala and side dishes | Used with user permission |
 | `glowing-spiced-lentil-soup.webp` | [Bowl of lentil soup with green and red lentils](https://commons.wikimedia.org/wiki/File:Bowl_of_lentil_soup_with_green_and_red_lentils.jpg), Whoisjohngalt | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
-| `tofu-bacon-bits.webp` | [Japanese SilkyTofu (Kinugoshi Tofu)](https://commons.wikimedia.org/wiki/File:Japanese_SilkyTofu_(Kinugoshi_Tofu).JPG), DryPot | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+| `tofu-bacon-bits.webp` | [Vegan Tofu Bacon Bits](https://itdoesnttastelikechicken.com/vegan-tofu-bacon-bits/), image supplied by the user | Used with user permission |
 | `go-to-neapolitan-pizza-dough.webp` | [Easy Vegan Pizza Dough](https://commons.wikimedia.org/wiki/File:Easy_Vegan_Pizza_Dough_(5753147144).jpg), Veganbaking.net | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
 | `rice-paper-bacon.webp` | [Butternut squash and pumpkin seed rice paper rolls](https://commons.wikimedia.org/wiki/File:Butternut_squash_and_pumpkin_seed_rice_paper_rolls_(42275210365).jpg), Joey Doll | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | `boller-med-dadler-og-bonner.webp` | Tray of golden buns, supplied by the user | Used with user permission |
