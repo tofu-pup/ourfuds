@@ -16,7 +16,7 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `category-dinner.webp` | Crop of the supplied family category illustration featuring a turtle and dinner | Used with user permission |
 | `category-soups.webp` | Crop of the supplied family category illustration featuring a marmot and soup | Used with user permission |
 | `category-small-dishes-and-sides.webp` | Crop of the supplied family category illustration featuring a koala and side dishes | Used with user permission |
-| `glowing-spiced-lentil-soup.webp` | [Bowl of lentil soup with green and red lentils](https://commons.wikimedia.org/wiki/File:Bowl_of_lentil_soup_with_green_and_red_lentils.jpg), Whoisjohngalt | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| `glowing-spiced-lentil-soup.webp` | [Glowing Spiced Lentil Soup](https://ohsheglows.com/glowing-spiced-lentil-soup/), image supplied by the user | Used with user permission |
 | `tofu-bacon-bits.webp` | [Vegan Tofu Bacon Bits](https://itdoesnttastelikechicken.com/vegan-tofu-bacon-bits/), image supplied by the user | Used with user permission |
 | `go-to-neapolitan-pizza-dough.webp` | [Easy Vegan Pizza Dough](https://commons.wikimedia.org/wiki/File:Easy_Vegan_Pizza_Dough_(5753147144).jpg), Veganbaking.net | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
 | `rice-paper-bacon.webp` | Crispy rice paper bacon strips, supplied by the user | Used with user permission |
