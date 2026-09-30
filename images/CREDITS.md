@@ -15,5 +15,6 @@ These photos are **representative**, not photographs of the corresponding recipe
 | `kokospirater.webp` | [Vegan Toasted Coconut Chocolate Chip Cookies](https://commons.wikimedia.org/wiki/File:Vegan_Toasted_Coconut_Chocolate_Chip_Cookies_(8693387372).jpg), Veganbaking.net | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
 | `brownie-kuler.webp` | [No-bake-energy-balls (2)](https://commons.wikimedia.org/wiki/File:No-bake-energy-balls_(2)_(49658524201).jpg), Meg H | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | `health-nobs.webp` | [Oat pulp cookies on tray](https://commons.wikimedia.org/wiki/File:Oat_pulp_cookies_on_tray.jpg), Shisma | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
+| `banana-macaroons.webp` | [3-Ingredient Banana Macaroons](https://www.nestandglow.com/healthy-recipes/3-ingredient-banana-macaroons), image supplied by the user; the user confirms permission to reproduce it | Used with user-confirmed permission; original attribution retained in the image |
 
 For a replacement image, verify the permission to reuse it, credit the creator and license here where required, and make the alt text and caption match what the replacement really shows.

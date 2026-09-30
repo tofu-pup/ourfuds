@@ -1,5 +1,5 @@
 {
-  "categories": ["Snacks", "Dinner", "Soups", "Baking", "Breakfast", "Desserts"],
+  "categories": ["Dessert and snacks", "Dinner", "Soups", "Small dishes and sides"],
   "recipes": [
     {
       "id": "glowing-spiced-lentil-soup",
@@ -42,7 +42,7 @@
     {
       "id": "tofu-bacon-bits",
       "title": "Tofu bacon bits",
-      "category": "Snacks",
+      "category": "Small dishes and sides",
       "tags": [],
       "pinned": false,
       "servings": 24,
@@ -104,7 +104,7 @@
     {
       "id": "rice-paper-bacon",
       "title": "Rice paper bacon",
-      "category": "Snacks",
+      "category": "Small dishes and sides",
       "tags": [],
       "pinned": false,
       "servings": "about 12 slices",
@@ -135,7 +135,7 @@
     {
       "id": "boller-med-dadler-og-bonner",
       "title": "Boller med dadler og bønner",
-      "category": "Baking",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": "about 20 boller",
@@ -173,7 +173,7 @@
     {
       "id": "cashew-kaker",
       "title": "Cashew kaker",
-      "category": "Baking",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -195,7 +195,7 @@
     {
       "id": "chive-garlic-cashew-cheese",
       "title": "Chive and Garlic Cashew Cheese",
-      "category": "Snacks",
+      "category": "Small dishes and sides",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -220,7 +220,7 @@
     {
       "id": "nutri-tella",
       "title": "Nutri-tella",
-      "category": "Snacks",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -243,7 +243,7 @@
     {
       "id": "kokospirater",
       "title": "Kokospirater",
-      "category": "Desserts",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": 12,
@@ -277,7 +277,7 @@
     {
       "id": "brownie-kuler",
       "title": "Brownie kuler",
-      "category": "Snacks",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -302,7 +302,7 @@
     {
       "id": "health-nobs",
       "title": "Health-nobs",
-      "category": "Baking",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": "about 24 cookies",
@@ -328,6 +328,31 @@
       "image": "images/health-nobs.webp",
       "imageAlt": "Oat cookies on a cooling rack; representative photo, not these nobs",
       "imageCaption": "Representative oat cookies, not the finished recipe."
+    },
+    {
+      "id": "banana-macaroons",
+      "title": "3-Ingredient Banana Macaroons",
+      "category": "Dessert and snacks",
+      "tags": ["vegan", "gluten-free"],
+      "pinned": false,
+      "servings": 16,
+      "prepTime": 5,
+      "cookTime": 15,
+      "ingredients": [
+        { "quantity": 2, "unit": "", "item": "very ripe bananas" },
+        { "quantity": "1 1/4", "unit": "cups (125g)", "item": "unsweetened desiccated coconut" },
+        { "quantity": "3.5", "unit": "oz (100g)", "item": "dark or raw chocolate" }
+      ],
+      "steps": [
+        "Peel and mash the very ripe bananas, then mix in the coconut until combined.",
+        "Scoop heaped tablespoon portions, roll firmly into balls, and flatten slightly.",
+        "Bake at 350°F / 180°C for about 15 minutes, until just turning golden. Let cool.",
+        "Melt the chocolate, dip each macaroon, then leave on baking paper until set."
+      ],
+      "notes": "Source: https://www.nestandglow.com/healthy-recipes/3-ingredient-banana-macaroons. Makes 16. For a raw version, dehydrate for 6 hours at 110°F, flip, then dehydrate 4 hours more; coat with raw chocolate. Store chilled and enjoy within 3 days, or freeze for up to 3 months.",
+      "image": "images/banana-macaroons.webp",
+      "imageAlt": "Chocolate-dipped banana coconut macaroons on a wooden board with bananas and coconut in the background",
+      "imageCaption": "Photo from Nest & Glow's banana macaroon recipe, supplied with permission."
     }
   ]
 }
