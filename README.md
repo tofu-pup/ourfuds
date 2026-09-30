@@ -59,7 +59,7 @@ The complete data shape is in [`schema/recipes.schema.json`](schema/recipes.sche
 
 All recipe fields are required so scripts and iOS Shortcuts can append a predictable object; unknown values use the explicit representations above. Additional fields are rejected. Copy the shape of an existing entry in `recipes.json` and replace its ID and content.
 
-The catalogue contains only family recipes and requested linked recipes, with no placeholder examples. Brownie kuler's yield and times were not supplied, so they are `null`; Health-nobs has an approximate yield and keeps its unclear source wording noted rather than guessing. Cashew kaker preserves its two ingredient groups and only the three provided instructions. Linked recipe methods are paraphrased and their source URLs use the dedicated `link` field.
+The catalogue contains only family recipes and requested linked recipes, with no placeholder examples. Brownie kuler's yield and times were not supplied, so they are `null`; Health-nobs has an approximate yield and keeps its unclear source wording noted rather than guessing. Crunchy cashew cookies preserves its two ingredient groups and only the three provided instructions. Linked recipe methods are paraphrased and their source URLs use the dedicated `link` field.
 
 ## Photos and credits
 

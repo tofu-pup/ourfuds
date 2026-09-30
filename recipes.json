@@ -177,7 +177,7 @@
     },
     {
       "id": "cashew-kaker",
-      "title": "Cashew kaker",
+      "title": "Crunchy cashew cookies",
       "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
@@ -193,10 +193,10 @@
       ],
       "steps": ["Grovhakk og bland bunn", "Legg i form", "Dekk med sjokolade"],
       "notes": "Only the supplied steps are shown; any further instructions are unknown.",
-      "link": "",
+      "link": "https://mitsunderealternativ.dk/crunchy-chokolade-cashew-kager/",
       "image": "images/cashew-kaker.webp",
-      "imageAlt": "Chocolate truffles on a plate; representative photo, not these cashew cakes",
-      "imageCaption": "Representative chocolate sweets, not the finished recipe."
+      "imageAlt": "Round crunchy cashew cookies topped with chocolate, with one cookie showing its cashew and date center",
+      "imageCaption": "Crunchy cashew cookie photo supplied by the user."
     },
     {
       "id": "chive-garlic-cashew-cheese",

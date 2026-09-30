@@ -21,7 +21,7 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `go-to-neapolitan-pizza-dough.webp` | [Easy Vegan Pizza Dough](https://commons.wikimedia.org/wiki/File:Easy_Vegan_Pizza_Dough_(5753147144).jpg), Veganbaking.net | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
 | `rice-paper-bacon.webp` | [Butternut squash and pumpkin seed rice paper rolls](https://commons.wikimedia.org/wiki/File:Butternut_squash_and_pumpkin_seed_rice_paper_rolls_(42275210365).jpg), Joey Doll | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | `boller-med-dadler-og-bonner.webp` | Tray of golden buns, supplied by the user | Used with user permission |
-| `cashew-kaker.webp` | [Chocolate truffles with peanut butter 002](https://commons.wikimedia.org/wiki/File:Chocolate_truffles_with_peanut_butter_002.jpg), Mushki Brichta | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| `cashew-kaker.webp` | [Crunchy chokolade-cashew-kager](https://mitsunderealternativ.dk/crunchy-chokolade-cashew-kager/), image supplied by the user | Used with user permission |
 | `chive-garlic-cashew-cheese.webp` | [Vegan Cheese Happy Cheese Cashew 2](https://commons.wikimedia.org/wiki/File:Vegan_Cheese_Happy_Cheese_Cashew_2.jpg), mangostaniko | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
 | `nutri-tella.webp` | Hazelnuts on a wooden surface, supplied by the user | Used with user permission |
 | `kokospirater.webp` | Kokospirater with chocolate and flaky salt, supplied by the user | Used with user permission |
