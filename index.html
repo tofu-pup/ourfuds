@@ -274,16 +274,17 @@
     const status = document.querySelector('#storage-status');
     const backButton = document.querySelector('#back-button');
     const familyLogos = [
-      { file: 'marmot', animal: 'marmot' },
-      { file: 'turtle', animal: 'turtle' },
-      { file: 'koala', animal: 'koala' },
-      { file: 'carp', animal: 'carp' },
-      { file: 'bonus', animal: 'koala wrestling a carp' }
+      { file: 'marmot', description: 'a marmot nibbling the lettering' },
+      { file: 'turtle', description: 'a turtle nibbling the lettering' },
+      { file: 'koala', description: 'a koala nibbling the lettering' },
+      { file: 'carp', description: 'a carp nibbling the lettering' },
+      { file: 'bonus', description: 'a koala wrestling a carp over the lettering' },
+      { file: 'kiss', description: 'a marmot and turtle sharing a kiss above the lettering' }
     ];
     const familyLogo = familyLogos[Math.floor(Math.random() * familyLogos.length)];
     const familyLogoImage = document.querySelector('#family-logo');
     familyLogoImage.src = `images/markiewicz-family-${familyLogo.file}.webp`;
-    familyLogoImage.alt = `The Markiewicz Family Cookbook, with a ${familyLogo.animal} nibbling the lettering`;
+    familyLogoImage.alt = `The Markiewicz Family Cookbook, with ${familyLogo.description}`;
     const dataUrl = (name) => `${name}?v=${Date.now()}`;
     const element = (tag, className, text) => {
       const node = document.createElement(tag);

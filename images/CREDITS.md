@@ -11,6 +11,7 @@ The `markiewicz-family-*.webp` header logos were supplied by the user for this f
 | `markiewicz-family-koala.webp` | Markiewicz family logo with koala, supplied by the user | Used with user permission |
 | `markiewicz-family-carp.webp` | Markiewicz family logo with carp, supplied by the user | Used with user permission |
 | `markiewicz-family-bonus.webp` | Bonus Markiewicz logo with a koala wrestling a carp, supplied by the user | Used with user permission |
+| `markiewicz-family-kiss.webp` | Markiewicz family logo with a marmot and turtle sharing a kiss, supplied by the user | Used with user permission |
 | `glowing-spiced-lentil-soup.webp` | [Bowl of lentil soup with green and red lentils](https://commons.wikimedia.org/wiki/File:Bowl_of_lentil_soup_with_green_and_red_lentils.jpg), Whoisjohngalt | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | `tofu-bacon-bits.webp` | [Japanese SilkyTofu (Kinugoshi Tofu)](https://commons.wikimedia.org/wiki/File:Japanese_SilkyTofu_(Kinugoshi_Tofu).JPG), DryPot | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 | `go-to-neapolitan-pizza-dough.webp` | [Easy Vegan Pizza Dough](https://commons.wikimedia.org/wiki/File:Easy_Vegan_Pizza_Dough_(5753147144).jpg), Veganbaking.net | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |
