@@ -67,25 +67,25 @@
     .category-card::after { content: ""; position: absolute; width: 115px; height: 115px;
       top: -60px; right: -16px; border: 1px solid #ffffffb3; border-radius: 50%; }
     .category-card:focus-visible { outline-offset: 4px; }
-    .category-illustration { position: absolute; width: 150px; height: 126px; right: 24px;
-      top: 8px; z-index: 1; filter: drop-shadow(0 7px 4px #39403024); pointer-events: none; }
-    .category-sprig { position: absolute; top: 15px; right: 26px; width: 115px; height: 115px;
-      color: #6b8a63; opacity: .72; transform: rotate(17deg); }
-    .category-card:nth-child(3n + 2) .category-sprig { color: #b67a50; transform: rotate(-15deg); }
-    .category-card:nth-child(3n + 3) .category-sprig { color: #928253; transform: rotate(34deg); }
-    .category-info { position: relative; display: flex; justify-content: space-between;
-      align-items: end; gap: 10px; width: 100%; }
+    .category-illustration { position: absolute; width: min(48%, 260px); height: 190px;
+      right: 12px; bottom: 5px; z-index: 1; object-fit: contain; pointer-events: none; }
+    .category-initial { position: absolute; top: 24px; right: 34px; color: #72907a;
+      font-size: 4rem; font-weight: 800; line-height: 1; opacity: .7; }
+    .category-info { position: relative; z-index: 2; display: flex; justify-content: space-between;
+      align-items: end; gap: 10px; width: 100%; max-width: 58%; }
     .category-title { display: block; font-size: clamp(1.4rem, 2.1vw, 2rem); font-weight: 750;
       line-height: 1.1; letter-spacing: -.045em; overflow-wrap: anywhere; }
     .category-count { display: block; margin-top: 7px; font-size: .8rem; opacity: .75; }
     .category-arrow { font-size: 1.7rem; line-height: 1; }
     .see-all { min-height: 56px; margin: 22px 0 8px; padding: 12px 22px; border: 1px solid #d9dfd2;
       border-radius: 16px; background: #fffefa; color: #47604e; font-weight: 750; }
-    .card { text-align: left; border: 1px solid #e9e4d9; border-radius: 21px; background: #fffefa;
+    .card { display: flex; flex-direction: column; align-items: stretch; text-align: left;
+      border: 1px solid #e9e4d9; border-radius: 21px; background: #fffefa;
       color: inherit; padding: 0; min-height: 185px; overflow: hidden;
       box-shadow: 0 5px 18px #3940300a; transition: transform .24s cubic-bezier(.2,.8,.2,1), box-shadow .24s; }
     .card:focus-visible { outline-offset: 4px; }
-    .card-art { height: 132px; position: relative; background: #edede1; display: grid; place-items: center;
+    .card-art { display: grid; flex: 0 0 132px; place-items: center; position: relative;
+      width: 100%; background: #edede1;
       color: #72907a; font-size: 2.4rem; font-weight: 700; letter-spacing: -.08em; overflow: hidden; }
     .card-art::after { content: ""; position: absolute; width: 95px; height: 95px; right: -24px;
       top: -42px; border: 15px solid #ffffff52; border-radius: 50%; }
@@ -94,9 +94,6 @@
     .card:nth-child(3n + 3) .card-art { background: #e5ece6; color: #718d78; }
     .card-art img { width: 100%; height: 100%; object-fit: cover; object-position: center top;
       position: absolute; inset: 0; display: block; }
-    .card-art .photo-label { position: absolute; bottom: 5px; right: 7px; z-index: 1;
-      background: #fffdf9eb; color: #354539; border-radius: 6px; padding: 2px 6px;
-      font-size: .6rem; font-weight: 700; letter-spacing: 0; }
     .card-body { display: block; padding: 16px; }
     .card-title { display: block; font-weight: 750; line-height: 1.22; font-size: 1.05rem; }
     .card-sub { display: block; color: #69766b; font-size: .77rem; margin-top: 9px; }
@@ -172,12 +169,10 @@
       .grid, .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
       .category-pickers { grid-template-columns: 1fr; gap: 12px; }
       .category-card { min-height: 150px; flex-direction: row; align-items: center; gap: 18px; padding: 18px; }
-      .category-illustration { right: 42px; top: 12px; width: 124px; height: 110px; opacity: .92; }
-      .category-info { z-index: 2; }
-      .category-sprig { top: -23px; right: 12px; width: 105px; height: 105px; opacity: .46; }
-      .category-info { flex: 1; }
+      .category-illustration { right: 12px; bottom: 2px; width: 124px; height: 110px; }
+      .category-info { flex: 1; max-width: calc(100% - 120px); }
       .card { min-height: 185px; }
-      .card-art { height: 110px; }
+      .card-art { flex-basis: 110px; }
       .recipe-layout { grid-template-columns: 1fr;
         grid-template-areas: "head" "ingredients" "steps"; gap: 24px; }
       .recipe-head { grid-template-columns: 1fr; }
@@ -204,71 +199,6 @@
     </header>
     <main id="app"><p class="intro muted" role="status">Getting the kitchen ready...</p></main>
   </div>
-  <template id="category-sprig">
-    <svg class="category-sprig" viewBox="0 0 120 120" aria-hidden="true">
-      <path d="M28 109C61 80 61 43 82 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-      <path d="M46 89C20 89 15 73 19 59c18 1 28 11 27 30M56 68C82 68 91 54 90 41 70 41 59 50 56 68M67 47C46 42 43 29 47 16c15 3 23 13 20 31M79 24c3-14 13-20 25-19-2 15-11 23-25 19"
-        fill="currentColor" opacity=".82"/>
-    </svg>
-  </template>
-  <template id="category-illustrations">
-    <svg class="category-illustration" viewBox="0 0 160 130" aria-hidden="true">
-      <ellipse cx="79" cy="119" rx="48" ry="6" fill="#526a4830"/>
-      <path d="M47 111c-8-15-3-37 13-46 15-9 38-5 47 10l5 36Z" fill="#a66f4f" stroke="#80513e" stroke-width="3"/>
-      <circle cx="55" cy="47" r="16" fill="#a66f4f" stroke="#80513e" stroke-width="3"/>
-      <circle cx="101" cy="45" r="16" fill="#a66f4f" stroke="#80513e" stroke-width="3"/>
-      <circle cx="55" cy="47" r="8" fill="#e2b6a0"/><circle cx="101" cy="45" r="8" fill="#e2b6a0"/>
-      <ellipse cx="79" cy="58" rx="35" ry="32" fill="#bd8964" stroke="#80513e" stroke-width="3"/>
-      <ellipse cx="79" cy="70" rx="23" ry="17" fill="#f3dfc2"/>
-      <ellipse cx="66" cy="55" rx="3.5" ry="5" fill="#392f2a"/><ellipse cx="92" cy="55" rx="3.5" ry="5" fill="#392f2a"/>
-      <ellipse cx="79" cy="67" rx="5" ry="4" fill="#533c36"/>
-      <path d="M75 76q4 4 8 0" fill="none" stroke="#80513e" stroke-width="2" stroke-linecap="round"/>
-      <path d="M101 82c8-5 17-2 20 6l-17 25c-6-1-10-6-9-12Z" fill="#bd8964" stroke="#80513e" stroke-width="3"/>
-      <path d="m112 91 27 13-24 11-13-7Z" fill="#e88743" stroke="#b65d37" stroke-width="2"/>
-      <path d="M137 104c5-11 11-12 16-11-2 7-7 12-16 11m-2 0c-2-9 0-14 5-17 4 7 3 12-5 17" fill="#6f9962"/>
-      <circle cx="91" cy="73" r="2.3" fill="#d78169"/>
-    </svg>
-    <svg class="category-illustration" viewBox="0 0 160 130" aria-hidden="true">
-      <ellipse cx="83" cy="119" rx="50" ry="6" fill="#526a4830"/>
-      <path d="M37 86c-12-8-18-2-20 8 9 10 19 8 27-1m78-7c13-8 19-1 20 9-9 9-18 7-26-2" fill="#78a36d" stroke="#527d56" stroke-width="3"/>
-      <path d="M49 84c-4-24 11-44 37-45 26-1 43 19 38 45-4 21-20 29-39 29-19 0-32-9-36-29Z" fill="#769b64" stroke="#4f754e" stroke-width="4"/>
-      <path d="M57 78c6-18 21-27 34-26 16 1 27 12 31 27-9 15-20 22-34 22-13 0-24-7-31-23Z" fill="#c48a58" stroke="#805d43" stroke-width="3"/>
-      <path d="M76 59v39m16-40v41m-31-22h59" stroke="#e2b883" stroke-width="3" opacity=".9"/>
-      <path d="M111 67c11-3 21 2 22 12 1 12-9 18-20 14l-10-8Z" fill="#83aa70" stroke="#527d56" stroke-width="3"/>
-      <circle cx="126" cy="75" r="2.5" fill="#26332c"/>
-      <path d="M129 85q6 2 9-2" fill="none" stroke="#4f754e" stroke-width="2"/>
-      <path d="M136 81c8-8 15-7 19-3-5 7-11 9-19 3m-2 0c-2-8 1-13 6-15 4 7 2 12-6 15" fill="#97b96f"/>
-      <path d="M49 109c-2 5 0 9 7 9m57-9c2 5 0 9-7 9" fill="none" stroke="#4f754e" stroke-width="5" stroke-linecap="round"/>
-      <circle cx="135" cy="76" r="1.5" fill="#e0ac6e"/>
-    </svg>
-    <svg class="category-illustration" viewBox="0 0 160 130" aria-hidden="true">
-      <ellipse cx="81" cy="119" rx="48" ry="6" fill="#526a4830"/>
-      <circle cx="48" cy="52" r="25" fill="#9a9d99" stroke="#6f7774" stroke-width="3"/>
-      <circle cx="112" cy="52" r="25" fill="#9a9d99" stroke="#6f7774" stroke-width="3"/>
-      <circle cx="48" cy="52" r="13" fill="#d99383"/><circle cx="112" cy="52" r="13" fill="#d99383"/>
-      <path d="M48 112c-9-19-4-42 11-54 13-11 38-11 51 0 15 12 19 35 10 54Z" fill="#9a9d99" stroke="#6f7774" stroke-width="3"/>
-      <ellipse cx="84" cy="67" rx="35" ry="31" fill="#b9b9b0"/>
-      <ellipse cx="84" cy="78" rx="24" ry="17" fill="#eee7d9"/>
-      <ellipse cx="71" cy="66" rx="3.5" ry="5" fill="#333c39"/><ellipse cx="97" cy="66" rx="3.5" ry="5" fill="#333c39"/>
-      <ellipse cx="84" cy="78" rx="8" ry="6" fill="#343c3b"/>
-      <path d="M80 87q4 4 8 0" fill="none" stroke="#6f7774" stroke-width="2" stroke-linecap="round"/>
-      <path d="M106 91c8-5 15-2 18 5l-12 18c-7 0-12-5-10-11Z" fill="#9a9d99" stroke="#6f7774" stroke-width="3"/>
-      <path d="M120 98c-5-15 0-24 8-29 9 9 8 19-8 29Z" fill="#7b9e68" stroke="#527d56" stroke-width="2"/>
-      <path d="M120 98c6-12 11-18 17-22" fill="none" stroke="#d7dfac" stroke-width="2"/>
-      <circle cx="100" cy="82" r="2.4" fill="#db927f"/>
-    </svg>
-    <svg class="category-illustration" viewBox="0 0 160 130" aria-hidden="true">
-      <ellipse cx="82" cy="119" rx="51" ry="6" fill="#526a4830"/>
-      <path d="M43 73 17 52c-4 19 1 36 20 42m82-22 25-20c5 20 0 36-19 43" fill="#d8864c" stroke="#a9553d" stroke-width="3" stroke-linejoin="round"/>
-      <path d="M43 66c14-23 54-29 78-10 14 11 14 34-1 47-19 16-61 15-79-2-11-10-10-24 2-35Z" fill="#e9a45f" stroke="#a9553d" stroke-width="3"/>
-      <path d="M69 54c8-12 20-14 28-8l-9 16m-22 33c-8 10-6 16 1 20 8-6 10-12 4-20" fill="#d18450" stroke="#a9553d" stroke-width="3"/>
-      <path d="M57 67c5-8 12-8 17 0-4 8-12 9-17 0m25-4c5-8 13-7 17 1-5 8-12 8-17-1m19 14c5-7 12-5 14 3-5 6-11 5-14-3" fill="none" stroke="#c97845" stroke-width="3"/>
-      <circle cx="109" cy="57" r="4.5" fill="#fff7df"/><circle cx="110" cy="57" r="2.2" fill="#26332c"/>
-      <path d="M132 68q11 4 2 9m-4-11-6-3" fill="none" stroke="#a9553d" stroke-width="2.5" stroke-linecap="round"/>
-      <path d="M135 59c3-6 8-8 13-7-1 6-5 9-13 7m-1 1c-5-5-5-10-2-14 5 4 6 8 2 14" fill="#78a36d"/>
-      <circle cx="133" cy="77" r="3" fill="#fff4d5"/>
-    </svg>
-  </template>
   <script type="module">
     const app = document.querySelector('#app');
     const status = document.querySelector('#storage-status');
@@ -302,6 +232,12 @@
       return parts.length ? parts.join('  ·  ') : 'Time not specified';
     };
     const alphabetical = (a, b) => a.title.localeCompare(b.title);
+    const categoryArtwork = {
+      'Dessert and snacks': 'images/category-dessert-and-snacks.webp',
+      Dinner: 'images/category-dinner.webp',
+      Soups: 'images/category-soups.webp',
+      'Small dishes and sides': 'images/category-small-dishes-and-sides.webp'
+    };
 
     // Replace this adapter alone to use a shared usage backend later.
     class UsageStore {
@@ -439,23 +375,29 @@
         image.src = recipe.image;
         image.alt = '';
         image.loading = 'lazy';
-        const label = element('span', 'photo-label', 'Representative');
-        image.addEventListener('error', () => { image.remove(); label.remove(); art.classList.remove('has-photo'); });
-        art.append(image, label);
+        image.addEventListener('error', () => { image.remove(); art.classList.remove('has-photo'); });
+        art.append(image);
       }
       append(node, art, append(element('span', 'card-body'),
         element('span', 'card-title', recipe.title),
         element('span', 'card-sub', `${timeDescription(recipe)}  ·  ${recipe.category}`)));
       return node;
     }
-    function categoryPicker(category, index) {
+    function categoryPicker(category) {
       const recipes = data.recipes.filter((recipe) => recipe.category === category);
       const node = button('', 'category-card', () => renderCategory(category));
       node.setAttribute('aria-label', `Browse ${category}, ${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'}`);
-      const illustrations = document.querySelector('#category-illustrations').content.children;
-      append(node, document.querySelector('#category-sprig').content.firstElementChild.cloneNode(true),
-        illustrations[index % illustrations.length].cloneNode(true),
-        append(element('span', 'category-info'),
+      const artworkPath = categoryArtwork[category];
+      const artwork = artworkPath
+        ? element('img', 'category-illustration')
+        : element('span', 'category-initial', category.charAt(0).toUpperCase());
+      if (artworkPath) {
+        artwork.src = artworkPath;
+        artwork.alt = '';
+        artwork.setAttribute('aria-hidden', 'true');
+        artwork.loading = 'lazy';
+      }
+      append(node, artwork, append(element('span', 'category-info'),
           append(element('span'), element('span', 'category-title', category),
             element('span', 'category-count', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'}`)),
           element('span', 'category-arrow', '↗')));

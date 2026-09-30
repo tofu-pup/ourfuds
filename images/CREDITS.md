@@ -1,8 +1,8 @@
 # Local recipe photo credits
 
-These photos are **representative**, not photographs of the corresponding recipes. The original photographer and license for each Wikimedia Commons source are listed below. The local `.webp` files were resized to fit within 960 × 720 pixels, transcoded from Wikimedia JPEG thumbnails, and stripped of metadata; no other visual changes were made. Each file retains its source license; these credits do not imply endorsement by the photographers. Original category SVG illustrations in `index.html` are part of this app.
+These photos are **representative**, not photographs of the corresponding recipes. The original photographer and license for each Wikimedia Commons source are listed below. The local `.webp` files were resized to fit within 960 × 720 pixels, transcoded from Wikimedia JPEG thumbnails, and stripped of metadata; no other visual changes were made. Each file retains its source license; these credits do not imply endorsement by the photographers.
 
-The `markiewicz-family-*.webp` header logos were supplied by the user for this family app and are used with the user's permission. Each is cropped to its visible artwork and optimized as a transparent WebP.
+The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations were supplied by the user for this family app and are used with the user's permission. Each is cropped to its visible artwork and optimized as a transparent WebP.
 
 | Local photo | Source / photographer | License |
 | --- | --- | --- |
@@ -12,6 +12,10 @@ The `markiewicz-family-*.webp` header logos were supplied by the user for this f
 | `markiewicz-family-carp.webp` | Markiewicz family logo with carp, supplied by the user | Used with user permission |
 | `markiewicz-family-bonus.webp` | Bonus Markiewicz logo with a koala wrestling a carp, supplied by the user | Used with user permission |
 | `markiewicz-family-kiss.webp` | Markiewicz family logo with a marmot and turtle sharing a kiss, supplied by the user | Used with user permission |
+| `category-dessert-and-snacks.webp` | Crop of the supplied family category illustration featuring a carp and treats | Used with user permission |
+| `category-dinner.webp` | Crop of the supplied family category illustration featuring a turtle and dinner | Used with user permission |
+| `category-soups.webp` | Crop of the supplied family category illustration featuring a marmot and soup | Used with user permission |
+| `category-small-dishes-and-sides.webp` | Crop of the supplied family category illustration featuring a koala and side dishes | Used with user permission |
 | `glowing-spiced-lentil-soup.webp` | [Bowl of lentil soup with green and red lentils](https://commons.wikimedia.org/wiki/File:Bowl_of_lentil_soup_with_green_and_red_lentils.jpg), Whoisjohngalt | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | `tofu-bacon-bits.webp` | [Japanese SilkyTofu (Kinugoshi Tofu)](https://commons.wikimedia.org/wiki/File:Japanese_SilkyTofu_(Kinugoshi_Tofu).JPG), DryPot | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
 | `go-to-neapolitan-pizza-dough.webp` | [Easy Vegan Pizza Dough](https://commons.wikimedia.org/wiki/File:Easy_Vegan_Pizza_Dough_(5753147144).jpg), Veganbaking.net | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) |

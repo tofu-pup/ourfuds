@@ -13,8 +13,8 @@ Our family cookbook for the kitchen display: mostly whole-food, plant-based reci
 
 ## What the app does
 
-- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most cooked, then alphabetical) — then **Explore the cookbook**, with four family-animal food illustrations for the categories in `recipes.json` order. A **See all recipes** button at the bottom opens the complete catalogue alphabetically.
-- **Categories**: Dessert and snacks (Mom's marmot), Dinner (Dad's turtle), Soups (Lily's koala), and Small dishes and sides (Nora's carp). Each cartoon animal is shown enjoying food; the illustrations are inline SVG and need no external assets.
+- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most cooked, then alphabetical) — then **Explore the cookbook**, with a custom family-art image for each of the four categories. A **See all recipes** button at the bottom opens the complete catalogue alphabetically.
+- **Categories**: Dessert and snacks (Nora's carp), Dinner (Dad's turtle), Soups (Mom's marmot), and Small dishes and sides (Lily's koala). Their transparent illustrations are cropped from the family's supplied 2×2 image.
 - **Category page**: that category's recipes ordered by usage count (most cooked first, alphabetical for ties). Pinned status only affects the Home **On repeat** row. Empty categories open with a friendly empty state.
 - **All recipes**: every recipe in alphabetical title order, independent of category and usage count.
 - **Recipe page**: title, photo hero, instructions and notes in the main column, with the checkable ingredients aligned at the top in a right-hand sidebar. On narrow screens it stacks as title/photo, ingredients, then instructions. Ingredients reset each time the recipe is opened. **1x / 1.5x / 2x** batch buttons and a serving +/- control (when the yield is an exact number) rescale numeric quantities.
@@ -62,7 +62,7 @@ The catalogue contains only family recipes and requested linked recipes, with no
 
 ## Photos and credits
 
-Most bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). Each is labeled and captioned accurately. The banana macaroon photo was supplied by the user, who confirmed permission to reproduce it; it retains its Nest & Glow attribution. Creators, sources, permissions, licenses and image processing are listed in [`images/CREDITS.md`](images/CREDITS.md).
+Most bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). Recipe cards no longer show a representative badge; photo captions remain on the recipe page. The banana macaroon photo was supplied by the user, who confirmed permission to reproduce it; it retains its Nest & Glow attribution. Creators, sources, permissions, licenses and image processing are listed in [`images/CREDITS.md`](images/CREDITS.md).
 
 To use your own photo: save it under `images/` (landscape, roughly 960 px wide; WebP or JPEG), point the recipe's `image` at it, update `imageAlt` and `imageCaption` to describe it, and update or remove its row in `CREDITS.md`. If you delete a photo that is no longer used, delete its credit too. Only add images you took yourself or whose license allows reuse, and credit them as that license requires. Do not hotlink external images.
 
