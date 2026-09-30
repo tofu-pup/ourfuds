@@ -6,16 +6,16 @@ Our family cookbook for the kitchen display: mostly whole-food, plant-based reci
 | --- | --- |
 | `index.html` | The whole app (markup, styles, script and inline SVG illustrations). |
 | `recipes.json` | Categories and recipes — the only file you edit to add a recipe. |
-| `usage.json` | Optional committed snapshot of open counts. |
+| `usage.json` | Optional committed snapshot of cooking-use counts. |
 | `images/` | Local recipe photos plus [`CREDITS.md`](images/CREDITS.md) (sources and licenses). |
 | `schema/recipes.schema.json`, `scripts/validate-data.mjs` | Data schema and the dependency-free validator. |
 | `.github/workflows/validate-data.yml` | Runs the validator on every push. |
 
 ## What the app does
 
-- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most opened, then alphabetical) — then **Explore the cookbook**, one illustrated picker per category in `recipes.json` order. Each picker shows a distinct botanical food illustration (assigned by position; the six designs repeat if you add more categories) and its recipe count.
+- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most cooked, then alphabetical) — then **Explore the cookbook**, one illustrated picker per category in `recipes.json` order. Each picker shows a distinct botanical food illustration (assigned by position; the six designs repeat if you add more categories) and its recipe count.
 - **Category page**: that category's recipes in the same pinned/usage/alphabetical order, with a **← Home** button. Empty categories open with a friendly empty state.
-- **Recipe page**: photo hero with visible caption, times and yield, checkable ingredients (reset each time the recipe is opened), **1x / 1.5x / 2x** batch buttons, a serving +/- control when the yield is an exact number, steps and notes. The back button returns to the category you came from, or Home if you opened the recipe from On repeat.
+- **Recipe page**: title, photo hero, instructions and notes in the main column, with the checkable ingredients aligned at the top in a right-hand sidebar. On narrow screens it stacks as title/photo, ingredients, then instructions. Ingredients reset each time the recipe is opened. **1x / 1.5x / 2x** batch buttons and a serving +/- control (when the yield is an exact number) rescale numeric quantities. The back button returns to the category you came from, or Home if you opened the recipe from On repeat.
 - **Cooking mode**: one step at a time in very large text with big Previous/Next buttons, and a screen wake-lock request (status shown; degrades gracefully if unsupported or blocked).
 - **Header**: a storage-status pill if counts cannot be saved, and **Export usage**. The footer links to the photo credits.
 
@@ -66,7 +66,7 @@ To use your own photo: save it under `images/` (landscape, roughly 960 px wide; 
 
 ## Usage tracking
 
-Opening a recipe increments its count. On repeat and each category list sort pinned first, then count descending, then title alphabetically, so a new device still shows a sensible, never-empty top row. `usage.json` is an optional committed object mapping recipe IDs to nonnegative integer counts, such as `{"brownie-kuler": 3}` (a missing file is allowed). On page load, the larger of the committed and locally stored counts wins per ID, so an old snapshot never reduces a local count. This is **not shared synchronization**: separate devices accumulate different counts; a committed snapshot is a manually updated baseline, not a live counter. IDs removed from the catalogue are ignored by the app and rejected in the committed snapshot by CI.
+Opening a recipe does not increment its count. The count increases once per recipe opening when the first ingredient is checked, so browsing does not look like cooking; checking more ingredients, or unchecking and rechecking them, does not add more counts during that opening. On repeat and each category list sort pinned first, then count descending, then title alphabetically, so a new device still shows a sensible, never-empty top row. `usage.json` is an optional committed object mapping recipe IDs to nonnegative integer counts, such as `{"brownie-kuler": 3}` (a missing file is allowed). On page load, the larger of the committed and locally stored counts wins per ID, so an old snapshot never reduces a local count. This is **not shared synchronization**: separate devices accumulate different counts; a committed snapshot is a manually updated baseline, not a live counter. IDs removed from the catalogue are ignored by the app and rejected in the committed snapshot by CI.
 
 **Export usage** shows JSON ready to paste into `usage.json` or download as that file; commit it to preserve the snapshot. Export does not commit or upload automatically. The isolated `UsageStore` in `index.html` provides `get`, `increment`, `getMostUsed` and `export`; replace its storage implementation when introducing an authenticated shared backend, without changing recipe rendering. Do not expose a write-capable unauthenticated endpoint merely because Pages is public.
 
@@ -121,6 +121,6 @@ Desktop tests cannot prove how a Cast receiver treats this page, so verify on th
 
 1. Cast the live URL with `force: true`. The home screen, photos and category illustrations render inside the receiver, and touch works (On repeat → recipe → back; category → recipe → back → Home; ingredient checks; 1.5x; cooking mode Next/Previous).
 2. Look at the header: no storage pill means the localStorage probe succeeded. A "Storage unavailable" pill means counts last only for the current visit.
-3. Open one recipe two or three times, then tap **Export usage** and note its count.
+3. Open a recipe, check at least one ingredient, then tap **Export usage** and note its count. Reopen the recipe and check an ingredient again to confirm each actual cooking session adds one.
 4. Recast (or wait for a DashCast reload) and export again. The same or a higher count means persistence works; a reset means the receiver clears storage — rely on committed `usage.json` exports or a shared backend instead.
 5. In cooking mode, note whether the wake-lock status says the screen will stay on.

@@ -112,7 +112,11 @@
     footer { padding: 25px 0; border-top: 1px solid #e7e1d6; font-size: .78rem; }
     footer a { color: #47604e; text-underline-offset: 3px; }
     .back { margin: 30px 0 20px; }
-    .recipe-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 36%);
+    .recipe-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
+      grid-template-areas: "head ingredients" "steps ingredients";
+      gap: 30px clamp(28px, 4vw, 58px); align-items: start; }
+    .recipe-head { grid-area: head; display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 42%);
       gap: 28px; align-items: stretch; }
     .recipe-head .copy { padding: 20px 0; }
     .recipe-head h1 { margin-bottom: 18px; }
@@ -125,8 +129,8 @@
     .hero-art img { width: 100%; height: 260px; object-fit: cover; }
     .hero-art figcaption { width: 100%; padding: 8px 13px; font-size: .7rem;
       line-height: 1.3; color: #354539; background: #f4efe6; }
-    .columns { display: grid; grid-template-columns: minmax(290px, .82fr) minmax(0, 1.18fr);
-      gap: clamp(28px, 5vw, 78px); margin-top: 38px; align-items: start; }
+    .ingredients-sidebar { grid-area: ingredients; }
+    .recipe-steps { grid-area: steps; }
     .panel { background: #fffefa; border: 1px solid #e9e4d9; border-radius: 24px; padding: clamp(20px, 2.5vw, 32px); }
     .panel h2 { margin-bottom: 20px; }
     .servings { display: flex; align-items: center; gap: 13px; flex-wrap: wrap;
@@ -187,7 +191,9 @@
       .category-info { flex: 1; }
       .card { min-height: 185px; }
       .card-art { height: 110px; }
-      .recipe-head, .columns { grid-template-columns: 1fr; }
+      .recipe-layout { grid-template-columns: 1fr;
+        grid-template-areas: "head" "ingredients" "steps"; gap: 24px; }
+      .recipe-head { grid-template-columns: 1fr; }
       .hero-art { min-height: 170px; }
       .hero-art img { height: 220px; }
       .cook { min-height: calc(100dvh - 140px); }
@@ -381,6 +387,7 @@
     let checked = new Set();
     let servings = 1;
     let scale = 1;
+    let usageCounted = false;
     let step = 0;
     let wakeLock = null;
     let wakePending = false;
@@ -478,7 +485,7 @@
         document.querySelector('#garden-illustration').content.firstElementChild.cloneNode(true));
       page.append(intro);
       const favorites = element('section', 'section');
-      favorites.append(heading('On repeat', 'Pinned first · then most opened'));
+      favorites.append(heading('On repeat', 'Pinned first · then most cooked'));
       const featured = store.getMostUsed(data.recipes);
       if (featured.length) favorites.append(append(element('div', 'grid featured-grid'), ...featured.map(card)));
       else favorites.append(element('p', 'empty', 'The cookbook is waiting for its first recipe.'));
@@ -500,7 +507,7 @@
       page.append(button('← Home', 'back', renderHome));
       append(page, append(element('div', 'intro'), element('span', 'eyebrow', 'The family cookbook'),
         element('h1', '', category),
-        element('p', 'muted', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'} · Pinned first, then most opened`)));
+        element('p', 'muted', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'} · Pinned first, then most cooked`)));
       if (recipes.length) {
         page.append(append(element('div', 'grid'), ...store.getMostUsed(recipes, recipes.length).map(card)));
       } else page.append(element('p', 'empty', 'Nothing here yet. A good excuse to make something new.'));
@@ -513,8 +520,7 @@
       checked = new Set();
       servings = Number.isInteger(recipe.servings) ? recipe.servings : null;
       scale = 1;
-      store.increment(recipe.id);
-      showStatus();
+      usageCounted = false;
       renderRecipe();
       window.scrollTo(0, 0);
     }
@@ -571,8 +577,8 @@
         art.replaceChildren(image, element('figcaption', '', recipe.imageCaption || 'Representative photo'));
       }
       append(head, copy, art);
-      const columns = element('div', 'columns');
-      const ingredientsPanel = element('section', 'panel');
+      const layout = element('div', 'recipe-layout');
+      const ingredientsPanel = element('aside', 'panel ingredients-sidebar');
       ingredientsPanel.append(element('h2', '', 'Ingredients'));
       const controls = element('div', 'servings');
       if (servings !== null) {
@@ -618,7 +624,14 @@
         const label = ingredientLabel(ingredient);
         const toggle = button('', 'ingredient', () => {
           if (checked.has(index)) checked.delete(index);
-          else checked.add(index);
+          else {
+            checked.add(index);
+            if (!usageCounted) {
+              store.increment(recipe.id);
+              usageCounted = true;
+              showStatus();
+            }
+          }
           toggle.setAttribute('aria-pressed', String(checked.has(index)));
           toggle.setAttribute('aria-label', `${checked.has(index) ? 'Uncheck' : 'Check'} ${label}`);
           toggle.querySelector('.check').textContent = checked.has(index) ? '✓' : '';
@@ -631,7 +644,7 @@
         list.append(item);
       });
       ingredientsPanel.append(list);
-      const stepsPanel = element('section');
+      const stepsPanel = element('section', 'recipe-steps');
       stepsPanel.append(element('h2', '', 'Let’s make it'));
       const steps = element('ol', 'step-list');
       recipe.steps.forEach((text) => steps.append(element('li', '', text)));
@@ -639,8 +652,8 @@
       stepsPanel.append(steps, startButton);
       if (recipe.notes) append(stepsPanel, append(element('p', 'note'),
         element('strong', '', 'A little note  '), document.createTextNode(recipe.notes)));
-      append(columns, ingredientsPanel, stepsPanel);
-      append(page, head, columns);
+      append(layout, head, stepsPanel, ingredientsPanel);
+      page.append(layout);
       app.replaceChildren(page);
     }
     async function requestWakeLock() {
