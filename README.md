@@ -7,7 +7,7 @@ Our family cookbook for the kitchen display: mostly whole-food, plant-based reci
 | `index.html` | The whole app (markup, styles, script and inline SVG illustrations). |
 | `recipes.json` | Categories and recipes — the only file you edit to add a recipe. |
 | `usage.json` | Optional committed snapshot of cooking-use counts. |
-| `images/` | Local recipe photos, the four family-animal header logos, and [`CREDITS.md`](images/CREDITS.md) (sources and licenses). |
+| `images/` | Local recipe photos, family-animal header logos, and [`CREDITS.md`](images/CREDITS.md) (sources and licenses). |
 | `schema/recipes.schema.json`, `scripts/validate-data.mjs` | Data schema and the dependency-free validator. |
 | `.github/workflows/validate-data.yml` | Runs the validator on every push. |
 
@@ -19,7 +19,7 @@ Our family cookbook for the kitchen display: mostly whole-food, plant-based reci
 - **All recipes**: every recipe in alphabetical title order, independent of category and usage count.
 - **Recipe page**: title, photo hero, instructions and notes in the main column, with the checkable ingredients aligned at the top in a right-hand sidebar. On narrow screens it stacks as title/photo, ingredients, then instructions. Ingredients reset each time the recipe is opened. **1x / 1.5x / 2x** batch buttons and a serving +/- control (when the yield is an exact number) rescale numeric quantities.
 - **Cooking mode**: one step at a time in very large text with big Previous/Next buttons, and a screen wake-lock request (status shown; degrades gracefully if unsupported or blocked).
-- **Header**: the **#ourfuds** logo always returns Home, with a randomly selected marmot, turtle, koala, or carp version of the Markiewicz family logo on the right each time the app loads. A back arrow appears beside #ourfuds away from Home and steps back through cooking mode, recipe and category views. A storage-status pill appears if counts cannot be saved.
+- **Header**: the **#ourfuds** logo always returns Home, with a randomly selected marmot, turtle, koala, carp, or bonus koala-wrestling-a-carp version of the Markiewicz family logo on the right each time the app loads. A back arrow appears beside #ourfuds away from Home and steps back through cooking mode, recipe and category views. A storage-status pill appears if counts cannot be saved.
 
 ## Publish with GitHub Pages
 
