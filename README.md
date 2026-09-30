@@ -54,7 +54,7 @@ The complete data shape is in [`schema/recipes.schema.json`](schema/recipes.sche
 | `notes` | string | Use `""` if none. |
 | `image` | string | `""` for no photo (the card shows the recipe's initial letter), or a relative `images/…` path without `..`. A photo that fails to load falls back to the letter. |
 | `imageAlt` | string, optional | Describe what the photo actually shows; required by validation when `image` is set. |
-| `imageCaption` | string, optional | Visible caption identifying representative photos; required by validation when `image` is set. |
+| `imageCaption` | string, optional | Internal photo context retained with the recipe data; required by validation when `image` is set but not displayed in the app. |
 
 All recipe fields are required so scripts and iOS Shortcuts can append a predictable object; unknown values use the explicit representations above. Additional fields are rejected. Copy the shape of an existing entry in `recipes.json` and replace its ID and content.
 
@@ -62,7 +62,7 @@ The catalogue contains only family recipes and requested linked recipes, with no
 
 ## Photos and credits
 
-Most bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). Recipe cards no longer show a representative badge; photo captions remain on the recipe page. The banana macaroon photo was supplied by the user, who confirmed permission to reproduce it; it retains its Nest & Glow attribution. Creators, sources, permissions, licenses and image processing are listed in [`images/CREDITS.md`](images/CREDITS.md).
+Most bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). The app uses them decoratively without badges or captions. The banana macaroon photo was supplied by the user, who confirmed permission to reproduce it; its attribution remains recorded in the recipe data and image credits. Creators, sources, permissions, licenses and image processing are listed in [`images/CREDITS.md`](images/CREDITS.md).
 
 To use your own photo: save it under `images/` (landscape, roughly 960 px wide; WebP or JPEG), point the recipe's `image` at it, update `imageAlt` and `imageCaption` to describe it, and update or remove its row in `CREDITS.md`. If you delete a photo that is no longer used, delete its credit too. Only add images you took yourself or whose license allows reuse, and credit them as that license requires. Do not hotlink external images.
 

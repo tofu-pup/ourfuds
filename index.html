@@ -103,20 +103,19 @@
     .recipe-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
       grid-template-areas: "head ingredients" "steps ingredients";
       gap: 30px clamp(28px, 4vw, 58px); align-items: start; }
-    .recipe-head { grid-area: head; display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(220px, 42%);
-      gap: 28px; align-items: stretch; }
-    .recipe-head .copy { padding: 20px 0; }
+    .recipe-head { grid-area: head; position: relative; min-height: 220px;
+      overflow: hidden; }
+    .recipe-head .copy { position: relative; z-index: 1; width: min(70%, 620px); padding: 28px 0; }
     .recipe-head h1 { margin-bottom: 18px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
     .tag { border-radius: 100px; background: #ecf0e6; padding: 5px 12px;
       color: #47604e; font-size: .8rem; font-weight: 650; }
-    .hero-art { margin: 0; min-height: 220px; border-radius: 24px; background: #e6ece0;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      font-size: 5rem; color: #718a6f; overflow: hidden; }
-    .hero-art img { width: 100%; height: 260px; object-fit: cover; }
-    .hero-art figcaption { width: 100%; padding: 8px 13px; font-size: .7rem;
-      line-height: 1.3; color: #354539; background: #f4efe6; }
+    .hero-art { position: absolute; inset: 0 0 0 auto; width: 58%; margin: 0;
+      pointer-events: none; }
+    .hero-art img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: .56;
+      mask-image: linear-gradient(to right, transparent 1%, #000 62%),
+        linear-gradient(to bottom, transparent 0, #000 14%, #000 72%, transparent 100%);
+      mask-composite: intersect; }
     .ingredients-sidebar { grid-area: ingredients; }
     .recipe-steps { grid-area: steps; }
     .panel { background: #fffefa; border: 1px solid #e9e4d9; border-radius: 24px; padding: clamp(20px, 2.5vw, 32px); }
@@ -174,9 +173,9 @@
       .card-art { flex-basis: 110px; }
       .recipe-layout { grid-template-columns: 1fr;
         grid-template-areas: "head" "ingredients" "steps"; gap: 24px; }
-      .recipe-head { grid-template-columns: 1fr; }
-      .hero-art { min-height: 170px; }
-      .hero-art img { height: 220px; }
+      .recipe-head { min-height: 200px; }
+      .recipe-head .copy { width: 72%; padding: 20px 0; }
+      .hero-art { width: 62%; }
       .cook { min-height: calc(100dvh - 140px); }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -366,7 +365,7 @@
     }
     function card(recipe) {
       const node = button('', 'card', () => openRecipe(recipe));
-      node.setAttribute('aria-label', `Open ${recipe.title}${recipe.imageCaption ? `. ${recipe.imageCaption}` : ''}`);
+      node.setAttribute('aria-label', `Open ${recipe.title}`);
       const art = element('span', 'card-art', recipe.title.charAt(0).toUpperCase());
       if (recipe.image) {
         const image = element('img');
@@ -509,15 +508,16 @@
       append(copy, element('span', 'eyebrow', recipe.category), element('h1', '', recipe.title),
         element('p', 'muted', timeDescription(recipe)));
       append(copy, append(element('div', 'tags'), ...recipe.tags.map((tag) => element('span', 'tag', tag))));
-      const art = element('figure', 'hero-art', recipe.title.charAt(0).toUpperCase());
+      const art = element('figure', 'hero-art');
       if (recipe.image) {
         const image = element('img');
         image.src = recipe.image;
         image.alt = recipe.imageAlt || recipe.title;
-        image.addEventListener('error', () => art.replaceChildren(document.createTextNode(recipe.title.charAt(0).toUpperCase())));
-        art.replaceChildren(image, element('figcaption', '', recipe.imageCaption || 'Representative photo'));
+        image.addEventListener('error', () => art.remove());
+        art.append(image);
       }
-      append(head, copy, art);
+      append(head, copy);
+      if (recipe.image) head.append(art);
       const layout = element('div', 'recipe-layout');
       const ingredientsPanel = element('aside', 'panel ingredients-sidebar');
       ingredientsPanel.append(element('h2', '', 'Ingredients'));
