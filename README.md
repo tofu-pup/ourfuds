@@ -52,13 +52,14 @@ The complete data shape is in [`schema/recipes.schema.json`](schema/recipes.sche
 | `ingredients` | nonempty array of `{ "quantity", "unit", "item", "group"? }` | `quantity` is a nonnegative number or string, `unit` is a string (can be empty), `item` is nonempty. Optional nonempty `group` displays a heading when the group changes (e.g. `"Bunn"`). Numeric quantities, simple decimal/mixed/fraction strings and numeric ranges such as `"1-2"` scale; descriptive amounts and alternatives stay as written. Use `""` for an unmeasured ingredient. |
 | `steps` | nonempty array of nonempty strings | Displayed in order, one at a time in cooking mode. |
 | `notes` | string | Use `""` if none. |
+| `link` | string | Original recipe URL beginning with `https://`, or `""` when there is no source link. Displayed as a button below the recipe note. |
 | `image` | string | `""` for no photo (the card shows the recipe's initial letter), or a relative `images/…` path without `..`. A photo that fails to load falls back to the letter. |
 | `imageAlt` | string, optional | Describe what the photo actually shows; required by validation when `image` is set. |
 | `imageCaption` | string, optional | Internal photo context retained with the recipe data; required by validation when `image` is set but not displayed in the app. |
 
 All recipe fields are required so scripts and iOS Shortcuts can append a predictable object; unknown values use the explicit representations above. Additional fields are rejected. Copy the shape of an existing entry in `recipes.json` and replace its ID and content.
 
-The catalogue contains only family recipes and requested linked recipes, with no placeholder examples. Brownie kuler's yield and times were not supplied, so they are `null`; Health-nobs has an approximate yield and keeps its unclear source wording noted rather than guessing. Cashew kaker preserves its two ingredient groups and only the three provided instructions. Linked recipe methods are paraphrased and their source URLs are kept in notes.
+The catalogue contains only family recipes and requested linked recipes, with no placeholder examples. Brownie kuler's yield and times were not supplied, so they are `null`; Health-nobs has an approximate yield and keeps its unclear source wording noted rather than guessing. Cashew kaker preserves its two ingredient groups and only the three provided instructions. Linked recipe methods are paraphrased and their source URLs use the dedicated `link` field.
 
 ## Photos and credits
 

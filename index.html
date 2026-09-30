@@ -120,8 +120,8 @@
     .recipe-steps { grid-area: steps; }
     .panel { background: #fffefa; border: 1px solid #e9e4d9; border-radius: 24px; padding: clamp(20px, 2.5vw, 32px); }
     .panel h2 { margin-bottom: 20px; }
-    .servings { display: flex; align-items: center; gap: 13px; flex-wrap: wrap;
-      padding-bottom: 20px; border-bottom: 1px solid #eee9df; }
+    .scale-controls { padding-bottom: 20px; border-bottom: 1px solid #eee9df; }
+    .servings { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; }
     .servings button, .step-nav button { min-width: 48px; min-height: 48px; border: 1px solid #ded8cc;
       background: #fff; color: #26332c; border-radius: 12px; font-weight: 700; }
     .scale-choices { display: flex; gap: 8px; padding: 16px 0 4px; }
@@ -143,6 +143,10 @@
     .primary { min-height: 54px; border: 0; border-radius: 14px; background: #bd5a3d;
       color: #fff; padding: 12px 24px; font-weight: 750; }
     .note { background: #f4efe6; border-radius: 16px; padding: 18px; margin-top: 20px; }
+    .recipe-link { display: inline-flex; align-items: center; justify-content: center; min-height: 54px;
+      margin-top: 16px; border: 1px solid #d9dfd2; border-radius: 14px; background: #fffefa;
+      color: #47604e; padding: 12px 20px; font-weight: 750; text-decoration: none; }
+    .recipe-link:focus-visible { outline-offset: 4px; }
     .cook { min-height: calc(100vh - 170px); display: flex; flex-direction: column; }
     .cook .eyebrow { margin: 28px 0 12px; }
     .cook-step { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 990px; }
@@ -542,7 +546,8 @@
       } else {
         controls.append(element('span', 'muted', `Yield: ${recipe.servings ?? 'not specified'} · batch size ${scale}x`));
       }
-      ingredientsPanel.append(controls);
+      const scaleControls = element('div', 'scale-controls');
+      scaleControls.append(controls);
       const sizes = element('div', 'scale-choices');
       sizes.setAttribute('role', 'group');
       sizes.setAttribute('aria-label', 'Batch size');
@@ -555,7 +560,8 @@
         choice.setAttribute('aria-pressed', String(scale === factor));
         sizes.append(choice);
       }
-      ingredientsPanel.append(sizes);
+      scaleControls.append(sizes);
+      ingredientsPanel.append(scaleControls);
       const list = element('ul', 'ingredients');
       recipe.ingredients.forEach((ingredient, index) => {
         if (ingredient.group && ingredient.group !== recipe.ingredients[index - 1]?.group) {
@@ -593,6 +599,13 @@
       stepsPanel.append(steps, startButton);
       if (recipe.notes) append(stepsPanel, append(element('p', 'note'),
         element('strong', '', 'A little note  '), document.createTextNode(recipe.notes)));
+      if (recipe.link) {
+        const sourceLink = element('a', 'recipe-link', 'View original recipe ↗');
+        sourceLink.href = recipe.link;
+        sourceLink.target = '_blank';
+        sourceLink.rel = 'noopener noreferrer';
+        stepsPanel.append(sourceLink);
+      }
       append(layout, head, stepsPanel, ingredientsPanel);
       page.append(layout);
       app.replaceChildren(page);
