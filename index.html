@@ -35,6 +35,8 @@
     .brand { border: 0; background: none; color: #26332c; font-weight: 800; letter-spacing: -.07em;
       font-size: 1.7rem; padding: 10px 0; }
     .brand span { color: #cc6345; }
+    .family-logo { display: block; width: auto; height: 76px; max-width: min(44vw, 290px);
+      object-fit: contain; }
     .actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-wrap: wrap; }
     .status { font-size: .77rem; color: #874631; background: #fff0e7; padding: 7px 11px;
       border-radius: 100px; }
@@ -42,18 +44,6 @@
     main { animation: arrive .32s ease-out; }
     @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
     .intro { margin: 30px 0 22px; }
-    .home-intro { position: relative; display: flex; align-items: center; justify-content: space-between;
-      min-height: 82px; gap: 12px; margin: 18px 0 14px; padding: 5px clamp(20px, 3vw, 36px);
-      border-radius: 20px; background: #f1eddf; overflow: hidden; }
-    .home-intro::before { content: ""; position: absolute; width: 340px; height: 340px;
-      right: -85px; top: -105px; border-radius: 50%; background: #dfe8d5; opacity: .65; }
-    .home-copy { position: relative; z-index: 1; max-width: 730px; }
-    .home-copy p { margin-bottom: 0; }
-    .garden-art { position: relative; z-index: 1; flex: 0 0 60px; width: 60px;
-      height: 52px; filter: drop-shadow(0 6px 5px #405a3921); }
-    .home-intro .eyebrow { font-size: .64rem; }
-    .home-intro h1 { font-size: clamp(1.5rem, 2.2vw, 2rem); margin: 0; }
-    .home-intro p { margin: 0; font-size: .8rem; }
     .eyebrow { color: #a34e35; text-transform: uppercase; font-size: .72rem;
       font-weight: 800; letter-spacing: .15em; }
     h1, h2, h3, p { margin-top: 0; }
@@ -174,9 +164,11 @@
     @media (max-width: 650px) {
       :root { font-size: 16px; }
       header { min-height: 78px; }
-      .home-intro { min-height: 82px; padding: 5px 18px; }
-      .home-intro h1 { font-size: 1.45rem; }
-      .garden-art { display: none; }
+      .brand { font-size: clamp(1.15rem, 5.8vw, 1.45rem); }
+      .header-nav { gap: 6px; }
+      .header-back { width: 40px; height: 40px; }
+      .family-logo { height: 54px; max-width: min(38vw, 170px); }
+      .actions { gap: 8px; }
       .grid, .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
       .category-pickers { grid-template-columns: 1fr; gap: 12px; }
       .category-card { min-height: 150px; flex-direction: row; align-items: center; gap: 18px; padding: 18px; }
@@ -206,27 +198,13 @@
         <button class="brand" id="home-link" type="button" aria-label="ourfuds home"><span>#</span>ourfuds</button>
       </div>
       <div class="actions">
-        <span class="status" id="storage-status" role="status" hidden></span>
-      </div>
+          <img class="family-logo" src="images/markiewicz-family-cookbook.webp"
+            alt="The Markiewicz Family Cookbook, with a marmot nibbling the lettering">
+          <span class="status" id="storage-status" role="status" hidden></span>
+        </div>
     </header>
     <main id="app"><p class="intro muted" role="status">Getting the kitchen ready...</p></main>
   </div>
-  <template id="garden-illustration">
-    <svg class="garden-art" viewBox="0 0 220 190" aria-hidden="true">
-      <circle cx="111" cy="91" r="83" fill="#f9f4e7"/>
-      <path d="M43 109c19 47 115 68 145 0Z" fill="#b96548"/>
-      <path d="M43 109c17 20 129 22 145 0" fill="none" stroke="#8a493b" stroke-width="4" stroke-linecap="round"/>
-      <path d="M69 96c-15-13-10-29 1-30 13-1 20 19 17 31M101 96c-12-25-4-48 9-48 13 1 16 25 9 48M137 99c-3-16 10-34 22-29 14 7 1 26-9 33"
-        fill="#75936d" stroke="#557a5b" stroke-width="3" stroke-linejoin="round"/>
-      <path d="M72 93c-15-28-15-48-14-59M72 75c-18-2-22-11-22-19 13-1 20 5 22 19M71 65c4-16 12-21 22-20-1 12-8 19-22 20"
-        fill="#8ca878" stroke="#66865e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-      <path d="M169 103c10-33 17-51 32-63M178 79c-5-16-3-23 5-30 8 11 6 20-5 30M186 66c11-12 21-13 26-6-8 10-15 12-26 6"
-        fill="#a7b987" stroke="#698763" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-      <circle cx="115" cy="92" r="12" fill="#cf8c5c"/>
-      <circle cx="119" cy="88" r="4" fill="#f2bb77"/>
-      <path d="M116 82c-4-13-11-16-20-14 1 11 8 17 20 14" fill="#6e9366"/>
-    </svg>
-  </template>
   <template id="category-sprig">
     <svg class="category-sprig" viewBox="0 0 120 120" aria-hidden="true">
       <path d="M28 109C61 80 61 43 82 12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
@@ -480,12 +458,6 @@
       active = null;
       activeCategory = null;
       const page = element('div');
-      const intro = element('div', 'intro home-intro');
-      append(intro, append(element('div', 'home-copy'), element('span', 'eyebrow', 'The family cookbook'),
-        element('h1', '', 'What sounds good today?'),
-        element('p', 'muted', 'Explore the family cookbook.')),
-        document.querySelector('#garden-illustration').content.firstElementChild.cloneNode(true));
-      page.append(intro);
       const favorites = element('section', 'section');
       favorites.append(heading('On repeat'));
       const featured = store.getMostUsed(data.recipes);
