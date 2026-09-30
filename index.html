@@ -196,10 +196,9 @@
       <div class="header-nav">
         <button class="header-back" id="back-button" type="button" aria-label="Go back" hidden>←</button>
         <button class="brand" id="home-link" type="button" aria-label="ourfuds home"><span>#</span>ourfuds</button>
-      </div>
-      <div class="actions">
-          <img class="family-logo" src="images/markiewicz-family-cookbook.webp"
-            alt="The Markiewicz Family Cookbook, with a marmot nibbling the lettering">
+        </div>
+        <div class="actions">
+          <img class="family-logo" id="family-logo" alt="">
           <span class="status" id="storage-status" role="status" hidden></span>
         </div>
     </header>
@@ -274,6 +273,16 @@
     const app = document.querySelector('#app');
     const status = document.querySelector('#storage-status');
     const backButton = document.querySelector('#back-button');
+    const familyLogos = [
+      { file: 'marmot', animal: 'marmot' },
+      { file: 'turtle', animal: 'turtle' },
+      { file: 'koala', animal: 'koala' },
+      { file: 'carp', animal: 'carp' }
+    ];
+    const familyLogo = familyLogos[Math.floor(Math.random() * familyLogos.length)];
+    const familyLogoImage = document.querySelector('#family-logo');
+    familyLogoImage.src = `images/markiewicz-family-${familyLogo.file}.webp`;
+    familyLogoImage.alt = `The Markiewicz Family Cookbook, with a ${familyLogo.animal} nibbling the lettering`;
     const dataUrl = (name) => `${name}?v=${Date.now()}`;
     const element = (tag, className, text) => {
       const node = document.createElement(tag);
