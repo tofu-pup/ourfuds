@@ -210,7 +210,6 @@
       </div>
     </header>
     <main id="app"><p class="intro muted" role="status">Getting the kitchen ready...</p></main>
-    <footer><a href="images/CREDITS.md">Representative photo credits and licenses</a></footer>
   </div>
   <template id="garden-illustration">
     <svg class="garden-art" viewBox="0 0 220 190" aria-hidden="true">
@@ -437,7 +436,8 @@
     }
     function heading(title, subtitle) {
       const wrap = element('div', 'section-head');
-      append(wrap, element('h2', '', title), element('span', 'count', subtitle));
+      append(wrap, element('h2', '', title));
+      if (subtitle) wrap.append(element('span', 'count', subtitle));
       return wrap;
     }
     function card(recipe) {
@@ -487,7 +487,7 @@
         document.querySelector('#garden-illustration').content.firstElementChild.cloneNode(true));
       page.append(intro);
       const favorites = element('section', 'section');
-      favorites.append(heading('On repeat', 'Pinned first · then most cooked'));
+      favorites.append(heading('On repeat'));
       const featured = store.getMostUsed(data.recipes);
       if (featured.length) favorites.append(append(element('div', 'grid featured-grid'), ...featured.map(card)));
       else favorites.append(element('p', 'empty', 'The cookbook is waiting for its first recipe.'));

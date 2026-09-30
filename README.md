@@ -19,7 +19,7 @@ Our family cookbook for the kitchen display: mostly whole-food, plant-based reci
 - **All recipes**: every recipe in alphabetical title order, independent of category and usage count.
 - **Recipe page**: title, photo hero, instructions and notes in the main column, with the checkable ingredients aligned at the top in a right-hand sidebar. On narrow screens it stacks as title/photo, ingredients, then instructions. Ingredients reset each time the recipe is opened. **1x / 1.5x / 2x** batch buttons and a serving +/- control (when the yield is an exact number) rescale numeric quantities.
 - **Cooking mode**: one step at a time in very large text with big Previous/Next buttons, and a screen wake-lock request (status shown; degrades gracefully if unsupported or blocked).
-- **Header**: the **#ourfuds** logo always returns Home. A back arrow appears beside it away from Home and steps back through cooking mode, recipe and category views. A storage-status pill appears if counts cannot be saved. The footer links to the photo credits.
+- **Header**: the **#ourfuds** logo always returns Home. A back arrow appears beside it away from Home and steps back through cooking mode, recipe and category views. A storage-status pill appears if counts cannot be saved.
 
 ## Publish with GitHub Pages
 
@@ -62,7 +62,7 @@ The catalogue contains only family recipes and requested linked recipes, with no
 
 ## Photos and credits
 
-Most bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). Each is labeled and captioned accurately. The banana macaroon photo was supplied by the user, who confirmed permission to reproduce it; it retains its Nest & Glow attribution. Creators, sources, permissions, licenses and image processing are listed in [`images/CREDITS.md`](images/CREDITS.md), which the app's footer links to.
+Most bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). Each is labeled and captioned accurately. The banana macaroon photo was supplied by the user, who confirmed permission to reproduce it; it retains its Nest & Glow attribution. Creators, sources, permissions, licenses and image processing are listed in [`images/CREDITS.md`](images/CREDITS.md).
 
 To use your own photo: save it under `images/` (landscape, roughly 960 px wide; WebP or JPEG), point the recipe's `image` at it, update `imageAlt` and `imageCaption` to describe it, and update or remove its row in `CREDITS.md`. If you delete a photo that is no longer used, delete its credit too. Only add images you took yourself or whose license allows reuse, and credit them as that license requires. Do not hotlink external images.
 
