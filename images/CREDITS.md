@@ -28,5 +28,6 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `brownie-kuler.webp` | [Brownie kuler Facebook Reel](https://www.facebook.com/reel/1647346496721724), image supplied by the user | Used with user permission |
 | `health-nobs.webp` | Stack of Health-nobs cookies beside coffee, supplied by the user | Used with user permission |
 | `banana-macaroons.webp` | [3-Ingredient Banana Macaroons](https://www.nestandglow.com/healthy-recipes/3-ingredient-banana-macaroons), image supplied by the user; the user confirms permission to reproduce it | Used with user-confirmed permission; original attribution retained in the image |
+| `date-and-walnut-cookies.webp` | [Date and walnut cookies Facebook video](https://www.facebook.com/watch/?ref=saved&v=1022685170660491), image supplied by the user | Used with user permission |
 
 For a replacement image, verify the permission to reuse it, credit the creator and license here where required, and make the alt text and caption match what the replacement really shows.

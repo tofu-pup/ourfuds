@@ -365,6 +365,37 @@
       "image": "images/banana-macaroons.webp",
       "imageAlt": "Chocolate-dipped banana coconut macaroons on a wooden board with bananas and coconut in the background",
       "imageCaption": "Photo from Nest & Glow's banana macaroon recipe, supplied with permission."
+    },
+    {
+      "id": "date-and-walnut-cookies",
+      "title": "Date and walnut cookies",
+      "category": "Dessert and snacks",
+      "tags": ["gluten-free"],
+      "pinned": false,
+      "servings": 8,
+      "prepTime": null,
+      "cookTime": "10–12 minutes",
+      "ingredients": [
+        { "quantity": 1, "unit": "cup (100g)", "item": "walnut halves" },
+        { "quantity": 40, "unit": "g", "item": "ground almonds" },
+        { "quantity": 6, "unit": "", "item": "Medjool dates, pitted and chopped" },
+        { "quantity": 50, "unit": "g", "item": "70% dark chocolate" },
+        { "quantity": "pinch", "unit": "", "item": "flaky sea salt" }
+      ],
+      "steps": [
+        "Preheat the oven to 350°F / 180°C and line a baking sheet with parchment paper.",
+        "Add the walnuts to a food processor and pulse until finely chopped.",
+        "Add the ground almonds and chopped dates, then pulse until the mixture comes together into a dough. A few small date pieces are okay.",
+        "Divide the mixture into 8 portions, roll into balls, and flatten into cookie shapes.",
+        "Bake for 10–12 minutes, until lightly golden around the edges.",
+        "Let the cookies cool while you melt the dark chocolate.",
+        "Dip half of each cookie in the chocolate, place back on the parchment paper, and sprinkle with flaky sea salt. Let the chocolate set before serving."
+      ],
+      "notes": "Per serving of 2 cookies: 6.5g fiber, 7g protein, and 110mg magnesium.",
+      "link": "https://www.facebook.com/watch/?ref=saved&v=1022685170660491",
+      "image": "images/date-and-walnut-cookies.webp",
+      "imageAlt": "Date and walnut cookies dipped halfway in dark chocolate on a parchment-lined tray",
+      "imageCaption": "Date and walnut cookie photo supplied by the user."
     }
   ]
 }
