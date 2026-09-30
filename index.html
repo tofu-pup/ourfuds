@@ -27,15 +27,18 @@
     .shell { max-width: 1420px; margin: auto; padding: 0 clamp(20px, 4vw, 64px) 70px; }
     header { display: flex; align-items: center; justify-content: space-between; gap: 16px;
       min-height: 94px; border-bottom: 1px solid #e7e1d6; }
+    .header-nav { display: flex; align-items: center; gap: 8px; }
+    .header-back { display: grid; place-items: center; width: 48px; height: 48px; padding: 0;
+      border: 1px solid #ded8cc; border-radius: 14px; background: #fffdf9;
+      color: #354539; font-size: 1.45rem; font-weight: 700; }
+    .header-back[hidden] { display: none; }
     .brand { border: 0; background: none; color: #26332c; font-weight: 800; letter-spacing: -.07em;
       font-size: 1.7rem; padding: 10px 0; }
     .brand span { color: #cc6345; }
     .actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; flex-wrap: wrap; }
     .status { font-size: .77rem; color: #874631; background: #fff0e7; padding: 7px 11px;
       border-radius: 100px; }
-    .quiet, .back { border: 1px solid #ded8cc; border-radius: 12px; background: #fffdf9;
-      color: #354539; min-height: 46px; padding: 8px 17px; font-weight: 600; }
-    .quiet:active, .back:active, .card:active, .category-card:active, .primary:active { transform: scale(.98); }
+    .header-back:active, .card:active, .category-card:active, .primary:active { transform: scale(.98); }
     main { animation: arrive .32s ease-out; }
     @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
     .intro { margin: 30px 0 22px; }
@@ -111,7 +114,6 @@
     .empty { color: #69766b; background: #f2eee5; border-radius: 16px; padding: 20px; }
     footer { padding: 25px 0; border-top: 1px solid #e7e1d6; font-size: .78rem; }
     footer a { color: #47604e; text-underline-offset: 3px; }
-    .back { margin: 30px 0 20px; }
     .recipe-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, .75fr);
       grid-template-areas: "head ingredients" "steps ingredients";
       gap: 30px clamp(28px, 4vw, 58px); align-items: start; }
@@ -165,11 +167,6 @@
     .step-nav button { flex: 1; min-height: 70px; font-size: 1.1rem; }
     .step-nav .primary { background: #bd5a3d; color: white; border: 0; }
     .wake { font-size: .8rem; color: #69766b; min-height: 1.5em; }
-    dialog { border: 1px solid #e7e1d6; border-radius: 20px; width: min(90vw, 520px);
-      padding: 28px; box-shadow: 0 20px 90px #26332c44; color: #26332c; }
-    dialog::backdrop { background: #1a2720a8; }
-    dialog textarea { width: 100%; height: 220px; resize: vertical; font: .85rem/1.5 ui-monospace, monospace; }
-    dialog .actions { margin-top: 16px; }
     @media (max-width: 950px) {
       .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .featured-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -206,24 +203,17 @@
 <body>
   <div class="shell">
     <header>
-      <button class="brand" id="home-link" type="button" aria-label="ourfuds home"><span>#</span>ourfuds</button>
+      <div class="header-nav">
+        <button class="header-back" id="back-button" type="button" aria-label="Go back" hidden>←</button>
+        <button class="brand" id="home-link" type="button" aria-label="ourfuds home"><span>#</span>ourfuds</button>
+      </div>
       <div class="actions">
         <span class="status" id="storage-status" role="status" hidden></span>
-        <button class="quiet" id="export-button" type="button" hidden>Export usage</button>
       </div>
     </header>
     <main id="app"><p class="intro muted" role="status">Getting the kitchen ready...</p></main>
     <footer><a href="images/CREDITS.md">Representative photo credits and licenses</a></footer>
   </div>
-  <dialog id="export-dialog" aria-labelledby="export-heading">
-    <h2 id="export-heading">Your usage snapshot</h2>
-    <p class="muted">Copy this into usage.json in the repository to keep a backup of these counts.</p>
-    <textarea id="export-text" readonly aria-label="Usage JSON"></textarea>
-    <div class="actions">
-      <button class="quiet" id="download-button" type="button">Download usage.json</button>
-      <button class="primary" id="close-dialog" type="button">Done</button>
-    </div>
-  </dialog>
   <template id="garden-illustration">
     <svg class="garden-art" viewBox="0 0 220 190" aria-hidden="true">
       <circle cx="111" cy="91" r="83" fill="#f9f4e7"/>
@@ -292,9 +282,7 @@
   <script type="module">
     const app = document.querySelector('#app');
     const status = document.querySelector('#storage-status');
-    const exportButton = document.querySelector('#export-button');
-    const dialog = document.querySelector('#export-dialog');
-    const exportText = document.querySelector('#export-text');
+    const backButton = document.querySelector('#back-button');
     const dataUrl = (name) => `${name}?v=${Date.now()}`;
     const element = (tag, className, text) => {
       const node = document.createElement(tag);
@@ -376,7 +364,6 @@
         return [...recipes].sort((a, b) => Number(b.pinned) - Number(a.pinned)
           || this.get(b.id) - this.get(a.id) || alphabetical(a, b)).slice(0, limit);
       }
-      export() { return { ...this.counts }; }
     }
 
     let data;
@@ -417,7 +404,6 @@
           snapshot = {};
         }
         store.initialize(snapshot, data.recipes.map((recipe) => recipe.id));
-        exportButton.hidden = false;
         showStatus();
         renderHome();
       } catch (error) {
@@ -475,6 +461,7 @@
     }
     function renderHome() {
       mode = 'home';
+      syncHeaderNavigation();
       active = null;
       activeCategory = null;
       const page = element('div');
@@ -502,9 +489,9 @@
       activeCategory = category;
       active = null;
       mode = 'category';
+      syncHeaderNavigation();
       const recipes = data.recipes.filter((recipe) => recipe.category === category);
       const page = element('div');
-      page.append(button('← Home', 'back', renderHome));
       append(page, append(element('div', 'intro'), element('span', 'eyebrow', 'The family cookbook'),
         element('h1', '', category),
         element('p', 'muted', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'} · Pinned first, then most cooked`)));
@@ -559,10 +546,9 @@
     }
     function renderRecipe() {
       mode = 'recipe';
+      syncHeaderNavigation();
       const recipe = active;
       const page = element('div');
-      page.append(button(`← ${activeCategory ?? 'Home'}`, 'back',
-        () => activeCategory === null ? renderHome() : renderCategory(activeCategory)));
       const head = element('div', 'recipe-head');
       const copy = element('div', 'copy');
       append(copy, element('span', 'eyebrow', recipe.category), element('h1', '', recipe.title),
@@ -710,8 +696,8 @@
       window.scrollTo(0, 0);
     }
     function renderCooking() {
+      syncHeaderNavigation();
       const page = element('div', 'cook');
-      page.append(button('← Back to recipe', 'back', returnFromCooking));
       append(page, element('span', 'eyebrow', `${active.title}  ·  Step ${step + 1} of ${active.steps.length}`));
       append(page, append(element('div', 'cook-step'), element('p', '', active.steps[step])));
       const nav = element('div', 'step-nav');
@@ -737,25 +723,23 @@
       renderRecipe();
       focusQuietly(app.querySelector('.start-cooking'));
     }
+    function syncHeaderNavigation() {
+      backButton.hidden = mode === 'home';
+    }
+    function navigateBack() {
+      if (mode === 'cooking') returnFromCooking();
+      else if (mode === 'recipe') {
+        if (activeCategory === null) renderHome();
+        else renderCategory(activeCategory);
+      } else if (mode === 'category') renderHome();
+    }
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible' && mode === 'cooking') requestWakeLock();
     });
     document.querySelector('#home-link').addEventListener('click', () => {
       if (store) { leaveCooking(); renderHome(); }
     });
-    exportButton.addEventListener('click', () => {
-      exportText.value = `${JSON.stringify(store.export(), null, 2)}\n`;
-      dialog.showModal();
-    });
-    document.querySelector('#close-dialog').addEventListener('click', () => dialog.close());
-    document.querySelector('#download-button').addEventListener('click', () => {
-      const url = URL.createObjectURL(new Blob([exportText.value], { type: 'application/json' }));
-      const link = element('a');
-      link.href = url;
-      link.download = 'usage.json';
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    });
+    backButton.addEventListener('click', navigateBack);
     load();
   </script>
 </body>
