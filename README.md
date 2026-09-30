@@ -13,13 +13,14 @@ Our family cookbook for the kitchen display: mostly whole-food, plant-based reci
 
 ## What the app does
 
-- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most cooked, then alphabetical) — then **Explore the cookbook**, with a custom family-art image for each of the four categories. A **See all recipes** button at the bottom opens the complete catalogue alphabetically.
+- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most cooked, then alphabetical) — then **Explore the cookbook**, with a custom family-art image for each of the four categories. Recipe cards show only a large title and photo for at-a-glance use on the kitchen display; timing and category details remain on the recipe page. A **See all recipes** button at the bottom opens the complete catalogue alphabetically.
 - **Categories**: Dessert and snacks (Nora's carp), Dinner (Dad's turtle), Soups (Mom's marmot), and Small dishes and sides (Lily's koala). Their transparent illustrations are cropped from the family's supplied 2×2 image.
 - **Category page**: that category's recipes ordered by usage count (most cooked first, alphabetical for ties). Pinned status only affects the Home **On repeat** row. Empty categories open with a friendly empty state.
 - **All recipes**: every recipe in alphabetical title order, independent of category and usage count.
-- **Recipe page**: title, photo hero, instructions and notes in the main column, with the checkable ingredients aligned at the top in a right-hand sidebar. On narrow screens it stacks as title/photo, ingredients, then instructions. Ingredients reset each time the recipe is opened. **1x / 1.5x / 2x** batch buttons and a serving +/- control (when the yield is an exact number) rescale numeric quantities.
+- **Recipe page**: title, faded photo treatment, instructions and notes in the main column, with the checkable ingredients aligned at the top in a right-hand sidebar. On narrow screens it stacks as title/photo, ingredients, then instructions. Ingredients reset each time the recipe is opened. **1x / 1.5x / 2x** batch buttons and a serving +/- control (when the yield is an exact number) rescale numeric quantities.
 - **Cooking mode**: one step at a time in very large text with big Previous/Next buttons, and a screen wake-lock request (status shown; degrades gracefully if unsupported or blocked).
 - **Header**: the **#ourfuds** logo always returns Home, with a randomly selected marmot, turtle, koala, carp, koala-wrestling-a-carp, or marmot-and-turtle-kiss version of the Markiewicz family logo on the right each time the app loads. A back arrow appears beside #ourfuds away from Home and steps back through cooking mode, recipe and category views. A storage-status pill appears if counts cannot be saved.
+- **Motion and display sizing**: typography, cards and touch targets are sized for viewing on a 1280×800 Nest Hub Max from kitchen distance. Page changes, list entry, button presses and ingredient checks use restrained transitions; the operating system's reduced-motion preference disables them.
 
 ## Publish with GitHub Pages
 
