@@ -19,7 +19,7 @@
   "$defs": {
     "recipe": {
       "type": "object",
-      "required": ["id", "title", "category", "tags", "pinned", "servings", "prepTime", "cookTime", "ingredients", "steps", "notes", "image"],
+      "required": ["id", "title", "category", "tags", "pinned", "servings", "prepTime", "cookTime", "ingredients", "steps", "notes", "link", "image"],
       "additionalProperties": false,
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
@@ -33,6 +33,7 @@
         "ingredients": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/ingredient" } },
         "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
         "notes": { "type": "string" },
+        "link": { "type": "string", "pattern": "^(|https://[^\\s]+)$" },
         "image": { "type": "string", "pattern": "^(|images/(?!.*\\.\\.)[a-zA-Z0-9._/-]+)$" },
         "imageAlt": { "type": "string" },
         "imageCaption": { "type": "string" }

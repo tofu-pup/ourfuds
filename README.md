@@ -7,17 +7,19 @@ Our family cookbook for the kitchen display: mostly whole-food, plant-based reci
 | `index.html` | The whole app (markup, styles, script and inline SVG illustrations). |
 | `recipes.json` | Categories and recipes — the only file you edit to add a recipe. |
 | `usage.json` | Optional committed snapshot of cooking-use counts. |
-| `images/` | Local recipe photos plus [`CREDITS.md`](images/CREDITS.md) (sources and licenses). |
+| `images/` | Local recipe photos, family-animal header logos, and [`CREDITS.md`](images/CREDITS.md) (sources and licenses). |
 | `schema/recipes.schema.json`, `scripts/validate-data.mjs` | Data schema and the dependency-free validator. |
 | `.github/workflows/validate-data.yml` | Runs the validator on every push. |
 
 ## What the app does
 
-- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most cooked, then alphabetical) — then **Explore the cookbook**, one illustrated picker per category in `recipes.json` order. Each picker shows a distinct botanical food illustration (assigned by position; the six designs repeat if you add more categories) and its recipe count.
+- **Home**: a compact greeting, then **On repeat** — five quick-access recipe cards (pinned first, then most cooked, then alphabetical) — then **Explore the cookbook**, with a custom family-art image for each of the four categories. A **See all recipes** button at the bottom opens the complete catalogue alphabetically.
+- **Categories**: Dessert and snacks (Nora's carp), Dinner (Dad's turtle), Soups (Mom's marmot), and Small dishes and sides (Lily's koala). Their transparent illustrations are cropped from the family's supplied 2×2 image.
 - **Category page**: that category's recipes ordered by usage count (most cooked first, alphabetical for ties). Pinned status only affects the Home **On repeat** row. Empty categories open with a friendly empty state.
+- **All recipes**: every recipe in alphabetical title order, independent of category and usage count.
 - **Recipe page**: title, photo hero, instructions and notes in the main column, with the checkable ingredients aligned at the top in a right-hand sidebar. On narrow screens it stacks as title/photo, ingredients, then instructions. Ingredients reset each time the recipe is opened. **1x / 1.5x / 2x** batch buttons and a serving +/- control (when the yield is an exact number) rescale numeric quantities.
 - **Cooking mode**: one step at a time in very large text with big Previous/Next buttons, and a screen wake-lock request (status shown; degrades gracefully if unsupported or blocked).
-- **Header**: the **#ourfuds** logo always returns Home. A back arrow appears beside it away from Home and steps back through cooking mode, recipe and category views. A storage-status pill appears if counts cannot be saved. The footer links to the photo credits.
+- **Header**: the **#ourfuds** logo always returns Home, with a randomly selected marmot, turtle, koala, carp, koala-wrestling-a-carp, or marmot-and-turtle-kiss version of the Markiewicz family logo on the right each time the app loads. A back arrow appears beside #ourfuds away from Home and steps back through cooking mode, recipe and category views. A storage-status pill appears if counts cannot be saved.
 
 ## Publish with GitHub Pages
 
@@ -37,7 +39,7 @@ The complete data shape is in [`schema/recipes.schema.json`](schema/recipes.sche
 
 | Field | Type | Meaning |
 | --- | --- | --- |
-| `categories` | nonempty array of unique, nonempty strings | Home picker names, in display order. A recipe's category must occur here. Empty categories remain navigable. |
+| `categories` | nonempty array of unique, nonempty strings | Home picker names, in display order. Current values are `Dessert and snacks`, `Dinner`, `Soups`, and `Small dishes and sides`. A recipe's category must occur here. Empty categories remain navigable. |
 | `recipes` | array of recipe objects | Can be empty. |
 | `id` | unique lowercase slug (`a-z`, `0-9`, hyphens) | Stable key for usage counts; changing it starts a new count. |
 | `title` | nonempty string | Card and detail heading. |
@@ -50,17 +52,18 @@ The complete data shape is in [`schema/recipes.schema.json`](schema/recipes.sche
 | `ingredients` | nonempty array of `{ "quantity", "unit", "item", "group"? }` | `quantity` is a nonnegative number or string, `unit` is a string (can be empty), `item` is nonempty. Optional nonempty `group` displays a heading when the group changes (e.g. `"Bunn"`). Numeric quantities, simple decimal/mixed/fraction strings and numeric ranges such as `"1-2"` scale; descriptive amounts and alternatives stay as written. Use `""` for an unmeasured ingredient. |
 | `steps` | nonempty array of nonempty strings | Displayed in order, one at a time in cooking mode. |
 | `notes` | string | Use `""` if none. |
+| `link` | string | Original recipe URL beginning with `https://`, or `""` when there is no source link. Displayed as a button below the recipe note. |
 | `image` | string | `""` for no photo (the card shows the recipe's initial letter), or a relative `images/…` path without `..`. A photo that fails to load falls back to the letter. |
 | `imageAlt` | string, optional | Describe what the photo actually shows; required by validation when `image` is set. |
-| `imageCaption` | string, optional | Visible caption identifying representative photos; required by validation when `image` is set. |
+| `imageCaption` | string, optional | Internal photo context retained with the recipe data; required by validation when `image` is set but not displayed in the app. |
 
 All recipe fields are required so scripts and iOS Shortcuts can append a predictable object; unknown values use the explicit representations above. Additional fields are rejected. Copy the shape of an existing entry in `recipes.json` and replace its ID and content.
 
-The catalogue contains only the recipes supplied by the family, with no placeholder examples. Brownie kuler's yield and times were not supplied, so they are `null`; Health-nobs has an approximate yield and keeps its unclear source wording noted rather than guessing. Cashew kaker preserves its two ingredient groups and only the three provided instructions. Tofu bacon bits credits the original source in its notes and paraphrases the method.
+The catalogue contains only family recipes and requested linked recipes, with no placeholder examples. Brownie kuler's yield and times were not supplied, so they are `null`; Health-nobs has an approximate yield and keeps its unclear source wording noted rather than guessing. Crunchy cashew cookies preserves its two ingredient groups and only the three provided instructions. Linked recipe methods are paraphrased and their source URLs use the dedicated `link` field.
 
 ## Photos and credits
 
-The bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). Each card shows a *Representative* badge, and the recipe page captions what the photo really shows. Creators, sources, licenses and the resizing done are listed in [`images/CREDITS.md`](images/CREDITS.md), which the app's footer links to.
+Most bundled photos are **representative** (related dishes or key ingredients, from Wikimedia Commons under CC0 / CC BY / CC BY-SA). The app uses them decoratively without badges or captions. The banana macaroon photo was supplied by the user, who confirmed permission to reproduce it; its attribution remains recorded in the recipe data and image credits. Creators, sources, permissions, licenses and image processing are listed in [`images/CREDITS.md`](images/CREDITS.md).
 
 To use your own photo: save it under `images/` (landscape, roughly 960 px wide; WebP or JPEG), point the recipe's `image` at it, update `imageAlt` and `imageCaption` to describe it, and update or remove its row in `CREDITS.md`. If you delete a photo that is no longer used, delete its credit too. Only add images you took yourself or whose license allows reuse, and credit them as that license requires. Do not hotlink external images.
 

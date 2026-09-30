@@ -1,5 +1,5 @@
 {
-  "categories": ["Snacks", "Dinner", "Soups", "Baking", "Breakfast", "Desserts"],
+  "categories": ["Dessert and snacks", "Dinner", "Soups", "Small dishes and sides"],
   "recipes": [
     {
       "id": "glowing-spiced-lentil-soup",
@@ -34,15 +34,16 @@
         "Simmer for about 18–22 minutes, stirring occasionally, until the lentils are tender.",
         "Stir in the spinach until wilted, then add the lime juice. Taste and adjust seasoning."
       ],
-      "notes": "Source: https://ohsheglows.com/glowing-spiced-lentil-soup/. For an optional oil-free variation, soften the onion with water or broth instead of the olive oil. The original full-fat coconut milk gives a richer result; keep it as written unless choosing a separate variation.",
+      "notes": "For an optional oil-free variation, soften the onion with water or broth instead of the olive oil. The original full-fat coconut milk gives a richer result; keep it as written unless choosing a separate variation.",
+      "link": "https://ohsheglows.com/glowing-spiced-lentil-soup/",
       "image": "images/glowing-spiced-lentil-soup.webp",
-      "imageAlt": "Bowl of lentil soup; representative photo, not this recipe",
-      "imageCaption": "Representative lentil soup photo, not the finished recipe."
+      "imageAlt": "Bowl of golden spiced lentil soup with spinach and a spoon",
+      "imageCaption": "Glowing spiced lentil soup photo supplied by the user."
     },
     {
       "id": "tofu-bacon-bits",
       "title": "Tofu bacon bits",
-      "category": "Snacks",
+      "category": "Small dishes and sides",
       "tags": [],
       "pinned": false,
       "servings": 24,
@@ -63,10 +64,11 @@
         "Spread the bits on the sheet. Bake for 30–40 minutes, stirring occasionally, until crisp and brown; watch closely near the end.",
         "Cool completely before storing in an airtight container in the fridge."
       ],
-      "notes": "Source: https://itdoesnttastelikechicken.com/vegan-tofu-bacon-bits/#recipe . Source yield: 24 one-tablespoon servings (about 1½ cups). Quantities and recipe-card prep/cook times verified from the source; method paraphrased.",
+      "notes": "Source yield: 24 one-tablespoon servings (about 1½ cups). Quantities and recipe-card prep/cook times verified from the source; method paraphrased.",
+      "link": "https://itdoesnttastelikechicken.com/vegan-tofu-bacon-bits/",
       "image": "images/tofu-bacon-bits.webp",
-      "imageAlt": "Block of tofu on a plate; ingredient photo, not cooked bacon bits",
-      "imageCaption": "Ingredient photo: tofu, before seasoning and baking."
+      "imageAlt": "Crispy crumbled tofu bacon bits in a white bowl with a spoon",
+      "imageCaption": "Tofu bacon bits photo supplied by the user."
     },
     {
       "id": "go-to-neapolitan-pizza-dough",
@@ -97,6 +99,7 @@
         "Make dough balls and rest 2 hours at room temp."
       ],
       "notes": "The poolish uses its own ingredients; 'all poolish' in the main dough refers to the prepared batch, not an extra ingredient. No pizza-ball count or baking time was supplied.",
+      "link": "",
       "image": "images/go-to-neapolitan-pizza-dough.webp",
       "imageAlt": "Ball of pizza dough in a mixing bowl; representative photo",
       "imageCaption": "Representative pizza dough photo, not this batch."
@@ -104,7 +107,7 @@
     {
       "id": "rice-paper-bacon",
       "title": "Rice paper bacon",
-      "category": "Snacks",
+      "category": "Small dishes and sides",
       "tags": [],
       "pinned": false,
       "servings": "about 12 slices",
@@ -128,14 +131,15 @@
         "Bake for about 8–10 minutes, until browned and bubbling. Let cool before serving."
       ],
       "notes": "For crispier strips stack fewer sheets; use more for a chewier texture. Store airtight in the fridge for a few days and re-crisp in a pan if they soften.",
+      "link": "",
       "image": "images/rice-paper-bacon.webp",
-      "imageAlt": "Rice paper rolls with vegetables; representative rice paper photo, not bacon",
-      "imageCaption": "Ingredient inspiration: rice paper rolls, not the finished bacon."
+      "imageAlt": "Crispy glazed rice paper bacon strips on a parchment-lined baking tray",
+      "imageCaption": "Rice paper bacon photo supplied by the user."
     },
     {
       "id": "boller-med-dadler-og-bonner",
       "title": "Boller med dadler og bønner",
-      "category": "Baking",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": "about 20 boller",
@@ -166,14 +170,15 @@
         "Pensle med egg og stek på 220 grader i ca 12 minutter, til de er gylne."
       ],
       "notes": "Ekstra egg til pensling. 'paprikledd' er beholdt fra kilden (mulig skrivefeil).",
+      "link": "",
       "image": "images/boller-med-dadler-og-bonner.webp",
-      "imageAlt": "Assorted bread rolls; representative photo, not these date and bean rolls",
-      "imageCaption": "Representative bread rolls, not the finished recipe."
+      "imageAlt": "Tray of freshly baked golden buns, with several custard-filled buns in front",
+      "imageCaption": "Bun photo supplied by the user."
     },
     {
       "id": "cashew-kaker",
-      "title": "Cashew kaker",
-      "category": "Baking",
+      "title": "Crunchy cashew cookies",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -188,14 +193,15 @@
       ],
       "steps": ["Grovhakk og bland bunn", "Legg i form", "Dekk med sjokolade"],
       "notes": "Only the supplied steps are shown; any further instructions are unknown.",
+      "link": "https://mitsunderealternativ.dk/crunchy-chokolade-cashew-kager/",
       "image": "images/cashew-kaker.webp",
-      "imageAlt": "Chocolate truffles on a plate; representative photo, not these cashew cakes",
-      "imageCaption": "Representative chocolate sweets, not the finished recipe."
+      "imageAlt": "Round crunchy cashew cookies topped with chocolate, with one cookie showing its cashew and date center",
+      "imageCaption": "Crunchy cashew cookie photo supplied by the user."
     },
     {
       "id": "chive-garlic-cashew-cheese",
       "title": "Chive and Garlic Cashew Cheese",
-      "category": "Snacks",
+      "category": "Small dishes and sides",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -213,14 +219,15 @@
       ],
       "steps": ["Blend it all."],
       "notes": "Cashews are preferably soaked for 4-8 hours.",
+      "link": "",
       "image": "images/chive-garlic-cashew-cheese.webp",
-      "imageAlt": "Slices of store-bought vegan cashew cheese; representative photo",
-      "imageCaption": "Representative vegan cashew cheese, not this homemade recipe."
+      "imageAlt": "Creamy cashew cheese in a glass jar, topped with chopped green herbs",
+      "imageCaption": "Cashew cheese photo supplied by the user."
     },
     {
       "id": "nutri-tella",
       "title": "Nutri-tella",
-      "category": "Snacks",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -236,14 +243,15 @@
       ],
       "steps": ["Blend it all."],
       "notes": "",
+      "link": "",
       "image": "images/nutri-tella.webp",
-      "imageAlt": "Hazelnuts in a bowl; ingredient photo, not chocolate spread",
-      "imageCaption": "Ingredient photo: hazelnuts, not the finished spread."
+      "imageAlt": "Shelled and unshelled hazelnuts scattered on a wooden surface",
+      "imageCaption": "Hazelnut photo supplied by the user."
     },
     {
       "id": "kokospirater",
       "title": "Kokospirater",
-      "category": "Desserts",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": 12,
@@ -270,14 +278,15 @@
         "Store refrigerated in airtight container."
       ],
       "notes": "Makes twelve cookies.",
+      "link": "",
       "image": "images/kokospirater.webp",
-      "imageAlt": "Coconut chocolate chip cookies; representative photo, not this recipe",
-      "imageCaption": "Representative coconut chocolate chip cookies, not this recipe."
+      "imageAlt": "Kokospirater topped with dark chocolate and flaky salt on a white plate",
+      "imageCaption": "Kokospirater photo supplied by the user."
     },
     {
       "id": "brownie-kuler",
       "title": "Brownie kuler",
-      "category": "Snacks",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": null,
@@ -295,14 +304,15 @@
       ],
       "steps": ["Blend alt", "Lag baller", "Dekk med smeltet sjoko"],
       "notes": "",
+      "link": "https://www.facebook.com/reel/1647346496721724",
       "image": "images/brownie-kuler.webp",
-      "imageAlt": "No-bake energy balls; representative photo, not these brownie balls",
-      "imageCaption": "Representative no-bake energy balls, not this recipe."
+      "imageAlt": "Brownie balls coated in glossy melted chocolate, with flaky salt on one",
+      "imageCaption": "Brownie kuler photo supplied by the user."
     },
     {
       "id": "health-nobs",
       "title": "Health-nobs",
-      "category": "Baking",
+      "category": "Dessert and snacks",
       "tags": [],
       "pinned": false,
       "servings": "about 24 cookies",
@@ -325,9 +335,67 @@
         "EAT!"
       ],
       "notes": "I also added 2 tbsp of aquafaba but it got so sticky that I think you can skip it. Source wording 'them' in the baking step is unclear.",
+      "link": "",
       "image": "images/health-nobs.webp",
-      "imageAlt": "Oat cookies on a cooling rack; representative photo, not these nobs",
-      "imageCaption": "Representative oat cookies, not the finished recipe."
+      "imageAlt": "Stack of golden Health-nobs cookies beside a cup of coffee",
+      "imageCaption": "Health-nobs photo supplied by the user."
+    },
+    {
+      "id": "banana-macaroons",
+      "title": "3-Ingredient Banana Macaroons",
+      "category": "Dessert and snacks",
+      "tags": ["vegan", "gluten-free"],
+      "pinned": false,
+      "servings": 16,
+      "prepTime": 5,
+      "cookTime": 15,
+      "ingredients": [
+        { "quantity": 2, "unit": "", "item": "very ripe bananas" },
+        { "quantity": "1 1/4", "unit": "cups (125g)", "item": "unsweetened desiccated coconut" },
+        { "quantity": "3.5", "unit": "oz (100g)", "item": "dark or raw chocolate" }
+      ],
+      "steps": [
+        "Peel and mash the very ripe bananas, then mix in the coconut until combined.",
+        "Scoop heaped tablespoon portions, roll firmly into balls, and flatten slightly.",
+        "Bake at 350°F / 180°C for about 15 minutes, until just turning golden. Let cool.",
+        "Melt the chocolate, dip each macaroon, then leave on baking paper until set."
+      ],
+      "notes": "Makes 16. For a raw version, dehydrate for 6 hours at 110°F, flip, then dehydrate 4 hours more; coat with raw chocolate. Store chilled and enjoy within 3 days, or freeze for up to 3 months.",
+      "link": "https://www.nestandglow.com/healthy-recipes/3-ingredient-banana-macaroons",
+      "image": "images/banana-macaroons.webp",
+      "imageAlt": "Chocolate-dipped banana coconut macaroons on a wooden board with bananas and coconut in the background",
+      "imageCaption": "Photo from Nest & Glow's banana macaroon recipe, supplied with permission."
+    },
+    {
+      "id": "date-and-walnut-cookies",
+      "title": "Date and walnut cookies",
+      "category": "Dessert and snacks",
+      "tags": ["gluten-free"],
+      "pinned": false,
+      "servings": 8,
+      "prepTime": null,
+      "cookTime": "10–12 minutes",
+      "ingredients": [
+        { "quantity": 1, "unit": "cup (100g)", "item": "walnut halves" },
+        { "quantity": 40, "unit": "g", "item": "ground almonds" },
+        { "quantity": 6, "unit": "", "item": "Medjool dates, pitted and chopped" },
+        { "quantity": 50, "unit": "g", "item": "70% dark chocolate" },
+        { "quantity": "pinch", "unit": "", "item": "flaky sea salt" }
+      ],
+      "steps": [
+        "Preheat the oven to 350°F / 180°C and line a baking sheet with parchment paper.",
+        "Add the walnuts to a food processor and pulse until finely chopped.",
+        "Add the ground almonds and chopped dates, then pulse until the mixture comes together into a dough. A few small date pieces are okay.",
+        "Divide the mixture into 8 portions, roll into balls, and flatten into cookie shapes.",
+        "Bake for 10–12 minutes, until lightly golden around the edges.",
+        "Let the cookies cool while you melt the dark chocolate.",
+        "Dip half of each cookie in the chocolate, place back on the parchment paper, and sprinkle with flaky sea salt. Let the chocolate set before serving."
+      ],
+      "notes": "Per serving of 2 cookies: 6.5g fiber, 7g protein, and 110mg magnesium.",
+      "link": "https://www.facebook.com/watch/?ref=saved&v=1022685170660491",
+      "image": "images/date-and-walnut-cookies.webp",
+      "imageAlt": "Date and walnut cookies dipped halfway in dark chocolate on a parchment-lined tray",
+      "imageCaption": "Date and walnut cookie photo supplied by the user."
     }
   ]
 }
