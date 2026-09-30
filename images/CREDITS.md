@@ -22,7 +22,7 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `rice-paper-bacon.webp` | [Butternut squash and pumpkin seed rice paper rolls](https://commons.wikimedia.org/wiki/File:Butternut_squash_and_pumpkin_seed_rice_paper_rolls_(42275210365).jpg), Joey Doll | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | `boller-med-dadler-og-bonner.webp` | Tray of golden buns, supplied by the user | Used with user permission |
 | `cashew-kaker.webp` | [Crunchy chokolade-cashew-kager](https://mitsunderealternativ.dk/crunchy-chokolade-cashew-kager/), image supplied by the user | Used with user permission |
-| `chive-garlic-cashew-cheese.webp` | [Vegan Cheese Happy Cheese Cashew 2](https://commons.wikimedia.org/wiki/File:Vegan_Cheese_Happy_Cheese_Cashew_2.jpg), mangostaniko | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `chive-garlic-cashew-cheese.webp` | Creamy cashew cheese in a jar, supplied by the user | Used with user permission |
 | `nutri-tella.webp` | Hazelnuts on a wooden surface, supplied by the user | Used with user permission |
 | `kokospirater.webp` | Kokospirater with chocolate and flaky salt, supplied by the user | Used with user permission |
 | `brownie-kuler.webp` | [Brownie kuler Facebook Reel](https://www.facebook.com/reel/1647346496721724), image supplied by the user | Used with user permission |
