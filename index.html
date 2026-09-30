@@ -360,8 +360,8 @@
         this.counts[id] += 1;
         this.persist();
       }
-      getMostUsed(recipes, limit = 5) {
-        return [...recipes].sort((a, b) => Number(b.pinned) - Number(a.pinned)
+      getMostUsed(recipes, limit = 5, pinnedFirst = true) {
+        return [...recipes].sort((a, b) => (pinnedFirst ? Number(b.pinned) - Number(a.pinned) : 0)
           || this.get(b.id) - this.get(a.id) || alphabetical(a, b)).slice(0, limit);
       }
     }
@@ -494,9 +494,9 @@
       const page = element('div');
       append(page, append(element('div', 'intro'), element('span', 'eyebrow', 'The family cookbook'),
         element('h1', '', category),
-        element('p', 'muted', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'} · Pinned first, then most cooked`)));
+        element('p', 'muted', `${recipes.length} ${recipes.length === 1 ? 'recipe' : 'recipes'} · Most cooked first`)));
       if (recipes.length) {
-        page.append(append(element('div', 'grid'), ...store.getMostUsed(recipes, recipes.length).map(card)));
+        page.append(append(element('div', 'grid'), ...store.getMostUsed(recipes, recipes.length, false).map(card)));
       } else page.append(element('p', 'empty', 'Nothing here yet. A good excuse to make something new.'));
       app.replaceChildren(page);
       window.scrollTo(0, 0);
