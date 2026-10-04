@@ -29,5 +29,9 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `health-nobs.webp` | Stack of Health-nobs cookies beside coffee, supplied by the user | Used with user permission |
 | `banana-macaroons.webp` | [3-Ingredient Banana Macaroons](https://www.nestandglow.com/healthy-recipes/3-ingredient-banana-macaroons), image supplied by the user; the user confirms permission to reproduce it | Used with user-confirmed permission; original attribution retained in the image |
 | `date-and-walnut-cookies.webp` | [Date and walnut cookies Facebook video](https://www.facebook.com/watch/?ref=saved&v=1022685170660491), image supplied by the user | Used with user permission |
+| `whole-wheat-pizza-dough.webp` | [Easy Whole Wheat Pizza Dough](https://www.themediterraneandish.com/easy-whole-wheat-pizza-dough/), Mark Beahm / The Mediterranean Dish; image supplied by the user | User-supplied image; original copyright retained |
+| `grilled-tempeh.webp` | [Grilled Tempeh](https://thealmondeater.com/grilled-tempeh/), The Almond Eater; image supplied by the user | User-supplied image; original copyright retained |
+| `vegan-broccoli-soup.webp` | [Creamy Vegan Broccoli Soup](https://rainbowplantlife.com/vegan-broccoli-soup/), Megan Morello / Rainbow Plant Life; image supplied by the user | User-supplied image; original copyright retained |
+| `zucchini-scallion-pancakes.webp` | [Zucchini Scallion Pancakes](https://cookingforpeanuts.com/zucchini-scallion-pancakes/), Cooking for Peanuts; image supplied by the user | User-supplied image; original copyright retained |
 
 For a replacement image, verify the permission to reuse it, credit the creator and license here where required, and make the alt text and caption match what the replacement really shows.
