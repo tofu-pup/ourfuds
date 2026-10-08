@@ -534,7 +534,16 @@
         : numeric !== null ? formatQuantity(numeric * scale)
           : range ? `${formatQuantity(Number(range[1]) * scale)}–${formatQuantity(Number(range[2]) * scale)}`
             : ingredient.quantity;
-      return [quantity, ingredient.unit, ingredient.item].filter((part) => part !== '').join(' ');
+      const scalable = numeric !== null || range !== null;
+      const unit = scale === 1 || !scalable ? ingredient.unit : scaleMetricEquivalent(ingredient.unit);
+      return [quantity, unit, ingredient.item].filter((part) => part !== '').join(' ');
+    }
+    function scaleMetricEquivalent(unit) {
+      // Package sizes are per item; only measurement units carry batch equivalents.
+      if (!/^(?:(?:heaping|level)\s+)?(?:cups?|tbsp|tbs|tablespoons?|tsp|teaspoons?|oz|ounces?|lbs?|pounds?)\b/i.test(unit)) return unit;
+      return unit.replace(/\((about\s+)?(\d+(?:\.\d+)?)(\s*(?:g|gr|grams?|kg|ml|millilit(?:er|re)s?|l|lit(?:er|re)s?))\)/gi,
+        (_, qualifier = '', amount, metricUnit) =>
+          `(${qualifier}${Number((Number(amount) * scale).toFixed(2))}${metricUnit})`);
     }
     function renderRecipe(animate = true) {
       mode = 'recipe';
@@ -562,7 +571,7 @@
       const controls = element('div', 'servings');
       if (servings !== null) {
         const minus = button('−', '', () => {
-          servings--;
+          servings = Math.max(.5, servings - 1);
           scale = servings / recipe.servings;
           renderRecipe(false);
         });
@@ -573,7 +582,7 @@
         });
         minus.setAttribute('aria-label', 'Decrease servings');
         plus.setAttribute('aria-label', 'Increase servings');
-        minus.disabled = servings <= 1;
+        minus.disabled = servings <= .5;
         plus.disabled = servings >= Math.max(48, recipe.servings * 2);
         append(controls, element('span', 'muted', 'Serves'), minus,
           element('strong', '', String(servings)), plus);
@@ -585,7 +594,7 @@
       const sizes = element('div', 'scale-choices');
       sizes.setAttribute('role', 'group');
       sizes.setAttribute('aria-label', 'Batch size');
-      for (const factor of [1, 1.5, 2]) {
+      for (const factor of [0.5, 1, 1.5, 2]) {
         const choice = button(`${factor}x`, '', () => {
           scale = factor;
           if (servings !== null) servings = recipe.servings * factor;
