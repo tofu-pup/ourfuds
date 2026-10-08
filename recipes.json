@@ -559,6 +559,35 @@
       "image": "images/zucchini-scallion-pancakes.webp",
       "imageAlt": "Golden zucchini scallion pancake cut into squares on parchment beside a bowl of dipping sauce",
       "imageCaption": "Zucchini scallion pancake photo supplied by the user; source: Cooking for Peanuts."
+    },
+    {
+      "id": "krishna-dressing",
+      "title": "Krishna dressing",
+      "category": "Small dishes and sides",
+      "tags": ["plant-based"],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": "1/2", "unit": "cup", "item": "raw almonds" },
+        { "quantity": "1/2", "unit": "cup", "item": "nutritional yeast" },
+        { "quantity": 3, "unit": "tbsp", "item": "liquid aminos or soy sauce" },
+        { "quantity": "1/4", "unit": "cup", "item": "walnuts" },
+        { "quantity": "", "unit": "", "item": "Water to fill the walnut measuring container to its measured volume line" },
+        { "quantity": "1/2", "unit": "cup", "item": "water" },
+        { "quantity": "1/4", "unit": "tsp", "item": "asafoetida or onion powder" }
+      ],
+      "steps": [
+        "Measure the walnuts, then fill the same container with water up to the measured volume line (1/4 cup for a 1x batch).",
+        "Grind the raw almonds in a blender first.",
+        "Add the remaining ingredients, including the walnuts with their water and the separate measured water. Blend until smooth."
+      ],
+      "notes": "We usually double this when making it; choose 2x for our usual batch. For the walnuts, add water in the same measuring container up to the walnut volume line: 1/8 cup at 0.5x, 1/4 cup at 1x, 3/8 cup at 1.5x, or 1/2 cup at 2x. This is in addition to the separately listed water. Quantities and method supplied by the family; reference: I Heart Vegetables.",
+      "link": "https://iheartvegetables.com/krishna-so-freaking-good/",
+      "image": "images/krishna-dressing.webp",
+      "imageAlt": "Creamy golden dressing in a glass jar surrounded by lettuce and yellow tomatoes",
+      "imageCaption": "Dressing photo supplied by the user."
     }
   ]
 }
