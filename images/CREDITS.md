@@ -33,5 +33,6 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `grilled-tempeh.webp` | [Grilled Tempeh](https://thealmondeater.com/grilled-tempeh/), The Almond Eater; image supplied by the user | User-supplied image; original copyright retained |
 | `vegan-broccoli-soup.webp` | [Creamy Vegan Broccoli Soup](https://rainbowplantlife.com/vegan-broccoli-soup/), Megan Morello / Rainbow Plant Life; image supplied by the user | User-supplied image; original copyright retained |
 | `zucchini-scallion-pancakes.webp` | [Zucchini Scallion Pancakes](https://cookingforpeanuts.com/zucchini-scallion-pancakes/), Cooking for Peanuts; image supplied by the user | User-supplied image; original copyright retained |
+| `krishna-dressing.webp` | Dressing in a glass jar; image supplied by the user. Recipe reference: [I Heart Vegetables](https://iheartvegetables.com/krishna-so-freaking-good/) | User-supplied image; original copyright retained |
 
 For a replacement image, verify the permission to reuse it, credit the creator and license here where required, and make the alt text and caption match what the replacement really shows.
