@@ -187,6 +187,16 @@
       transition: transform .25s cubic-bezier(.2,.8,.2,1), background-color .2s; }
     .step-nav .primary { background: #bd5a3d; color: white; border: 0; }
     .wake { font-size: .8rem; color: #69766b; min-height: 1.5em; }
+    @media (min-width: 951px) {
+      .category-pickers { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .category-card { grid-template-columns: minmax(0, 1fr); grid-template-rows: 92px 1fr;
+        gap: 8px; height: 222px; padding: 16px 20px; align-items: start; }
+      .category-illustration, .category-initial { grid-column: 1; grid-row: 1;
+        justify-self: end; width: 120px; height: 92px; }
+      .category-info { grid-column: 1; grid-row: 2; align-self: end; }
+      .category-title { font-size: clamp(1.3rem, 2.15vw, 1.55rem); overflow-wrap: normal; }
+      .category-count { margin-top: 6px; }
+    }
     @media (max-width: 950px) {
       .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .featured-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }

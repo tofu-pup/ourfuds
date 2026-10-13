@@ -588,6 +588,34 @@
       "image": "images/krishna-dressing.webp",
       "imageAlt": "Creamy golden dressing in a glass jar surrounded by lettuce and yellow tomatoes",
       "imageCaption": "Dressing photo supplied by the user."
+    },
+    {
+      "id": "creamy-jalapeno-sauce",
+      "title": "Creamy jalapeño sauce",
+      "category": "Small dishes and sides",
+      "tags": ["plant-based", "gluten-free"],
+      "pinned": false,
+      "servings": "about 1 1/4 cups",
+      "prepTime": 15,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": "5-6", "unit": "", "item": "jalapeños, stemmed, seeded and coarsely chopped; adjust to taste" },
+        { "quantity": 4, "unit": "cloves", "item": "garlic, peeled" },
+        { "quantity": 5, "unit": "tbsp", "item": "fresh lime juice" },
+        { "quantity": 1, "unit": "tsp", "item": "kosher salt" },
+        { "quantity": "1/2", "unit": "cup", "item": "neutral vegetable oil, such as grapeseed" },
+        { "quantity": "3/4", "unit": "packed cup", "item": "fresh cilantro leaves and tender stems" }
+      ],
+      "steps": [
+        "Pulse the jalapeños, garlic, lime juice and salt in a blender or food processor until puréed.",
+        "Keep the motor running and gradually pour in the oil in a thin stream, blending until the sauce thickens.",
+        "Add the cilantro and pulse briefly to chop and mix it into the sauce. Taste and add more jalapeño if you want extra heat."
+      ],
+      "notes": "Makes about 1 1/4 cups. Creamy without dairy or avocado. Allow about 15 minutes to prepare; no cooking is required. Can be made up to 3 days ahead and refrigerated. Recipe from Epicurious, found via Punchfork; instructions paraphrased.",
+      "link": "https://www.punchfork.com/recipe/Creamy-Jalapeno-Sauce-Epicurious",
+      "image": "images/creamy-jalapeno-sauce.webp",
+      "imageAlt": "Bowl of creamy green jalapeño sauce beside halved jalapeños, lime and tortilla chips",
+      "imageCaption": "Creamy jalapeño sauce photo supplied by the user."
     }
   ]
 }
