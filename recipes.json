@@ -616,6 +616,52 @@
       "image": "images/creamy-jalapeno-sauce.webp",
       "imageAlt": "Bowl of creamy green jalapeño sauce beside halved jalapeños, lime and tortilla chips",
       "imageCaption": "Creamy jalapeño sauce photo supplied by the user."
+    },
+    {
+      "id": "crispy-cauliflower-tacos",
+      "title": "Crispy blomkål tacos",
+      "category": "Dinner",
+      "tags": ["vegan", "tacos"],
+      "pinned": false,
+      "servings": 3,
+      "prepTime": 15,
+      "cookTime": 15,
+      "ingredients": [
+        { "group": "Spiced cauliflower", "quantity": 1, "unit": "head", "item": "cauliflower, cut into small florets" },
+        { "group": "Spiced cauliflower", "quantity": 3, "unit": "tbsp", "item": "oil (olive or coconut)" },
+        { "group": "Spiced cauliflower", "quantity": 1, "unit": "tsp", "item": "ground cumin" },
+        { "group": "Spiced cauliflower", "quantity": 1, "unit": "tsp", "item": "curry powder" },
+        { "group": "Spiced cauliflower", "quantity": 1, "unit": "tsp", "item": "tandoori spice" },
+        { "group": "Spiced cauliflower", "quantity": 1, "unit": "tsp", "item": "chicken seasoning (contains no chicken)" },
+        { "group": "Spiced cauliflower", "quantity": "1/4", "unit": "tsp", "item": "ground ginger" },
+        { "group": "Spiced cauliflower", "quantity": 3, "unit": "tbsp", "item": "shredded coconut" },
+        { "group": "Mango salsa", "quantity": "1/2", "unit": "", "item": "mango, diced" },
+        { "group": "Mango salsa", "quantity": "1/4", "unit": "", "item": "red onion, finely chopped" },
+        { "group": "Mango salsa", "quantity": "1/4-1/2", "unit": "", "item": "lime, juiced" },
+        { "group": "Mango salsa", "quantity": "", "unit": "", "item": "fresh cilantro, to garnish (optional)" },
+        { "group": "Green mash", "quantity": 1, "unit": "", "item": "avocado" },
+        { "group": "Green mash", "quantity": "1/2", "unit": "large can", "item": "white beans (1/2 can is about 115 g)" },
+        { "group": "Green mash", "quantity": "1/2", "unit": "tsp", "item": "salt" },
+        { "group": "Green mash", "quantity": "1/4-1/2", "unit": "", "item": "lime, juiced" },
+        { "group": "Green mash", "quantity": "1/4", "unit": "tsp", "item": "garlic powder" },
+        { "group": "To serve", "quantity": "6-9", "unit": "", "item": "small tortillas" },
+        { "group": "To serve", "quantity": "1", "unit": "handful", "item": "red cabbage, sliced as thin as you can" },
+        { "group": "To serve", "quantity": "1/2", "unit": "", "item": "fresh chili, sliced" },
+        { "group": "To serve", "quantity": "", "unit": "", "item": "chili mayo (sriracha mixed with plant-based mayo, or store-bought)" }
+      ],
+      "steps": [
+        "Heat the oven to 210°C (410°F), top and bottom heat.",
+        "Cut the cauliflower into small, even florets. Trim the tough stem end and a little of the outer skin, then chop the rest of the stem small and add it to the florets in a large baking bowl.",
+        "Toss the cauliflower in the oil, then the spices, and mix in the coconut last. Spread on a baking tray and roast for 15-20 minutes, depending on the size of the pieces. A few slightly charred bits are fine.",
+        "Stir the mango salsa ingredients together. For more interest, add chili, cucumber, cherry tomatoes or similar.",
+        "Blend the green mash ingredients with a stick blender, then season with lime and salt.",
+        "Set out the remaining ingredients, fill the tortillas and serve."
+      ],
+      "notes": "From En skikkelig digg kokebok 2 by Vegetarentusiast; instructions translated from Norwegian and paraphrased. Makes about 3 servings (6-9 small tortillas).",
+      "link": "https://vegetarentusiast.no/blomkaltaco/",
+      "image": "images/crispy-cauliflower-tacos.webp",
+      "imageAlt": "Three cauliflower tacos topped with red cabbage, chili, cilantro and mango on a dark board",
+      "imageCaption": "Crispy blomkål taco photo supplied by the user."
     }
   ]
 }
