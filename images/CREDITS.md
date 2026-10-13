@@ -35,5 +35,6 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `zucchini-scallion-pancakes.webp` | [Zucchini Scallion Pancakes](https://cookingforpeanuts.com/zucchini-scallion-pancakes/), Cooking for Peanuts; image supplied by the user | User-supplied image; original copyright retained |
 | `krishna-dressing.webp` | Dressing in a glass jar; image supplied by the user. Recipe reference: [I Heart Vegetables](https://iheartvegetables.com/krishna-so-freaking-good/) | User-supplied image; original copyright retained |
 | `creamy-jalapeno-sauce.webp` | [Creamy Jalapeño Sauce](https://www.punchfork.com/recipe/Creamy-Jalapeno-Sauce-Epicurious), Epicurious via Punchfork; image supplied by the user | User-supplied image; original copyright retained |
+| `crispy-cauliflower-tacos.webp` | [Blomkåltaco](https://vegetarentusiast.no/blomkaltaco/), Vegetarentusiast; image supplied by the user | User-supplied image; original copyright retained |
 
 For a replacement image, verify the permission to reuse it, credit the creator and license here where required, and make the alt text and caption match what the replacement really shows.
