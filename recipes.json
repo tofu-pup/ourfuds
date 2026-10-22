@@ -662,6 +662,35 @@
       "image": "images/crispy-cauliflower-tacos.webp",
       "imageAlt": "Three cauliflower tacos topped with red cabbage, chili, cilantro and mango on a dark board",
       "imageCaption": "Crispy blomkål taco photo supplied by the user."
+    },
+    {
+      "id": "daddelballer",
+      "title": "Daddelballer",
+      "category": "Dessert and snacks",
+      "tags": ["vegan", "no-bake"],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": 0,
+      "ingredients": [
+        { "quantity": 120, "unit": "g", "item": "walnuts" },
+        { "quantity": 230, "unit": "g", "item": "pitted dates" },
+        { "quantity": 1, "unit": "tsp", "item": "vanilla extract or vanilla sugar" },
+        { "quantity": 3, "unit": "tbsp", "item": "cacao powder" },
+        { "quantity": "a pinch", "unit": "", "item": "salt" },
+        { "quantity": 50, "unit": "g", "item": "puffed rice (optional)" },
+        { "quantity": "", "unit": "", "item": "coconut flakes, for rolling" }
+      ],
+      "steps": [
+        "Blend the walnuts until coarsely ground.",
+        "Add the dates, vanilla, cacao powder, salt and optional puffed rice. Blend until the mixture forms a sticky paste.",
+        "Shape into balls and roll in coconut flakes."
+      ],
+      "notes": "Family-supplied recipe. The puffed rice is optional.",
+      "link": "",
+      "image": "images/daddelballer.webp",
+      "imageAlt": "Chocolate date and walnut balls piled on a cream-colored plate",
+      "imageCaption": "Daddelballer photo supplied by the user."
     }
   ]
 }
