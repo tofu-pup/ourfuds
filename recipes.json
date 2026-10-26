@@ -691,6 +691,45 @@
       "image": "images/daddelballer.webp",
       "imageAlt": "Chocolate date and walnut balls piled on a cream-colored plate",
       "imageCaption": "Daddelballer photo supplied by the user."
+    },
+    {
+      "id": "african-stew",
+      "title": "African Stew",
+      "category": "Dinner",
+      "tags": ["plant-based"],
+      "pinned": false,
+      "servings": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredients": [
+        { "quantity": 2, "unit": "tbsp", "item": "olive oil or coconut oil" },
+        { "quantity": 1, "unit": "large", "item": "onion, chopped" },
+        { "quantity": 4, "unit": "cups", "item": "vegetable stock" },
+        { "quantity": 1, "unit": "", "item": "lemon, juiced" },
+        { "quantity": "1/2", "unit": "cup", "item": "natural peanut butter" },
+        { "quantity": "1/2", "unit": "tsp", "item": "ground black pepper" },
+        { "quantity": "1/2", "unit": "tsp", "item": "chili powder" },
+        { "quantity": 2, "unit": "tbsp", "item": "low-sodium soy sauce" },
+        { "quantity": 6, "unit": "small", "item": "nugget potatoes, quartered" },
+        { "quantity": 1, "unit": "medium", "item": "yam, peeled and cut into 1-inch cubes" },
+        { "quantity": 2, "unit": "cups", "item": "cauliflower, cut into 1-inch florets" },
+        { "quantity": 1, "unit": "large", "item": "carrot, chopped" },
+        { "quantity": 1, "unit": "15-ounce can", "item": "chickpeas, drained and rinsed" },
+        { "quantity": 1, "unit": "cup", "item": "kale, coarsely chopped" },
+        { "quantity": "", "unit": "", "item": "chili sauce, to taste" }
+      ],
+      "steps": [
+        "Heat the oil in a large pot over medium heat. Add the onion and cook until softened.",
+        "Whisk together the vegetable stock, lemon juice, peanut butter, black pepper, chili powder and soy sauce, then add to the pot.",
+        "Stir in the potatoes, yam and carrot. Bring to a simmer and cook until the root vegetables are nearly tender.",
+        "Add the cauliflower and chickpeas. Simmer until the vegetables are tender.",
+        "Stir in the kale and cook until wilted. Season with chili sauce to taste and serve."
+      ],
+      "notes": "Ingredients transcribed from the user-supplied recipe image. The image did not include directions, so the cooking method was assembled from the ingredient list; servings and cooking times were not provided.",
+      "link": "",
+      "image": "images/african-stew.webp",
+      "imageAlt": "Rich orange peanut stew topped with cilantro and peanuts in a pan",
+      "imageCaption": "African Stew photo supplied by the user."
     }
   ]
 }
