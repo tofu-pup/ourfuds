@@ -37,5 +37,6 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 | `creamy-jalapeno-sauce.webp` | [Creamy Jalapeño Sauce](https://www.punchfork.com/recipe/Creamy-Jalapeno-Sauce-Epicurious), Epicurious via Punchfork; image supplied by the user | User-supplied image; original copyright retained |
 | `crispy-cauliflower-tacos.webp` | [Blomkåltaco](https://vegetarentusiast.no/blomkaltaco/), Vegetarentusiast; image supplied by the user | User-supplied image; original copyright retained |
 | `daddelballer.webp` | Daddelballer on a plate; image supplied by the user | User-supplied image; original copyright retained |
+| `african-stew.webp` | African Stew topped with cilantro and peanuts; image supplied by the user | User-supplied image; original copyright retained |
 
 For a replacement image, verify the permission to reuse it, credit the creator and license here where required, and make the alt text and caption match what the replacement really shows.
