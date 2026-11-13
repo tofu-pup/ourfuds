@@ -6,6 +6,7 @@ The `markiewicz-family-*.webp` header logos and `category-*.webp` illustrations 
 
 | Local photo | Source / photographer | License |
 | --- | --- | --- |
+| `crispy-crisps.webp` | [4 Ingredient Toffee Crisp](https://helenridgeway.com/recipes/4-ingredient-toffee-crisp/), Helen Ridgeway Nutrition; image supplied by the user, resized and converted to WebP | User-supplied image; original copyright retained |
 | `markiewicz-family-marmot.webp` | Markiewicz family logo with marmot, supplied by the user | Used with user permission |
 | `markiewicz-family-turtle.webp` | Markiewicz family logo with turtle, supplied by the user | Used with user permission |
 | `markiewicz-family-koala.webp` | Markiewicz family logo with koala, supplied by the user | Used with user permission |

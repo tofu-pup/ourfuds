@@ -2,6 +2,34 @@
   "categories": ["Dessert and snacks", "Dinner", "Soups", "Small dishes and sides"],
   "recipes": [
     {
+      "id": "crispy-crisps",
+      "title": "Crispy crisps",
+      "category": "Dessert and snacks",
+      "tags": ["plant-based"],
+      "pinned": false,
+      "servings": 14,
+      "prepTime": 5,
+      "cookTime": 5,
+      "ingredients": [
+        { "quantity": "1 1/2", "unit": "cups (225g)", "item": "soft Medjool dates, pitted" },
+        { "quantity": "1/2", "unit": "cup (120g)", "item": "smooth almond butter" },
+        { "quantity": "1 1/2", "unit": "cups (40g)", "item": "puffed quinoa" },
+        { "quantity": 125, "unit": "g", "item": "dark chocolate (at least 70% cocoa)" },
+        { "quantity": "1-2", "unit": "tbsp", "item": "water, only if needed for harder dates" }
+      ],
+      "steps": [
+        "Heat the oven to 180°C / 350°F. Spread the puffed quinoa on a baking tray and toast for 5 minutes to make it crisp.",
+        "Process the pitted dates and almond butter until smooth. If harder dates need help blending, add 1-2 tablespoons of water sparingly; too much moisture will soften the quinoa.",
+        "Pulse the toasted quinoa into the date mixture until combined. Shape into 14 small bars and refrigerate while preparing the chocolate.",
+        "Gently melt the chocolate in a heatproof bowl over a pan of hot water. Dip the bars to coat, then refrigerate until the chocolate has set, allowing about 30 minutes of chilling."
+      ],
+      "notes": "Based on Helen Ridgeway's 4 Ingredient Toffee Crisp; method paraphrased. The source lists 5 minutes prep and 30 minutes chilling; the quinoa also needs 5 minutes of oven toasting. Store in a sealed container in the fridge for about a week; freezing is not recommended. Other nut or seed butters can replace the almond butter in the same quantity, and puffed rice can replace the quinoa.",
+      "link": "https://helenridgeway.com/recipes/4-ingredient-toffee-crisp/",
+      "image": "images/crispy-crisps.webp",
+      "imageAlt": "Chocolate-coated crispy bars, with cut pieces showing puffed quinoa and date filling",
+      "imageCaption": "4 Ingredient Toffee Crisp photo from Helen Ridgeway Nutrition, supplied by the user."
+    },
+    {
       "id": "glowing-spiced-lentil-soup",
       "title": "Glowing Spiced Lentil Soup",
       "category": "Soups",
